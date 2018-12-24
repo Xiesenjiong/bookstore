@@ -12,6 +12,8 @@
 		public function index() {
 			$model = new CustomerModel;
 			$list = $model->all();
+			$count = count($list);
+			$this->assign('count', $count);
 			$this->assign('list', $list);
 
 			return $this->fetch();
@@ -26,7 +28,10 @@
 		}
 
 		public function edit($customerId) {
-			echo $customerId;
+			// echo $customerId;
+			$info = CustomerModel::get($customerId)->toarray();
+			// dump($info);
+			$this->assign('info', $info);
 			
 			return $this->fetch();
 		}
