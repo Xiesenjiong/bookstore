@@ -10,7 +10,7 @@
 		
 		public function index() {
 			$model = new BookModel;
-			$list = $model->list();
+			$list = $model->all();
 			dump($list);
 			$this->assign('list', $list);
 
