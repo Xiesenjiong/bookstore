@@ -25,13 +25,26 @@
 			return $this->fetch();
 		}
 
-		public function saveCustomer() {
-			$account = Request::instance()->param('account');
-			$password = Request::instance()->param('password');
-			$name = Request::instance()->param('name');
-			$sex = Request::instance()->param('sex');
-			$phone = Request::instance()->param('phone');
-			$email = Request::instance()->param('email');
+		public function edit($customerId) {
+			echo $customerId;
+			
+			return $this->fetch();
+		}
+
+		public function save() {
+			$customer = Request::instance()->post();
+			dump($customer);
+			$model = new CustomerModel($customer);
+
+			//保存到数据库
+			$model->save();
+
+			return "成功";
+		}
+
+		public function update() {
+			$customer = Request::instance()->post();
+			dump($customer);
 		}
 	}
  ?>
