@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>小幌疏图书</title>
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/xhhindex.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
+</head>
+<body>
+	<!-- 顶部 -->
+	{include file="../application/front/view/common/header.html"}
+	<!-- end -->
+
+	<!-- 头部logo 搜索栏 -->
+	{include file="../application/front/view/common/searchbox.html"}
+	<!-- end -->
+
+	<!-- 轮播图片版块 -->
+	<section class="mid-box bc-f5">
+		<!-- 左侧目录栏 -->
+		<div class="lmenu fl">
+			<div class="title">
+				<i class="fas fa-feather-alt"></i>
+				<span class="fz-14">文学艺术</span>
+				<div class="patch fr ta-center">
+					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
+				</div>
+			</div>
+			<div class="title">
+				<i class="fas fa-fish"></i>
+				<span class="fz-14">少儿童书</span>
+				<div class="patch fr ta-center">
+					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
+				</div>
+			</div>
+			<div class="title">
+				<i class="fas fa-globe-asia"></i>
+				<span class="fz-14">人文社科</span>
+				<div class="patch fr ta-center">
+					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
+				</div>
+			</div>
+			<div class="title">
+				<i class="fas fa-suitcase-rolling"></i>
+				<span class="fz-14">经管励志</span>
+				<div class="patch fr ta-center">
+					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
+				</div>
+			</div>
+			<div class="title">
+				<i class="fas fa-gift"></i>
+				<span class="fz-14">生活时尚</span>
+				<div class="patch fr ta-center">
+					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
+				</div>
+			</div>
+			<div class="title">
+				<i class="fas fa-broom"></i>
+				<span class="fz-14">科技教育</span>
+				<div class="patch fr ta-center">
+					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
+				</div>
+			</div>
+			<div class="title">
+				<i class="fas fa-pencil-ruler"></i>
+				<span class="fz-14">创意文具</span>
+				<div class="patch fr ta-center">
+					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
+				</div>
+			</div>
+			<div class="title">
+				<i class="fas fa-chess"></i>
+				<span class="fz-14">生活美学</span>
+				<div class="patch fr ta-center">
+					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
+				</div>
+			</div>
+			<div class="title">
+				<i class="fas fa-couch"></i>
+				<span class="fz-14">居家日用</span>
+				<div class="patch fr ta-center">
+					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
+				</div>
+			</div>
+			<div class="title">
+				<i class="fas fa-compact-disc"></i>
+				<span class="fz-14">影音原版</span>
+				<div class="patch fr ta-center">
+					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
+				</div>
+			</div>
+		</div>
+		<!-- 轮播图片 -->
+		<div class="hei-400 flex">
+			<div class="banner" style="">
+				<ul class="banner-pic" id="banner" style="position: relative;">
+					<li><a href=""><img src="/bookstore/public/front/images/xhs1.jpg"></a></li>
+					<li><a href=""><img src="/bookstore/public/front/images/xhs2.jpg"></a></li>
+					<li><a href=""><img src="/bookstore/public/front/images/xhs3.jpg"></a></li>
+					<li><a href=""><img src="/bookstore/public/front/images/xhs4.jpg"></a></li>
+					<li><a href=""><img src="/bookstore/public/front/images/xhs5.jpg"></a></li>
+					<li><a href=""><img src="/bookstore/public/front/images/xhs6.jpg"></a></li>
+					<li><a href=""><img src="/bookstore/public/front/images/xhs1.jpg"></a></li>
+					<li><a href=""><img src="/bookstore/public/front/images/xhs1.jpg"></a></li>
+				</ul>
+			</div>
+			<div class="banner-click">
+				<a href=""><p></p></a>
+				<a href=""><p></p></a>
+				<a href=""><p></p></a>
+				<a href=""><p></p></a>
+				<a href=""><p></p></a>
+				<a href=""><p></p></a>
+			</div>
+			<div class="banner-lrclick">
+				<a href="" class="prev">					
+					<i class="fas fa-angle-left"></i>					
+				</a>
+				<a href="" class="next">					
+					<i class="fas fa-angle-right"></i>					
+				</a>				
+			</div>
+		</div>
+		<!-- 正品保证栏 -->
+		<div class="true-box">
+			<div class="wid-1200 ma true">
+				<label>
+					<span class="fz-14">正品保证</span>
+				</label>
+				<label>
+					<span class="fz-14">七天无理由退货</span>
+				</label>
+				<label>
+					<span class="fz-14">全场满59包邮</span>
+				</label>
+			</div>
+		</div>
+		<!-- 限时抢购栏 -->
+		<div class="wid-1200 ma mb-20">
+			<div class="flash-sale">
+				<div class="content">
+					<p class="fl ml-20">
+						<i class="fas fa-stopwatch cl-ea fz-21"></i>
+						<span class="fz-21 cl-ea fw-bold">限时抢购</span>
+					</p>
+					<a href="#" class="fl ml-20"> 
+						<span class="cl-ea fz-14">总有你想不到的低价</span>
+						<i class="fas fa-chevron-circle-right cl-e4 fz-14"></i>						
+					</a>					
+				</div>
+			</div>
+			<div class="booklist">
+				<div class="book-six">
+					<ul>
+						<li class="scale-box fl ma">
+							<div class="box">
+								<div class="box-img visible">
+									<a href="/xhhindex/Goods/index"><img src="/bookstore/public/front/images/book1.jpg"></a>
+								</div>
+								<div class="box-text ta-center">
+									<a href="/xhhindex/Goods/index" class="lh-18 cl-6 fz-14 oh">爱上优秀的自己(共10册有声版绘本)/儿童情商培养和励志绘本</a>
+									<div class="ta-center">
+										<span class="cl-e4 fz-16">￥9.90</span>
+										<span class="cl-9">|</span>
+										<del class="fz-12 cl-9">￥150.00</del>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="scale-box fl ma">
+							<div class="box">
+								<div class="box-img ta-center visible">
+									<a href=""><img src="/bookstore/public/front/images/book2.jpg"></a>
+								</div>
+								<div class="box-text ta-center">
+									<a href="" class="lh-18 cl-6 fz-14 oh">大图大字西游记连环画(共12册)</a>
+									<div class="ta-center">
+										<span class="cl-e4 fz-16">￥39.90</span>
+										<span class="cl-9">|</span>
+										<del class="fz-12 cl-9">￥249.00</del>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="scale-box fl ma">
+							<div class="box">
+								<div class="box-img ta-center visible">
+									<a href=""><img src="/bookstore/public/front/images/book3.jpg"></a>
+								</div>
+								<div class="box-text">
+									<a href="" class="lh-18 cl-6 fz-14 oh">定制版 少年品读史记(共5册)</a>
+									<div class="ta-center">
+										<span class="cl-e4 fz-16">￥36.90</span>
+										<span class="cl-9">|</span>
+										<del class="fz-12 cl-9">￥99.00</del>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="scale-box fl ma">
+							<div class="box">
+								<div class="box-img visible">
+									<a href=""><img src="/bookstore/public/front/images/book4.jpg"></a>
+								</div>
+								<div class="box-text ta-center">
+									<a href="" class="lh-18 cl-6 fz-14 oh">写给儿童的二十四节气</a>
+									<div class="ta-center">
+										<span class="cl-e4 fz-16">￥19.90</span>
+										<span class="cl-9">|</span>
+										<del class="fz-12 cl-9">￥120.00</del>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="scale-box fl ma">
+							<div class="box">
+								<div class="box-img visible">
+									<a href=""><img src="/bookstore/public/front/images/book5.jpg"></a>
+								</div>
+								<div class="box-text ta-center">
+									<a href="" class="lh-18 cl-6 fz-14 oh">悲惨世界(上中下)(精)/名著名译丛书</a>
+									<div class="">
+										<span class="cl-e4 fz-16">￥52.90</span>
+										<span class="cl-9">|</span>
+										<del class="fz-12 cl-9">￥110.00</del>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="scale-box fl ma">
+							<div class="box">
+								<div class="box-img visible">
+									<a href=""><img src="/bookstore/public/front/images/book6.jpg"></a>
+								</div>
+								<div class="box-text ta-center">
+									<a href="" class="lh-18 cl-6 fz-14 oh">赠笔记本考工记 单本</a>
+									<div class="">
+										<span class="cl-e4 fz-16">￥25.80</span>
+										<span class="cl-9">|</span>
+										<del class="fz-12 cl-9">￥42.00</del>
+									</div>
+								</div>
+							</div>
+						</li>
+						<p class="clear"></p>
+					</ul>
+				</div>
+				<div class="book-click"></div>
+			</div>
+		</div>
+		<!-- 重磅推出 图文版块 -->
+		<div class="anchor-box wid-1200 ma">
+			<ul class="mb-20">
+				<li class="wid-390 fl">
+					<div class="title-box bc-63">
+						<p class="card-head">
+							<label class="fz-18 cl-f mr-10 fl">
+								<i class="fas fa-dice-d6 cl-f fz-18 fl mr-5" style="line-height: 45px"></i>
+								重磅推出
+							</label>
+							<a href="" class="fl">
+								<span class="cl-f fz-14">精选幌疏</span>
+								<i class="fas fa-chevron-circle-right cl-f fz-14 ml-5"></i>
+							</a>
+						</p>
+					</div>
+					<ul class="title-ul oh bc-f">
+						<li class="wid-50p hei-183 fl oh">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox1-1.jpg"></a>
+							</div>
+						</li>
+						<li class="wid-50p hei-183 fl oh">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox1-2.jpg"></a>
+							</div>
+						</li>
+						<li class="wid-50p hei-93 fl oh">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox1-3.jpg"></a>
+							</div>
+						</li>
+						<li class="wid-50p hei-93 fl">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox1-4.jpg"></a>
+							</div>
+						</li>
+						<li class="wid-50p hei-93 fl">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox1-5.jpg"></a>
+							</div>
+						</li>
+						<li class="wid-50p hei-93 fl">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox1-6.jpg" style="height: 85px;"></a>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li class="wid-390 fl ml-15 mr-15">
+					<div class="title-box bc-63">
+						<p class="card-head">
+							<label class="fz-18 cl-f mr-10 fl">
+								<i class="fas fa-dolly cl-f fz-18 fl mr-5" style="line-height: 45px"></i>
+								新品速递
+							</label>
+							<a href="" class="fl">
+								<span class="cl-f fz-14">发现品质生活</span>
+								<i class="fas fa-chevron-circle-right cl-f fz-14 ml-5"></i>
+							</a>
+						</p>
+					</div>
+					<ul class="title-ul oh bc-f">
+						<li class="wid-50p hei-183 fl">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox2-1.jpg"></a>
+							</div>
+						</li>
+						<li class="wid-50p hei-183 fl">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox2-2.jpg"></a>
+							</div>
+						</li>
+						<li class="wid-50p hei-93 fl">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox2-3.jpg"></a>
+							</div>
+						</li>
+						<li class="wid-50p hei-93 fl">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox2-4.jpg"></a>
+							</div>
+						</li>
+						<li class="wid-50p hei-93 fl">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox2-5.jpg" style="height: 85px;"></a>
+							</div>
+						</li>
+						<li class="wid-50p hei-93 fl">
+							<div class="oh visible dp-block">
+								<a href=""><img src="/bookstore/public/front/images/listbox2-6.jpg" style="height: 85px;"></a>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li class="wid-390 fl">
+					<div class="title-box bc-63">
+						<p class="card-head">
+							<label class="fz-18 cl-f mr-10 fl">
+								<i class="fas fa-chess-queen cl-f fz-18 fl mr-5" style="line-height: 45px"></i>
+								热销排行
+							</label>
+							<a href="" class="fl">
+								<span class="cl-f fz-14">网络全民挚爱</span>
+								<i class="fas fa-chevron-circle-right cl-f fz-14 ml-5"></i>
+							</a>
+						</p>
+					</div>
+					<ul class="title-rank oh bc-f">
+						<li class="wid-25p" style="border-bottom: 2px solid #3ab5e6"><a href="" >图书</a></li>
+						<li class="wid-25p"><a href="">童书</a></li>
+						<li class="wid-25p"><a href="">文学</a></li>
+						<li class="wid-25p"><a href="">教辅</a></li>
+					</ul>
+					<ul class="rank-box oh bc-f">
+						<li>
+							<a href="">
+								<div class="fl wid-30 ta-left">
+									<img src="/bookstore/public/front/images/rank1.svg" style="width: 20px;margin-top: 4px;">
+								</div>
+								<p class="mr-10 wid-100 hei-100 fl">
+									<label style="padding: 5px">
+										<span data-bgimg="background-image: url(/bookstore/public/front/images/rank1.jpg)" style="background-image: url(/bookstore/public/front/images/rank1.jpg)"></span>
+									</label>
+								</p>
+								<div></div>
+								<div></div>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<p class="clear"></p>
+			</ul>
+		</div>
+		<!-- 重磅推出下面的图 -->
+		<div class="wid-1200 ma">
+			<div class="mb-20">
+				<ul>
+					<li class="fl wid-33p">
+						<a href="" class="m-3 dp-inbl">
+							<img src="/bookstore/public/front/images/module1.jpg" style="width: 400px">
+						</a>
+					</li>
+					<li class="fl wid-33p">
+						<a href="" class="m-3 dp-inbl">
+							<img src="/bookstore/public/front/images/module2.jpg" style="width: 400px">
+						</a>
+					</li>
+					<li class="fl wid-33p">
+						<a href="" class="m-3 dp-inbl">
+							<img src="/bookstore/public/front/images/module3.jpg" style="width: 400px">
+						</a>
+					</li>
+					<p class="clear"></p>
+				</ul>
+			</div>
+		</div>
+		<div class="wid-1200 ma popular-writer-box mb-30 hei-445">
+			<div class="popular-writer">
+				<div> 
+					<label class="fl fz-18 cl-21 mr-15 mt-2">
+						<i class="fas fa-user-ninja"></i>
+						人气作家
+					</label>
+					<p class="fr">
+						<a href="" class="fl fz-14 cp mr-10 pd-0010 cl-3 on-click">金庸</a>
+						<a href="" class="fl fz-14 cp mr-10 pd-0010 cl-3 ">奈保尔</a>
+						<a href="" class="fl fz-14 cp mr-10 pd-0010 cl-3 ">严歌苓</a>
+						<a href="" class="fl fz-14 cp mr-10 pd-0010 cl-3 ">村上春树</a>
+						<a href="" class="fl fz-14 cp mr-10 pd-0010 cl-3 ">张爱玲</a>
+						<a href="" class="fl fz-14 cp mr-10 pd-0010 cl-3 ">曹文轩</a>
+					</p>
+					<p class="clear"></p>
+				</div>
+				<div class="bc-f">
+					<div class="fl hot-1" >
+						<div class="headicon">
+							<img src="/bookstore/public/front/images/jinyong.png" width="140" height="140">
+						</div>
+						<p class="fz-18 ta-center mt-5 lh-45">金庸</p>
+						<p class="fz-12 cl-6 lh-25">
+							1924~2018，一代武侠小说泰斗，原名查良镛，剩余浙江省海宁市，1948年移居香港。《明报》创办人、企业家、政治评论家、社会活动家，“香港四大才子”之一。2018年10月30日于香港趋势，享年94岁。
+						</p>
+						<div class="patch"></div>
+					</div>
+					<div class="fl hot-2">
+						<div>
+							<div class="fl wid-160 mr-20">
+								<img src="/bookstore/public/front/images/3332263-fm.jpg" width="160">
+							</div>
+							<div class="fl wid-370">
+								<a href="" class="fz-18 lh-20">金庸作品集(朗声新修版12种共36册)</a>
+								<p class="lh-45">
+									<span class="fz-21 cl-e4 mr-10">￥726.00</span>
+									<del class="fz-14 cl-9">￥968.00</del>
+								</p>
+								<p class="fz-14 cl-9 lh-40">
+									经典旧版再现，亿万金迷翘首期待，精致典雅，传世收藏！
+								</p>
+							</div>
+							<p class="clear"></p>
+						</div>
+						<div class="hot-seprate">
+								<p>其他作品</p>
+								<i class="fas fa-caret-right"></i>
+								<div class="patch"></div>
+						</div>						
+						<ul>
+							<li class="wid-25p ta-center fl">
+								<div class="m-5">
+									<a href="">
+										<img src="/bookstore/public/front/images/2580425.jpg" width="127.5">
+									</a>
+									<div class="lh-20">
+										<a href="" class="oh fz-12 cl-6" style="white-space: nowrap;    text-overflow: ellipsis;">金庸作品集(12种共36册)</a>
+										<p>
+											<span class="fz-12 cl-e4">￥690.00</span>
+											<del class="fz-12 cl-9">￥968.00</del>
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="wid-25p ta-center fl">
+								<div class="m-5">
+									<a href="">
+										<img src="/bookstore/public/front/images/2580425.jpg" width="127.5">
+									</a>
+									<div class="lh-20">
+										<a href="" class="oh fz-12 cl-6" style="white-space: nowrap;    text-overflow: ellipsis;">金庸作品集(12种共36册)</a>
+										<p>
+											<span class="fz-12 cl-e4">￥690.00</span>
+											<del class="fz-12 cl-9">￥968.00</del>
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="wid-25p ta-center fl">
+								<div class="m-5">
+									<a href="">
+										<img src="/bookstore/public/front/images/2580425.jpg" width="127.5">
+									</a>
+									<div class="lh-20">
+										<a href="" class="oh fz-12 cl-6" style="white-space: nowrap;    text-overflow: ellipsis;">金庸作品集(12种共36册)</a>
+										<p>
+											<span class="fz-12 cl-e4">￥690.00</span>
+											<del class="fz-12 cl-9">￥968.00</del>
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="wid-25p ta-center fl">
+								<div class="m-5">
+									<a href="">
+										<img src="/bookstore/public/front/images/2580425.jpg" width="127.5">
+									</a>
+									<div class="lh-20">
+										<a href="" class="oh fz-12 cl-6" style="white-space: nowrap;    text-overflow: ellipsis;">金庸作品集(12种共36册)</a>
+										<p>
+											<span class="fz-12 cl-e4">￥690.00</span>
+											<del class="fz-12 cl-9">￥968.00</del>
+										</p>
+									</div>
+								</div>
+							</li>
+							<p class="clear"></p>						
+						</ul>
+					</div>
+					<div class="fr wid-400">
+						<a href="">
+							<img src="/bookstore/public/front/images/20181101162752933.jpg" height="195" width="400">
+						</a>
+						<div>
+							<div class="fl wid-195">
+								<a href="">
+									<img src="/bookstore/public/front/images/20181101161747259.jpg">
+								</a>
+							</div>
+							<div class="fr wid-195">
+								<a href="">
+									<img src="/bookstore/public/front/images/20181101162136873.jpg">
+								</a>								
+							</div>
+						</div>
+					</div>
+					<p class="clear"></p>
+				</div>
+			</div>
+		</div>
+		<p class="clear"></p>		
+	</section>
+
+	<!-- 右侧导航条 -->
+	<section class="rightmenu-box">
+		<div class="rightmenu">
+			<a href="" style="border-top: 1px solid #8f8f8f;">
+				<i class="fas fa-headphones-alt cl-3a"></i>
+				<p class="cl-3a fz-12">联<br>系<br>客<br>服</p>
+			</a>
+			<a href="/xhhindex/cart/index">
+				<i class="fas fa-shopping-cart cl-9"></i>
+				<p class="cl-9 fz-12">购<br>物<br>车</p>
+			</a>
+			<a href="">
+				<i class="far fa-calendar-check cl-9"></i>
+				<p class="cl-9 fz-12">签<br>到</p>
+			</a>
+		</div>
+		<div class="action-totop cl-f">
+			<i class="fas fa-caret-up fz-18 cl-f"></i>
+			<p>TOP</p>
+		</div>
+	</section>
+
+	<!-- 左侧导航条 -->
+	<section class="leftfixmenu-box">
+		<ul>
+			<li>限时抢购</li>
+			<li>重磅推出</li>
+			<li>人气作家</li>
+			<li>幌疏热推</li>
+			<li>图书频道</li>
+			<li>童书频道</li>
+			<li>分类推荐</li>
+			<li>文创频道</li>
+			<li>美学频道</li>
+			<li>文创频道</li>
+		</ul>
+	</section>
+
+	<!-- 尾部 -->
+	{include file="../application/front/view/common/footer.html"}
+	<!-- end -->
+
+<script src="/bookstore/public/front/AmazeUI/assets/js/jquery.min.js"></script>
+<script src="/bookstore/public/front/AmazeUI/assets/js/amazeui.min.js"></script>
+<script type="text/javascript">
+	//图片轮播
+	var mLeft = 0;
+	function bannerMove(){
+		mLeft += 1920;
+		$('#banner').animate({
+			'margin-left' : '-' + mLeft + 'px'
+		},1000);
+
+		if(mLeft >= 11520){
+			$('#banner').animate({
+				'margin-left' : '0px'
+			},0);
+			mLeft = 0;
+		}
+	}
+
+	setInterval(function(){
+		bannerMove();
+	},9000);
+
+	//滚动交互
+	$(window).on('scroll',function(){
+		var _scroll = $(window).scrollTop();
+		if( _scroll >= 150 ){
+			$('#search-container').addClass('active');
+		}else{
+			$('#search-container').removeClass('active');
+		}
+	});
+
+	//左侧导航条显示
+	$(window).on('scroll',function(){
+		var _scroll = $(window).scrollTop();		
+		if( _scroll >= 410){
+			$('.leftfixmenu-box').css('display','block');
+		}else{
+			$('.leftfixmenu-box').css('display','none');
+		}
+	});
+
+	//点击top返回顶部
+	$(function(){
+		$('.action-totop').click(function(){
+			$("html,body").animate({scrollTop:0},500);
+		})
+	})
+</script>
+</body>
+</html>

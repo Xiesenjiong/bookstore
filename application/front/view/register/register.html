@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小幌疏注册</title>
+	<link rel="stylesheet" type="text/css" href="/xhh/css/css.css">
+	<link rel="stylesheet" type="text/css" href="/xhh/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/xhh/fontawesome/css/all.css">
+	<link rel="stylesheet" type="text/css" href="/xhh/css/xhhindex.css">
+</head>
+<body>
+	<!-- 顶部 -->
+	{include file="../application/xhhindex/view/common/header.html"}
+	<!-- end -->
+	<div class="header-box bc-f">
+		<div class= "logo-box">
+			<div class="logo-box-f1">
+				<a href="/xhhindex/index/index"><img src="/xhh/images/xhslogo.jpg"></a>
+			</div>
+		</div>
+		<p class="clear"></p>
+	</div>
+	<section class="register">
+		<div class="mainBox">
+			<div class="top">小幌疏帐号注册</div>
+			<div class="loginArea">
+				<form action="{:Url('xhhindex/Register/insert')}" method="post">
+					<p><input type="text" name="tell" placeholder="请输入手机号码" id="tell"></p>
+					<p>
+						<input type="text" name="" placeholder="短信验证码" class="code">
+						<button id="tellcode-btn" type="button">
+							获取验证码
+						</button>
+					</p>
+					<p>
+						<input type="text" name="code" placeholder="图片验证码" class="code" style="float: left;">
+						<img src="/xhhindex/Register/verify" style="float: left; width: 120px; margin: 3px 0 0 5px;" onclick="this.src='/xhhindex/Register/verify?r='+Math.random()">
+					</p>
+					<p><input type="password" name="pwd" placeholder="密码" style="margin-top: 20px;"></p>
+					<p><input type="password" name="repwd" placeholder="确认密码"></p>
+					<input type="submit" name="submit" value="立即注册">
+				</form>
+			</div>
+		
+		</div>
+	</section>
+
+	<!-- 尾部 -->
+	{include file="../application/xhhindex/view/common/footer.html"}
+	<!-- end -->
+
+	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$('#tellcode-btn').click(function()
+		{
+			var tell = $('#tell').val();//document.getElenmentById('tell').value
+			$.post('/index/reg/sendSms',{'tell':tell},function(ret){
+				// alert(ret);
+				if(ret.status == true)
+				{
+					alert('ok');//倒计时60s
+				}
+			},'json');
+		});
+	</script>
+
+</body>
+</html>
