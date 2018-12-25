@@ -43,11 +43,7 @@
       <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
         <button class="layui-btn" onclick="x_admin_show('添加用户','{:Url('Customer/add')}',600,400)"><i class="layui-icon"></i>添加</button>
-<!-- <<<<<<< master
         <span class="x-right" style="line-height:40px">共有数据：{$num}条</span>
-======= -->
-        <span class="x-right" style="line-height:40px">共有数据：{$count} 条</span>
-<!-- >>>>>>> master -->
       </xblock>
       <table class="layui-table">
         <thead>
@@ -61,7 +57,7 @@
             <th>性别</th>
             <th>手机</th>
             <th>邮箱</th>
-            <!-- <th>加入时间</th> -->
+            <th>加入时间</th>
             <th>状态</th>
             <th>操作</th></tr>
         </thead>
@@ -77,7 +73,7 @@
             <td>{$vo.sex}</td>
             <td>{$vo.phone}</td>
             <td>{$vo.email}</td>
-            <!-- <td>2017-01-01 11:11:42</td> -->
+            <td>2017-01-01 11:11:42</td>
             <td class="td-status">
               <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
             <td class="td-manage">

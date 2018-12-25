@@ -12,7 +12,7 @@
 			$model = new BookModel;
 			$list = $model->paginate(5);
 			$num = count($model->select());
-			// dump($list);
+
 			$this->assign('list', $list);
 			$this->assign('num', $num);
 

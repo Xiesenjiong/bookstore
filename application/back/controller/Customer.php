@@ -10,18 +10,11 @@
 	class Customer extends Controller {
 		
 		public function index() {
-// <<<<<<< master
-// 			$model = new CustomerModel;
-// 			$num = count($model->select());
-// 			$list = $model->paginate(5);
-// =======
-			$list = CustomerModel::all(['isdelete' => 0]);
-			$count = count($list);
-			$this->assign('count', $count);
-// >>>>>>> master
-			$this->assign('list', $list);
-// 			$this->assign('num', $num);
+			$list = CustomerModel::where(['isdelete' => 0])->paginate(5);
+			$num = count($list);
 
+			$this->assign('list', $list);
+			$this->assign('num', $num);
 			return $this->fetch();
 		}
 
