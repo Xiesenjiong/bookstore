@@ -3,19 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>小幌疏注册</title>
-	<link rel="stylesheet" type="text/css" href="/xhh/css/css.css">
-	<link rel="stylesheet" type="text/css" href="/xhh/css/public.css">
-	<link rel="stylesheet" type="text/css" href="/xhh/fontawesome/css/all.css">
-	<link rel="stylesheet" type="text/css" href="/xhh/css/xhhindex.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/xhhindex.css">
 </head>
 <body>
 	<!-- 顶部 -->
-	{include file="../application/xhhindex/view/common/header.html"}
+	{include file="../application/front/view/common/header.html"}
 	<!-- end -->
 	<div class="header-box bc-f">
 		<div class= "logo-box">
 			<div class="logo-box-f1">
-				<a href="/xhhindex/index/index"><img src="/xhh/images/xhslogo.jpg"></a>
+				<a href="{:Url('Index/index')}"><img src="/bookstore/public/front/images/xhslogo.jpg"></a>
 			</div>
 		</div>
 		<p class="clear"></p>
@@ -34,7 +34,7 @@
 					</p>
 					<p>
 						<input type="text" name="code" placeholder="图片验证码" class="code" style="float: left;">
-						<img src="/xhhindex/Register/verify" style="float: left; width: 120px; margin: 3px 0 0 5px;" onclick="this.src='/xhhindex/Register/verify?r='+Math.random()">
+						<img src="{:Url('Register/verify')}" style="float: left; width: 120px; margin: 3px 0 0 5px;" onclick="this.src='{:Url('Register/verify')}?r='+Math.random()">
 					</p>
 					<p><input type="password" name="pwd" placeholder="密码" style="margin-top: 20px;"></p>
 					<p><input type="password" name="repwd" placeholder="确认密码"></p>
@@ -46,7 +46,7 @@
 	</section>
 
 	<!-- 尾部 -->
-	{include file="../application/xhhindex/view/common/footer.html"}
+	{include file="../application/front/view/common/footer.html"}
 	<!-- end -->
 
 	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
