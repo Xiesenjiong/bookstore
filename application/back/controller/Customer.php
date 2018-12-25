@@ -10,8 +10,7 @@
 	class Customer extends Controller {
 		
 		public function index() {
-			$model = new CustomerModel;
-			$list = $model->all();
+			$list = CustomerModel::all(['isdelete' => 0]);
 			$count = count($list);
 			$this->assign('count', $count);
 			$this->assign('list', $list);
@@ -24,6 +23,11 @@
 		}
 
 		public function delete() {
+			$list = CustomerModel::all(['isdelete' => 1]);
+			$count = count($list);
+			$this->assign('count', $count);
+			$this->assign('list', $list);
+
 			return $this->fetch();
 		}
 
@@ -50,6 +54,30 @@
 		public function update() {
 			$customer = Request::instance()->post();
 			dump($customer);
+		}
+
+		public function setStatus($customerId) {
+			$customer = CustomerModel::get($customerId);
+			if ($customer->status == 1) {
+				$customer->status = 0;
+			} else {
+				$customer->status = 1;
+			}
+			$customer->save();
+
+			return "成功";
+		}
+
+		public function isDelete($customerId) {
+			$customer = CustomerModel::get($customerId);
+			if ($customer->isdelete == 1) {
+				$customer->isdelete = 0;
+			} else {
+				$customer->isdelete = 1;
+			}
+			$customer->save();
+
+			return "成功";
 		}
 	}
  ?>
