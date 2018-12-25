@@ -10,10 +10,17 @@
 	class Customer extends Controller {
 		
 		public function index() {
+// <<<<<<< master
+// 			$model = new CustomerModel;
+// 			$num = count($model->select());
+// 			$list = $model->paginate(5);
+// =======
 			$list = CustomerModel::all(['isdelete' => 0]);
 			$count = count($list);
 			$this->assign('count', $count);
+// >>>>>>> master
 			$this->assign('list', $list);
+// 			$this->assign('num', $num);
 
 			return $this->fetch();
 		}
@@ -30,7 +37,7 @@
 
 			return $this->fetch();
 		}
-
+		
 		public function edit($customerId) {
 			// echo $customerId;
 			$info = CustomerModel::get($customerId)->toarray();
