@@ -13,13 +13,13 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => '66.112.210.201',
+    'hostname'        => '120.78.4.92',
     // 数据库名
     'database'        => 'bookstore',
     // 用户名
     'username'        => 'girst',
     // 密码
-    'password'        => 'uyENkCn3QWUHG8su',
+    'password'        => '2VacdLophB91wenm',
     // 端口
     'hostport'        => '',
     // 连接dsn

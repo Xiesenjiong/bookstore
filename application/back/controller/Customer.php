@@ -10,11 +10,17 @@
 	class Customer extends Controller {
 		
 		public function index() {
-			$model = new CustomerModel;
-			$num = count($model->select());
-			$list = $model->paginate(5);
+// <<<<<<< master
+// 			$model = new CustomerModel;
+// 			$num = count($model->select());
+// 			$list = $model->paginate(5);
+// =======
+			$list = CustomerModel::all(['isdelete' => 0]);
+			$count = count($list);
+			$this->assign('count', $count);
+// >>>>>>> master
 			$this->assign('list', $list);
-			$this->assign('num', $num);
+// 			$this->assign('num', $num);
 
 			return $this->fetch();
 		}
@@ -24,11 +30,19 @@
 		}
 
 		public function delete() {
+			$list = CustomerModel::all(['isdelete' => 1]);
+			$count = count($list);
+			$this->assign('count', $count);
+			$this->assign('list', $list);
+
 			return $this->fetch();
 		}
 		
 		public function edit($customerId) {
-			echo $customerId;
+			// echo $customerId;
+			$info = CustomerModel::get($customerId)->toarray();
+			// dump($info);
+			$this->assign('info', $info);
 			
 			return $this->fetch();
 		}
@@ -47,6 +61,30 @@
 		public function update() {
 			$customer = Request::instance()->post();
 			dump($customer);
+		}
+
+		public function setStatus($customerId) {
+			$customer = CustomerModel::get($customerId);
+			if ($customer->status == 1) {
+				$customer->status = 0;
+			} else {
+				$customer->status = 1;
+			}
+			$customer->save();
+
+			return "成功";
+		}
+
+		public function isDelete($customerId) {
+			$customer = CustomerModel::get($customerId);
+			if ($customer->isdelete == 1) {
+				$customer->isdelete = 0;
+			} else {
+				$customer->isdelete = 1;
+			}
+			$customer->save();
+
+			return "成功";
 		}
 	}
  ?>

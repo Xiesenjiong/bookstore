@@ -43,7 +43,11 @@
       <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
         <button class="layui-btn" onclick="x_admin_show('添加用户','{:Url('Customer/add')}',600,400)"><i class="layui-icon"></i>添加</button>
+<!-- <<<<<<< master
         <span class="x-right" style="line-height:40px">共有数据：{$num}条</span>
+======= -->
+        <span class="x-right" style="line-height:40px">共有数据：{$count} 条</span>
+<!-- >>>>>>> master -->
       </xblock>
       <table class="layui-table">
         <thead>
@@ -80,7 +84,7 @@
               <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
                 <i class="layui-icon">&#xe601;</i>
               </a>
-              <a title="编辑"  onclick="x_admin_show('编辑','{:Url('Customer/edit')}',600,400)" href="javascript:;">
+              <a title="编辑"  onclick="x_admin_show('编辑','{:Url('Customer/edit')}?customerId={$vo.customerId}',600,400)" href="javascript:;">
                 <i class="layui-icon">&#xe642;</i>
               </a>
 <!--               <a onclick="x_admin_show('修改密码','member-password.html',600,400)" title="修改密码" href="javascript:;">

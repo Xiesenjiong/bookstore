@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小幌疏-登录</title>
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/xhhindex.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
+</head>
+
+<body>
+	<div class="header-box bc-f">
+		<div class= "logo-box">
+			<div class="logo-box-f1">
+				<a href="{:Url('Index/index')}"><img src="/bookstore/public/front/images/xhslogo.jpg"></a>
+			</div>
+		</div>
+		<p class="clear"></p>
+	</div>
+	<div style="border-bottom: 1px solid #f5f5f5"></div>		
+
+	<section class="loginBox">
+		<div class="mainBox fr">
+			<div class="top cl-3a">
+				<h3>登录小幌疏，内容更精彩</h3>
+			</div>
+			<div class="loginArea">
+				<form action="">
+					<p><input type="text" name="" placeholder="请输入手机号码"></p>
+					<p><input type="password" name="" placeholder="请输入密码"></p>
+					<input type="submit" name="" value="登录">
+				</form>
+				<a href="{:Url('Register/index')}" class="registerBtn">注册小幌疏帐号 </a>
+			</div>
+			<div class="otherLink">
+				<p></p>
+				<a href=""></a>
+			</div>
+		</div>
+	</section>
+	<!-- 尾部 -->
+	{include file="../application/front/view/common/footer.html"}
+	<!-- end -->
+</body>
+</html>
