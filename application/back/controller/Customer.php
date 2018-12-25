@@ -11,8 +11,10 @@
 		
 		public function index() {
 			$model = new CustomerModel;
-			$list = $model->all();
+			$num = count($model->select());
+			$list = $model->paginate(5);
 			$this->assign('list', $list);
+			$this->assign('num', $num);
 
 			return $this->fetch();
 		}
@@ -24,7 +26,7 @@
 		public function delete() {
 			return $this->fetch();
 		}
-
+		
 		public function edit($customerId) {
 			echo $customerId;
 			
