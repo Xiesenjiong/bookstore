@@ -26,6 +26,12 @@
 				} elseif ($list[$i]['sex'] == 2) {
 					$list[$i]['sex'] = "女";
 				}
+				if ($list[$i]['status'] == 1) {
+					$list[$i]['status'] = "已启用";
+				} else {
+					$list[$i]['status'] = "已停用";
+				}
+				
 			}
 
 			$this->assign('list', $list);
@@ -63,11 +69,11 @@
 		public function save() {
 			$data = Request::instance()->post();
 			$data['password'] = md5($data['password']);
-			dump($data);
+			// dump($data);
 			$model = new CustomerModel($data);
 
 			//保存到数据库
-			$model->save();
+			$model->allowField(true)->save();
 		}
 
 		public function update() {

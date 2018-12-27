@@ -63,7 +63,7 @@
           {volist name="list" id="vo"}
           <tr>
             <td>
-              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
+              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{$vo.customerId}'><i class="layui-icon">&#xe605;</i></div>
             </td>
             <td>{$vo.customerId}</td>
             <td>{$vo.account}</td>
@@ -137,7 +137,7 @@
   
         layer.confirm('确认要恢复吗？'+data,function(index){
             //捉到所有被选中的，发异步进行删除
-            layer.msg('恢复成功', {icon: 1});
+            layer.msg('恢复成功', {icon:1, time:1000});
             $(".layui-form-checked").not('.header').parents('tr').remove();
         });
       }
