@@ -86,7 +86,42 @@
 .logo-container .cart-box a i{
 	margin-right: 10px;
 }
-
+.search-box .logo-container{
+	height: 90px;
+}
+.search-box.active{
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 38px;
+	line-height: 35px;
+	padding: 7px 0;
+	background-color: #fff;
+	border-bottom: 2px solid #3ab5e6;
+}
+.search-box.active .logo-container{
+	width: 1200px;
+	margin: 0 auto;
+	height: 30px;
+	padding-top: 0px;
+}
+.search-box.active .tip{
+	display: none;
+}
+.search-box.active .menu-box{
+	display: none;
+}
+.search-box.active .logo{
+	height: 30px;
+}
+.search-box.active .logo img{
+	width: 180px;
+}
+.search-box.active .cart-box{
+	margin-top: 2px;
+}
 /*菜单栏*/
 .menu-box{
 	height: 40px;
@@ -120,6 +155,7 @@
 	min-height: 500px;
 	position: relative;
 }
+/*左侧菜单栏css*/
 .mid-box .lmenu{
 	z-index: 101;
 	width: 200px;
@@ -127,7 +163,8 @@
 	background: rgba(76,76,76,0.8);
 	position: absolute;
 	top: 0px;
-	left: 5.8%;
+	left: 50%;
+	margin-left: -600px;
 }
 .mid-box .lmenu .title{
 	padding: 0 30px 0 28px;
@@ -151,6 +188,7 @@
 .mid-box .lmenu .title span{
 	left: 50%;
 }
+/*轮播图片css*/
 .mid-box .banner{
 	height: 400px;
 	overflow: hidden;
@@ -158,10 +196,11 @@
 	left: -280px;
 }
 .mid-box .banner .banner-pic{
-	width: 820%;
+	width: 1000%;
 	overflow: hidden;
 }
 .mid-box .banner .banner-pic li{
+	width: 1920px;
 	float: left;
 	display: block;
 }
@@ -188,6 +227,53 @@
 	background: #3ab5e6;
 	border-color: #3ab5e6;
 }
+.mid-box .banner-lrclick{
+	width: 100%;
+	height: auto;
+}
+.mid-box .banner-lrclick a{
+	display: block;
+	background-color: #4ab7db;
+	width: 40px;
+	height: 80px;
+	opacity: 0.6;
+	position: absolute;
+	top: 150px;	
+	text-align: center;
+	line-height: 80px;
+	opacity: 0;
+	font-size:38px;
+	color: #fff;
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	z-index: 10;
+}
+.flex:hover .banner-lrclick .prev{
+	opacity: 0.8;
+	filter: alpha;
+}
+.flex:hover .banner-lrclick .prev:hover{
+	opacity: 0.8;
+	filter: alpha; 
+}
+.flex:hover .banner-lrclick .next{
+	opacity: 0.8;
+	filter: alpha;
+}
+.flex:hover .banner-lrclick .next:hover{
+	opacity: 0.8;
+	filter: alpha; 
+}
+.mid-box .banner-lrclick .prev{
+	left: 50%;
+	margin-left: -400px;
+	overflow: hidden;
+}
+.mid-box .banner-lrclick .next{
+	right: 50%;
+	margin-right: -400px;
+}
+/*正品保证栏css*/
 .mid-box .true-box{
 	line-height: 40px;
 	height: 40px;
@@ -278,6 +364,81 @@
 	padding: 0 15px;
 	height: 325px;
 }
+/*人气作家栏*/
+.popular-writer{
+	border-bottom: 2px solid #5babbb;
+	position: relative;
+	height: 45px;
+	line-height: 45px;
+}
+.popular-writer a:hover{
+	color: #212121;
+}
+.on-click{
+	color: #fff;
+	background: #62adbb;
+}
+.popular-writer .hot-1{
+	width: 170px;
+	padding: 20px 15px 15px 15px;
+	position: relative;
+}
+.popular-writer .hot-2{
+	width: 550px;
+	padding: 14px 25px 0 25px;
+}
+.headicon{
+	margin: 0 auto;
+	width: 140px;
+	height: 140px;
+	border-radius: 140px;
+	-webkit-border-radius: 140px;
+	-moz-border-radius: 140px;
+	-ms-border-radius: 140px;
+	-o-border-radius: 140px;
+	overflow: hidden;
+}
+.hot-1 .patch{
+	position: absolute;
+	z-index: 1;
+	width: 1px;
+	height: 70%;
+	top: 15%;
+	right: 0;
+	background: #e8e8e8;
+}
+.hot-seprate{
+	margin: 10px 0;
+	height: 30px;
+	line-height: 30px;
+	position: relative;
+}
+.hot-seprate p{
+	font-size: 14px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 70px;
+	height: 30px;
+	text-align: center;
+	color: #fff;
+	background: #2db4ea;
+}
+.hot-seprate i{
+	position: absolute;
+	left: 69px;
+	color: #2db4ea;
+	top: -10px;
+	font-size: 50px;
+}
+.hot-seprate .patch{
+	position: absolute;
+	width: 460px;
+	height: 1px;
+	border-bottom: 1px dashed #e8e8e8;
+	top: 15px;
+	right: 0px;
+}
 /*右侧导航条*/
 .rightmenu-box{
 	position: fixed;
@@ -322,6 +483,28 @@
 	line-height: 0.1;
 	position: relative;
 	top: 10px;
+}
+/*左侧固定导航条*/
+.leftfixmenu-box{
+	display: none;
+	position: fixed;
+	top: 70px;
+	left: 1%;
+	z-index: 1001;
+	width: 45px;
+	border: 1px solid #e8e8e8;
+	border-width: 1px 1px 0 1px;
+	background-color: #fff;
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+}
+.leftfixmenu-box ul li{
+	cursor: pointer;
+	font-size: 14px;
+	padding: 7px;
+	line-height: 15px;
+	text-align: center;
+	border-bottom: 1px solid #e8e8e8;
 }
 /*商品详情*/
 .detail-box{

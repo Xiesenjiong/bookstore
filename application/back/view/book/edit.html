@@ -22,19 +22,34 @@
       .layui-form-item .layui-input-inline{
         width: 300px;
       }
+      .layui-input-inline textarea{
+        height: 100px;
+      }
     </style>
   </head>
   
   <body>
-    <div class="x-body layui-anim layui-anim-up">
-        <form class="layui-form">
+    <div class="x-body layui-anim layui-anim-up" style="position: relative;">
+        <form class="layui-form" id="edit-form">
+          <div class="layui-form-item" style="display: none;">
+              <label for="L_customerId" class="layui-form-label">
+                  <span class="x-red">*</span>ID
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="L_bookId" name="bookId" required="" readonly="readonly"
+                  autocomplete="off" class="layui-input" value="{$info['bookId']}">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>书名ID（不可修改）
+              </div>
+          </div>
           <div class="layui-form-item">
               <label for="L_title" class="layui-form-label">
                   <span class="x-red">*</span>书名
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="L_title" name="title" required="" 
-                  autocomplete="off" class="layui-input">
+                  <input type="text" id="L_title" name="title"
+                  autocomplete="off" class="layui-input" value="{$info['title']}">
               </div>              
           </div>
           <div class="layui-form-item">
@@ -42,16 +57,19 @@
                   <span class="x-red">*</span>ISBN
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="L_isbn" name="isbn" required="" 
-                  autocomplete="off" class="layui-input">
-              </div>              
+                  <input type="text" id="L_isbn" name="isbn" readonly
+                  autocomplete="off" class="layui-input" value="{$info['isbn']}">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>不可修改
+              </div>            
           </div>
           <div class="layui-form-item">
               <label for="L_author" class="layui-form-label">
                   <span class="x-red">*</span>作者
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="L_author" name="author" required="" autocomplete="off" class="layui-input">
+                  <input type="text" id="L_author" name="author" autocomplete="off" class="layui-input" value="{$info['author']}">
               </div>
           </div>
           <div class="layui-form-item">
@@ -59,8 +77,8 @@
                   <span class="x-red">*</span>书籍描述
               </label>
               <div class="layui-input-inline">
-                  <textarea type="text" id="L_description" name="description" required="" 
-                  autocomplete="off" class="layui-input"></textarea>
+                  <textarea type="text" id="L_description" name="description" 
+                  autocomplete="off" class="layui-input">{$info['description']}</textarea>
               </div>
           </div>
           <div class="layui-form-item">
@@ -68,8 +86,8 @@
                   <span class="x-red">*</span>出版社
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="L_paddress" name="paddress" required=""
-                  autocomplete="off" class="layui-input">
+                  <input type="text" id="L_paddress" name="paddress" 
+                  autocomplete="off" class="layui-input" value="{$info['paddress']}">
               </div>
           </div>
           <div class="layui-form-item">
@@ -77,8 +95,8 @@
                   <span class="x-red">*</span>销售量
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="L_soldNum" name="soldNum" required="" 
-                  autocomplete="off" class="layui-input">
+                  <input type="text" id="L_soldNum" name="soldNum" 
+                  autocomplete="off" class="layui-input" value="{$info['soldNum']}">
               </div>
           </div>
           <div class="layui-form-item">
@@ -86,8 +104,8 @@
                   <span class="x-red">*</span>库存
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="L_stockNum" name="stockNum" required=""
-                  autocomplete="off" class="layui-input">
+                  <input type="text" id="L_stockNum" name="stockNum" 
+                  autocomplete="off" class="layui-input" value="{$info['stockNum']}">
               </div>
           </div>
           <div class="layui-form-item">
@@ -95,8 +113,8 @@
                   <span class="x-red">*</span>金额
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="L_price" name="price" required="" 
-                  autocomplete="off" class="layui-input">
+                  <input type="text" id="L_price" name="price"  
+                  autocomplete="off" class="layui-input" value="{$info['price']}">
               </div>
           </div>          
           <div class="layui-form-item">
@@ -104,16 +122,23 @@
                   <span class="x-red">*</span>图片地址
               </label>
               <div class="layui-input-inline">
-                  <input type="text" id="L_press" name="press" required="" 
+                  <input type="text" id="L_press" name="press"  
                   autocomplete="off" class="layui-input">
               </div>
           </div>
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
-              <button  class="layui-btn" lay-filter="add" lay-submit="">
+              <button  class="layui-btn" lay-filter="save" lay-submit="">
                   保存修改
               </button>
+          </div>
+          <div style="position: absolute;top: 10px;right: 50px;">
+              <img src="{$info['press']}" width="200">
+              <p style="margin-top: 20px; margin-left: 10px;">
+                <a type="button" class="layui-btn" name="" style="width: 180px;">上传图片</a>
+                <input type="file" name="" style="display: block;margin-top: -38px; width: 180px;cursor: pointer;opacity: 0">
+              </p>              
           </div>
       </form>
     </div>
@@ -122,46 +147,36 @@
             $ = layui.jquery;
           var form = layui.form
           ,layer = layui.layer;
-        
-          //自定义验证规则
-          // form.verify({
-          //   account: function(value){
-          //     if(value.length < 3){
-          //       return '账号至少得3个字符啊';
-          //     }
-          //   }
-          //   ,pass: [/(.+){6,12}$/, '密码必须6到12位']
-          //   ,repass: function(value){
-          //       if($('#L_pass').val()!=$('#L_repass').val()){
-          //           return '两次密码不一致';
-          //       }
-          //   }
-          // });
-
+                  
           //监听提交
-          form.on('submit(add)', function(data){
-            alert('fasdf');
-            console.log('ffdddd');
+          form.on('submit(save)', function(data){
+            console.log(data);
             //发异步，把数据提交给php
             $.ajax({
-               type: "POST",
-               url: "/back/book/add",
-               data: $('form').serialize(),
-               success: function(msg){
-                alert( "Data Saved: " + msg );
+              async: false,
+              type: "POST",
+              url:'{:Url('Book/update')}',
+              contentType : "application/x-www-form-urlencoded; charset=utf-8",
+              data:$("#edit-form").serialize(),
+              dataType: "text",
+              success: function () {
+                showMsg("修改成功");
+              },
+              error: function () {
+                showMsg("修改失败");
               }
-            });
-            
-            // layer.alert("增加成功", {icon: 6},function () {
-            //     // 获得frame索引
-            //     var index = parent.layer.getFrameIndex(window.name);
-            //     //关闭当前frame
-            //     parent.layer.close(index);
-            // });
-            //return false;
+            })
+            return false;
           });
           
-          
+          function showMsg(msg) {
+            layer.alert(msg, {icon: 6},function () {
+              // 获得frame索引
+              var index = parent.layer.getFrameIndex(window.name);
+              //关闭当前frame
+              parent.layer.close(index);
+            });
+          }
         });
     </script>
   </body>
