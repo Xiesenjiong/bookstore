@@ -26,16 +26,12 @@
 				} elseif ($list[$i]['sex'] == 2) {
 					$list[$i]['sex'] = "女";
 				}
-				if ($list[$i]['status'] == 1) {
-					$list[$i]['status'] = "已启用";
-				} else {
-					$list[$i]['status'] = "已停用";
-				}
-				
 			}
+			$option = array(array('title' => '启用', 'icon' => '&#xe62f;'), array('title' => '停用', 'icon' => '&#xe601;'));
 
 			$this->assign('list', $list);
 			$this->assign('num', $num);
+			$this->assign('option', $option);
 			return $this->fetch();
 		}
 
@@ -87,7 +83,8 @@
 			$model->save();
 		}
 
-		public function setStatus($customerId) {
+		public function setStatus() {
+			$customerId = $_POST['customerId'];
 			$model = CustomerModel::get($customerId);
 			if ($model->status == 1) {
 				$model->status = 0;
@@ -97,7 +94,8 @@
 			$model->save();
 		}
 
-		public function isDelete($customerId) {
+		public function isDelete() {
+			$customerId = $_POST['customerId'];
 			$model = CustomerModel::get($customerId);
 			if ($model->isdelete == 1) {
 				$model->isdelete = 0;

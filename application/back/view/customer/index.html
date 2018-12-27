@@ -75,29 +75,23 @@
             <td>{$vo.email}</td>
             <td>2017-01-01 11:11:42</td>
             <td class="td-status">
-              {if $vo.status == "已启用"}
-              <span class="layui-btn layui-btn-normal layui-btn-mini">{$vo.status}</span>
+              {if $vo.status == 1}
+              <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span>
               {else}
-              <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">{$vo.status}</span>
+              <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">已停用</span>
               {/if}
             </td>
             <td class="td-manage">
-              {if $vo.status == "已停用"}
-              <a onclick="setStatus(this,'10001')" href="javascript:;"  title="启用">
-                <i class="layui-icon">&#xe62f;</i>
+              <a onclick="setStatus(this, {$vo.customerId})" href="javascript:;"  title="{$option[$vo.status]['title']}">
+                <i class="layui-icon">{$option[$vo.status]['icon']}</i>
               </a>
-              {else}
-              <a onclick="setStatus(this,'10001')" href="javascript:;"  title="停用">
-                <i class="layui-icon">&#xe601;</i>
-              </a>
-              {/if}
               <a title="编辑"  onclick="x_admin_show('编辑','{:Url('Customer/edit')}?customerId={$vo.customerId}',600,400)" href="javascript:;">
                 <i class="layui-icon">&#xe642;</i>
               </a>
 <!--               <a onclick="x_admin_show('修改密码','member-password.html',600,400)" title="修改密码" href="javascript:;">
                 <i class="layui-icon">&#xe631;</i>
               </a> -->
-              <a title="删除" onclick="isDelete(this,'要删除的id')" href="javascript:;">
+              <a title="删除" onclick="isDelete(this, {$vo.customerId})" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
               </a>
             </td>
@@ -110,7 +104,6 @@
           {$list->render()}
         </div>
       </div>
-
     </div>
     <script>
       layui.use('laydate', function(){
@@ -127,33 +120,51 @@
         });
       });
 
-       /*用户-停用*/
-      function setStatus(obj,id){
+       /*用户-停用、启用*/
+      function setStatus(obj,id) {
           if($(obj).attr('title')=='启用'){
               layer.confirm('确认要启用吗？', function(index){
                   //发异步把用户状态进行更改
-                  $(obj).attr('title','停用')
-                  $(obj).find('i').html('&#xe601;');
-                  $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
-                  layer.msg('已启用!', {icon:6, time:1000});
+                  $.post(
+                      "{:Url('Customer/setStatus')}",
+                      {customerId:id},
+                      function(){
+                          $(obj).attr('title','停用');
+                          $(obj).find('i').html('&#xe601;');
+                          $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
+                          layer.msg('已启用!', {icon:6, time:1000});
+                      }
+                  );
               });
           } else {
               layer.confirm('确认要停用吗？', function(index){
                   //发异步把用户状态进行更改
-                  $(obj).attr('title','启用')
-                  $(obj).find('i').html('&#xe62f;');
-                  $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
-                  layer.msg('已停用!', {icon:5, time:1000});
+                  $.post(
+                      "{:Url('Customer/setStatus')}",
+                      {customerId:id},
+                      function(){
+                          $(obj).attr('title','启用');
+                          $(obj).find('i').html('&#xe62f;');
+                          $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
+                          layer.msg('已停用!', {icon:5, time:1000});
+                      }
+                  );
               });
           }
       }
 
       /*用户-删除*/
-      function isDelete(obj,id){
+      function isDelete(obj,id) {
           layer.confirm('确认要删除吗？',function(index){
               //发异步删除数据
-              $(obj).parents("tr").remove();
-              layer.msg('已删除!', {icon:1, time:1000});
+              $.post(
+                  "{:Url('Customer/isDelete')}",
+                  {customerId:id},
+                  function(){
+                     $(obj).parents("tr").remove();
+                      layer.msg('已删除!', {icon:1, time:1000});
+                  }
+              );
           });
       }
 
