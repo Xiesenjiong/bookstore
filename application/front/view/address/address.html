@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>小幌疏我的信息</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/xhhindex.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
+</head>
+<body>
+	<!-- 顶部 -->
+	{include file="../application/front/view/common/header.html"}
+	<!-- end -->
+
+	<div class="order-box1">
+		<div class="f1">
+			<!-- 左侧菜单栏 -->
+			{include file="../application/front/view/common/orderlmenu.html"}
+			<!-- end -->
+
+			<div class="personal-list-item ml-10 bd-1-e8 fl">
+				<ul>
+					<li class="list-item active" style="display: block;">
+						<div class="address-info mb-20">
+							<div class="address-info-address">
+								<div class="">
+									<h3 class="list-item-title fl">已保存收货地址<span class="fs-14 cl-9">
+									(地址最多50条，还能保存49条)</span></h3>
+									<div class="fr pt-6"><a class="new-address cl-bl-l" href="javascript:void(0);" data-count="" title="新建地址">+新建地址</a></div>
+									<div class="cb"></div>
+								</div>
+								<table class="address-info-table bd-1-e8" border="0" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr class="info-title ta-ct">
+											<td class="item bb-1-e8" width="18%">收货人</td>
+											<td class="item bb-1-e8" width="28%">收货地址</td>
+											<td class="item bb-1-e8" width="18%">联系电话</td>
+											<td class="item bb-1-e8" width="18%">&nbsp;</td>
+											<td class="item bb-1-e8" width="18%">操作</td>
+										</tr>
+										<tr class="info-text ta-ct">
+											<td class="item">吴鹏飞</td>
+											<td class="item">北京北京市东城区121</td>
+											<td class="item">13538646590</td>
+											<td class="item"><a class="btn-address active" href="javascript:void(0);" data-id="838439" title="默认地址" >默认地址</a></td>
+											<td class="item">
+												<a class="edit-address cl-bl-l" href="javascript:void(0);" data-id="838439" title="编辑">编辑</a>
+												&nbsp;&nbsp;
+												<a class="del-address cl-bl-l" href="javascript:void(0);" data-id="838439" title="删除">删除</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="mt-10">
+				<div class="page-number-group tcdPageCode fr">
+
+				</div>
+				<div class="cb"></div>
+			</div>
+		</div>
+	</div>
+	<!-- 尾部 -->
+	{include file="../application/front/view/common/footer.html"}
+	<!-- end -->
+
+	<script type="text/javascript">
+		// #('edit-address').on('click',function(){
+		// 	#('.address-info-table').addClass('active');
+		// });
+	</script>
+</body>
+</html>
