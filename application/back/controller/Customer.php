@@ -27,9 +27,11 @@
 					$list[$i]['sex'] = "女";
 				}
 			}
+			$option = array(array('title' => '启用', 'icon' => '&#xe62f;'), array('title' => '停用', 'icon' => '&#xe601;'));
 
 			$this->assign('list', $list);
 			$this->assign('num', $num);
+			$this->assign('option', $option);
 			return $this->fetch();
 		}
 
@@ -63,11 +65,11 @@
 		public function save() {
 			$data = Request::instance()->post();
 			$data['password'] = md5($data['password']);
-			dump($data);
+			// dump($data);
 			$model = new CustomerModel($data);
 
 			//保存到数据库
-			$model->save();
+			$model->allowField(true)->save();
 		}
 
 		public function update() {
@@ -81,7 +83,8 @@
 			$model->save();
 		}
 
-		public function setStatus($customerId) {
+		public function setStatus() {
+			$customerId = $_POST['customerId'];
 			$model = CustomerModel::get($customerId);
 			if ($model->status == 1) {
 				$model->status = 0;
@@ -91,7 +94,8 @@
 			$model->save();
 		}
 
-		public function isDelete($customerId) {
+		public function isDelete() {
+			$customerId = $_POST['customerId'];
 			$model = CustomerModel::get($customerId);
 			if ($model->isdelete == 1) {
 				$model->isdelete = 0;

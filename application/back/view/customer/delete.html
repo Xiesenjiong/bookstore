@@ -51,7 +51,8 @@
               <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
             </th>
             <th>ID</th>
-            <th>用户名</th>
+            <th>账号</th>
+            <th>姓名</th>
             <th>性别</th>
             <th>手机</th>
             <th>邮箱</th>
@@ -63,7 +64,7 @@
           {volist name="list" id="vo"}
           <tr>
             <td>
-              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
+              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{$vo.customerId}'><i class="layui-icon">&#xe605;</i></div>
             </td>
             <td>{$vo.customerId}</td>
             <td>{$vo.account}</td>
@@ -73,20 +74,14 @@
             <td>{$vo.email}</td>
             <td>2017-01-01 11:11:42</td>
             <td class="td-status">
-              <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
+              <span class="layui-btn layui-btn-danger layui-btn-mini">已删除</span>
             <td class="td-manage">
-              <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
-                <i class="layui-icon">&#xe601;</i>
+              <a title="恢复" onclick="isDelete(this, {$vo.customerId})" href="javascript:;">
+                <i class="layui-icon">&#xe618;</i>
               </a>
-              <a title="编辑"  onclick="x_admin_show('编辑','{:Url('Customer/edit')}?customerId={$vo.customerId}',600,400)" href="javascript:;">
-                <i class="layui-icon">&#xe642;</i>
-              </a>
-<!--               <a onclick="x_admin_show('修改密码','member-password.html',600,400)" title="修改密码" href="javascript:;">
-                <i class="layui-icon">&#xe631;</i>
-              </a> -->
-              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+              <!-- <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
-              </a>
+              </a> -->
             </td>
           </tr>
           {/volist}
@@ -94,12 +89,7 @@
       </table>
       <div class="page">
         <div>
-          <a class="prev" href="">&lt;&lt;</a>
-          <a class="num" href="">1</a>
-          <span class="current">2</span>
-          <a class="num" href="">3</a>
-          <a class="num" href="">489</a>
-          <a class="next" href="">&gt;&gt;</a>
+          {$list->render()}
         </div>
       </div>
 
@@ -120,12 +110,18 @@
       });
 
 
-      /*用户-删除*/
-      function member_del(obj,id){
-          layer.confirm('确认要删除吗？',function(index){
+      /*用户-恢复*/
+      function isDelete(obj,id) {
+          layer.confirm('确认要恢复吗？',function(index){
               //发异步删除数据
-              $(obj).parents("tr").remove();
-              layer.msg('已删除!',{icon:1,time:1000});
+              $.post(
+                  "{:Url('Customer/isDelete')}",
+                  {customerId:id},
+                  function(){
+                     $(obj).parents("tr").remove();
+                      layer.msg('已恢复!', {icon:1, time:1000});
+                  }
+              );
           });
       }
 
@@ -137,17 +133,11 @@
   
         layer.confirm('确认要恢复吗？'+data,function(index){
             //捉到所有被选中的，发异步进行删除
-            layer.msg('恢复成功', {icon: 1});
+            layer.msg('恢复成功', {icon:1, time:1000});
             $(".layui-form-checked").not('.header').parents('tr').remove();
         });
       }
     </script>
-    <script>var _hmt = _hmt || []; (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();</script>
   </body>
 
 </html>
