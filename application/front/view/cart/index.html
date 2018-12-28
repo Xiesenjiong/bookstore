@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>购物车界面</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/xhhindex.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
+</head>
+<body>
+	<!-- 顶部 -->
+	{include file="../application/front/view/common/header.html"}
+	<!-- end -->
+
+	<div class="header-box">
+		<div class= "logo-box">
+			<div class="logo-box-f1">
+				<a href="{:Url('Index/index')}"><img src="/bookstore/public/front/images/xhslogo.jpg"></a>
+			</div>
+		</div>
+	</div>
+	<div class="center-box">
+		<div class="center-box-f1">
+			<p class="center-box-hearder">
+				<span class="p1">我的购物车</span>
+				<span class="p2">温馨提示：1.购物车中的商品无法保留库存，请尽快购买。2.商品价格和库存将以订单提交时为准哦</span>
+			</p>
+		</div>
+		<div class="center-box-center">
+			<i class="fas fa-shopping-cart"></i>
+			<div class="p3">购物车还是空的</div>
+			<div class="bottom">
+				<a href="{:Url('Login/index')}" class="button1">登录</a>
+				<a href="{:Url('Index/index')}" class="button2">继续逛</a>
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- 尾部 -->
+	{include file="../application/front/view/common/footer.html"}
+	<!-- end -->
+</body>
+</html>
