@@ -7,7 +7,7 @@
 	 */
 	class Address extends Controller {
 		
-		public function address() {
+		public function index() {
 			return $this->fetch();
 		}
 	}

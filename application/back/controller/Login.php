@@ -4,8 +4,8 @@
 
     use think\Controller;
     use think\Request;
-    use app\back\model\Admin as AdminModel;
     use think\Session;
+    use app\back\model\Admin as AdminModel;
 
     class Login extends Controller {
 

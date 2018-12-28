@@ -1,13 +1,10 @@
 <?php 
 	namespace app\front\controller;
 	use think\Controller;
-
-	/**
-	 * 
-	 */
-	class Information extends Controller {
+	class Quality extends Controller {
 		
-		public function Index() {
+		public function index() 
+		{
 			return $this->fetch();
 		}
 	}

@@ -114,10 +114,10 @@
 				<a href=""><p></p></a>
 			</div>
 			<div class="banner-lrclick">
-				<a href="" class="prev">					
+				<a class="prev">					
 					<i class="fas fa-angle-left"></i>					
 				</a>
-				<a href="" class="next">					
+				<a class="next">					
 					<i class="fas fa-angle-right"></i>					
 				</a>				
 			</div>
@@ -156,10 +156,10 @@
 						<li class="scale-box fl ma">
 							<div class="box">
 								<div class="box-img visible">
-									<a href="/xhhindex/Goods/index"><img src="/bookstore/public/front/images/book1.jpg"></a>
+									<a href="{:Url('Goods/index')}"><img src="/bookstore/public/front/images/book1.jpg"></a>
 								</div>
 								<div class="box-text ta-center">
-									<a href="/xhhindex/Goods/index" class="lh-18 cl-6 fz-14 oh">爱上优秀的自己(共10册有声版绘本)/儿童情商培养和励志绘本</a>
+									<a href="{:Url('Goods/index')}" class="lh-18 cl-6 fz-14 oh">爱上优秀的自己(共10册有声版绘本)/儿童情商培养和励志绘本</a>
 									<div class="ta-center">
 										<span class="cl-e4 fz-16">￥9.90</span>
 										<span class="cl-9">|</span>
@@ -268,7 +268,7 @@
 					<ul class="title-ul oh bc-f">
 						<li class="wid-50p hei-183 fl oh">
 							<div class="oh visible dp-block">
-								<a href=""><img src="/bookstore/public/front/images/listbox1-1.jpg"></a>
+								<a href="{:Url('Quality/index')}"><img src="/bookstore/public/front/images/listbox1-1.jpg"></a>
 							</div>
 						</li>
 						<li class="wid-50p hei-183 fl oh">
@@ -580,8 +580,10 @@
 <script type="text/javascript">
 	//图片轮播
 	var mLeft = 0;
+	var timer = null;
+	var tmp = 1;
 	function bannerMove(){
-		mLeft += 1920;
+		mLeft += 1920 * tmp;
 		$('#banner').animate({
 			'margin-left' : '-' + mLeft + 'px'
 		},1000);
