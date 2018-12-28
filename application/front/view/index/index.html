@@ -17,7 +17,7 @@
 	<!-- end -->
 
 	<!-- 轮播图片版块 -->
-	<section class="mid-box bc-f5">
+	<section class="mid-box bc-f5" style="padding-bottom: 5px;">
 		<!-- 左侧目录栏 -->
 		<div class="lmenu fl">
 			<div class="title">
@@ -406,6 +406,7 @@
 				</ul>
 			</div>
 		</div>
+		<!-- 人气作家栏
 		<div class="wid-1200 ma popular-writer-box mb-30 hei-445">
 			<div class="popular-writer">
 				<div> 
@@ -536,7 +537,7 @@
 					<p class="clear"></p>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<p class="clear"></p>		
 	</section>
 
@@ -547,11 +548,11 @@
 				<i class="fas fa-headphones-alt cl-3a"></i>
 				<p class="cl-3a fz-12">联<br>系<br>客<br>服</p>
 			</a>
-			<a href="{:Url('Cart/index')}">
+			<a href="{:Url('Cart/index')}" class="hover">
 				<i class="fas fa-shopping-cart cl-9"></i>
 				<p class="cl-9 fz-12">购<br>物<br>车</p>
 			</a>
-			<a href="">
+			<a href="" class="hover">
 				<i class="far fa-calendar-check cl-9"></i>
 				<p class="cl-9 fz-12">签<br>到</p>
 			</a>
@@ -566,15 +567,7 @@
 	<section class="leftfixmenu-box">
 		<ul>
 			<li>限时抢购</li>
-			<li>重磅推出</li>
-			<li>人气作家</li>
-			<li>幌疏热推</li>
-			<li>图书频道</li>
-			<li>童书频道</li>
-			<li>分类推荐</li>
-			<li>文创频道</li>
-			<li>美学频道</li>
-			<li>文创频道</li>
+			<li>重磅推出</li>						
 		</ul>
 	</section>
 
@@ -604,6 +597,12 @@
 	setInterval(function(){
 		bannerMove();
 	},9000);
+
+	$('.prev').onclick(function(){
+		$('#.rev').animate({
+			'margin-left' : '-' + 1920 + 'px'
+		},1000);
+	});
 
 	//滚动交互
 	$(window).on('scroll',function(){
