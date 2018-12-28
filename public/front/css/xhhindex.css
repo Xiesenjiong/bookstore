@@ -466,6 +466,12 @@
 .rightmenu-box a p{
 	line-height: 1.2;
 }
+.rightmenu-box a.hover:hover,
+.rightmenu-box a.hover:hover i,
+.rightmenu-box a.hover:hover p{
+	color: #3c3c3c;
+	background-color: #999999;
+}
 .rightmenu-box .action-totop{
 
 	position: absolute;
@@ -484,14 +490,17 @@
 	position: relative;
 	top: 10px;
 }
+.rightmenu-box .action-totop:hover{
+	background: #3ab5e6;
+}
 /*左侧固定导航条*/
 .leftfixmenu-box{
 	display: none;
 	position: fixed;
-	top: 70px;
+	top: 200px;
 	left: 1%;
 	z-index: 1001;
-	width: 45px;
+	width: 50px;
 	border: 1px solid #e8e8e8;
 	border-width: 1px 1px 0 1px;
 	background-color: #fff;
@@ -501,10 +510,14 @@
 .leftfixmenu-box ul li{
 	cursor: pointer;
 	font-size: 14px;
-	padding: 7px;
+	padding: 8px;
 	line-height: 15px;
 	text-align: center;
 	border-bottom: 1px solid #e8e8e8;
+}
+.leftfixmenu-box ul li:hover {
+	color: #fff;
+	background-color: #2db4ea;
 }
 /*商品详情*/
 .detail-box{
