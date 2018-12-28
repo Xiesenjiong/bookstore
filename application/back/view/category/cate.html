@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>欢迎页面-X-admin2.0</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/bookstore/public/xhh-admin/css/font.css">
+    <link rel="stylesheet" href="/bookstore/public/xhh-admin/css/xadmin.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/bookstore/public/xhh-admin/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/bookstore/public/xhh-admin/js/xadmin.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+  <body>
+    <div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">书籍管理</a>
+        <a>
+          <cite>书籍分类</cite></a>
+      </span>
+      <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right;" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+    </div>
+    <div class="x-body">
+      <div class="layui-row">
+        <form class="layui-form layui-col-md12 x-so layui-form-pane" id="add-form">
+          <input class="layui-input" placeholder="分类名" name="cateName" lay-verify="catename" required="">
+          <button class="layui-btn" lay-submit="" lay-filter="add"><i class="layui-icon"></i>增加</button>
+        </form>
+      </div>      
+      <xblock>
+        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
+        <span class="x-right" style="line-height:40px">共有数据：{$num} 条</span>
+      </xblock>
+      <table class="layui-table layui-form">
+        <thead>
+          <tr>
+            <th width="20">
+              <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+            </th>
+            <th width="70">分类ID</th>
+            <th>书籍类名</th>
+            <!-- <th width="50">排序</th> -->
+            <th width="50">状态</th>
+            <th width="220">操作</th>
+        </thead>
+        <tbody class="x-cate">
+          {volist name="list" id="vo"}
+          <tr cate-id='1' fid='0' >
+            <td>
+              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
+            </td>
+            <td>{$vo.categoryId}</td>
+            <td>{$vo.cateName}</td>
+            <!-- <td><input type="text" class="layui-input x-sort" name="order" value="1"></td> -->
+            <td>
+              <input type="checkbox" name="switch"  lay-text="开启|停用"  checked="" lay-skin="switch">
+            </td>
+            <td class="td-manage">
+              <button class="layui-btn layui-btn layui-btn-xs"  onclick="x_admin_show('编辑','{:Url('Category/edit')}?categoryId={$vo.categoryId}',500,280)" ><i class="layui-icon">&#xe642;</i>编辑</button>              
+              <button class="layui-btn-danger layui-btn layui-btn-xs" onclick="isDelete(this, {$vo.categoryId})" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
+            </td>
+          </tr>
+          {/volist}       
+        </tbody>
+      </table>
+      <div class="page">
+        <div>
+          {$list->render()}
+        </div>
+      </div>
+    </div>
+
+    <script>
+      layui.use(['form','layer'], function(){
+        $ = layui.jquery;
+        var form = layui.form
+        ,layer = layui.layer;   
+
+        //自定义验证规则
+        form.verify({
+          catename: function(value){
+            if(value == ""){
+              return '分类名不得为空';
+            }
+          }
+        });
+
+        form.on('submit(add)', function(data){
+          // console.log(data);
+            //发异步，把数据提交给php
+            $.ajax({
+              async: false,
+              type: "POST",
+              url:'{:Url('Category/add')}',
+              contentType : "application/x-www-form-urlencoded; charset=utf-8",
+              data:$("#add-form").serialize(),
+              dataType: "text",
+              success: function () {
+                showMsg("添加成功");
+              },
+              error: function () {
+                showMsg("添加失败");
+              }
+            })
+            return false;
+          });
+      });
+
+      function showMsg(msg) {
+        layer.alert(msg, {icon: 6},function () {
+              // 获得frame索引
+              var index = parent.layer.getFrameIndex(window.name);
+              //关闭当前frame
+              parent.layer.close(index);
+            });
+      }
+
+      /*分类-删除*/
+      function isDelete(obj,id) {
+          layer.confirm('确认要删除吗？',function(index){
+              //发异步删除数据
+              $.post(
+                  "{:Url('Category/isDelete')}",
+                  {categoryId:id},
+                  function(){
+                     $(obj).parents("tr").remove();
+                      layer.msg('已删除!', {icon:1, time:1000});
+                  }
+              );
+          });
+      }
+
+      function delAll (argument) {
+        var data = tableCheck.getData();
+        layer.confirm('确认要删除吗？'+data,function(index){
+            //捉到所有被选中的，发异步进行删除
+            layer.msg('删除成功', {icon: 1});
+            $(".layui-form-checked").not('.header').parents('tr').remove();
+          });
+      }
+    </script>
+    <script>
+      var _hmt = _hmt || []; (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  </body>
+
+</html>
