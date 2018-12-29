@@ -2,9 +2,16 @@
 	<div class="top ma wid-1200">
 		<p class="fl pclear cl-6">
 			<span>
+				{eq name="Think.session.customerId" value=""}
 				<a href="{:Url('Login/index')}" target="_self">登录</a>
 				<span class="line">|</span>
 				<a href="{:Url('Register/index')}" target="_self">免费注册</a>
+				{else/}
+				<a>{$Think.session.account}</a>
+				<span class="line">|</span>
+				<a href="{:Url('Login/logOut')}" target="_self" >退出</a>				
+				{/eq}				
+				
 			</span>
 		</p>
 		<p class="fr pclear cl-6">

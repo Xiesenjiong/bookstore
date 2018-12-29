@@ -106,12 +106,12 @@
 				</ul>
 			</div>
 			<div class="banner-click">
-				<a href=""><p></p></a>
-				<a href=""><p></p></a>
-				<a href=""><p></p></a>
-				<a href=""><p></p></a>
-				<a href=""><p></p></a>
-				<a href=""><p></p></a>
+				<a><p></p></a>
+				<a><p></p></a>
+				<a><p></p></a>
+				<a><p></p></a>
+				<a><p></p></a>
+				<a><p></p></a>
 			</div>
 			<div class="banner-lrclick">
 				<a class="prev">					
@@ -577,6 +577,7 @@
 
 <script src="/bookstore/public/front/AmazeUI/assets/js/jquery.min.js"></script>
 <script src="/bookstore/public/front/AmazeUI/assets/js/amazeui.min.js"></script>
+<script src="/bookstore/public/front/AmazeUI/assets/js/carousel.js"></script>
 <script type="text/javascript">
 	//图片轮播
 	var mLeft = 0;
@@ -596,14 +597,30 @@
 		}
 	}
 
-	setInterval(function(){
+	timer = setInterval(function(){
 		bannerMove();
 	},9000);
 
-	$('.prev').onclick(function(){
-		$('#.rev').animate({
-			'margin-left' : '-' + 1920 + 'px'
-		},1000);
+	$('.banner-lrclick a').click(function(){
+		clearInterval(timer);
+		var tab = $(this).attr('class');
+		if( tab == "next" ){
+			//向左移动
+			bannerMove();
+		}
+		else{
+			//向右移动
+			tmp = -1;
+			bannerMove();
+		}
+	});
+
+	$('.banner-click a p').click(function(){
+		// $('.banner-click a p').css('background','#3ab5e6');
+		$(this).css({
+			'background':'#3ab5e6',
+			'border':'2px solid #3ab5e6'
+			});
 	});
 
 	//滚动交互

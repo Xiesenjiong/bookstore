@@ -103,28 +103,32 @@ body.login{background: url("/xhh/images/3.jpg") no-repeat center top;}
 .loginTop div li{float: left;}
 .loginTop div a{display: inline-block;padding: 0 20px;border-left: 1px solid #57b488;color: #fff;font-size: 14px;}
 .loginTop div a:hover{background: #47b488;}
-.loginBox{height: 700px;}
-.loginBox .mainBox{width: 320px; margin: 200px 200px 0 0; padding: 40px; background: #fff; border: 1px solid #fff; border-radius: 1px; }
+.loginBox{height: 600px;background: url(../images/bannner.jpg) no-repeat center;}
+.loginBox .mainBox{width: 320px; margin: 120px 200px 0 0; padding: 40px; background: #fff; border: 1px solid #fff; border-radius: 1px; }
 .loginBox .mainBox .top{margin-bottom: 45px;}
 .loginBox .mainBox .top img{display: block;margin: 0 auto 100px;}
 .loginBox .mainBox .top h3{text-align: center;font-size: 20px;color: #3ab5e6;font-weight: 500;line-height: 20px;}
 .loginBox .mainBox .loginArea form p{margin-top:20px;}
 .loginBox .mainBox .loginArea form p input{height: 20px;line-height: 20px;padding: 12px 16px;font-size: 14px;background: #fff;width: 286px;border: 1px solid #e2e2e2;}
-.loginBox .mainBox .loginArea form>input{margin: 30px 0 15px;color: #fff;background: #2aad6f;text-align: center;width: 100%;line-height: 46px;font-size: 16px;cursor: pointer;border: none;}
-.loginBox .mainBox .loginArea form>input:hover{background: #47b488;}
+.loginBox .mainBox .loginArea form>input{margin: 30px 0 15px;color: #fff;background: #3ab5e6;text-align: center;width: 100%;line-height: 46px;font-size: 16px;cursor: pointer;border: none;}
+.loginBox .mainBox .loginArea form>input:hover{background: #5CACEE;}
 .loginBox .mainBox .loginArea .registerBtn{background: #fff;border: 1px solid #e2e2e2;color:  #3ab5e6;display: block;text-align: center;width: 100%;line-height: 46px;font-size: 16px;box-sizing: border-box;}
-.loginBox .mainBox .loginArea .registerBtn:hover{background: #e1e1e1;}
+.loginBox .mainBox .loginArea .registerBtn:hover{background: #FFFAFA;}
 .loginBox .loginFooter{text-align: center;padding: 14px 0;color: #7b7b7b;}
 
 
 /************************************register.v.php**********************************/
-body.register{background: #3ab5e6}
 .register .mainBox{width: 958px;border: 1px solid #e1e1e1;border-radius: 5px; background: #fff;margin-bottom: 20px;margin: 0 auto;}
 .register .mainBox .top{border-bottom: 1px solid #e1e1e1; text-align: center;font-size: 30px;line-height: 110px;color: #3ab5e6;}
-.register .mainBox .loginArea{width: 320px;margin: 0 auto;}
-.register .mainBox .loginArea form p .code{width: 150px;}
-.register .mainBox .loginArea form p  button{width: 120px;height: 40px;cursor: pointer;background: #3ab5e6;border: none;color: #fff;font-size: 16px;}
-.regiser .mainBox .loginArea form p  button:hover{color: red;}
+.register .mainBox .loginArea{width: 400px;margin: 0 auto;}
+.register .mainBox .loginArea form{margin: 30px 0;font-size: 14px;}
+.register .mainBox .loginArea form div{margin-top:20px;}
+.register .mainBox .loginArea form div input{margin-left: 5px;height: 20px;line-height: 20px;padding: 10px 16px;font-size: 14px;background: #fff;width: 230px;border: 1px solid #e2e2e2;}
+.register .mainBox .loginArea .regbtn{height: 46px;margin: 30px 0 15px;color: #fff;background: #3ab5e6;text-align: center;width: 230px;line-height: 30px;font-size: 16px;cursor: pointer;border: none;}
+.register .mainBox .loginArea .regbtn:hover{background: #5CACEE;}
+.register .mainBox .loginArea form div .code{width: 110px;}
+.register .mainBox .loginArea form div button{width: 120px;height: 40px;cursor: pointer;background: #3ab5e6;border: none;color: #fff;font-size: 16px;}
+.register .mainBox .loginArea form div button:hover{background: #5CACEE;}
 
 /***************************************cart.v.php**********************************/
 .header-box{border-bottom: 1px #e8e8e8 solid;border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: rgb(232, 232, 232);margin: 0 auto;margin-top: 0px;margin-right: auto;margin-bottom: 0px;margin-left: auto;width: 1200px;height: 120px; }
