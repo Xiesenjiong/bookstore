@@ -1,10 +1,21 @@
 <?php
-namespace app\xhhindex\controller;
+	namespace app\front\controller;
+	use think\Controller;
+	use think\Request;
+	use think\Session;
+	use app\front\model\Customer as CustomerModel;
 
-class Set extends \think\Controller
-{
-	public function index()
+	/**
+	 * 	编辑个人信息页面
+	 */
+	class Set extends Controller
 	{
-		return view('set');
+		public function set()
+		{
+			$account = Request::instance()->param('account');
+			$customer = CustomerModel::where(['account' => $account, 'isdelete' => 0]);
+			$this->assign('customer',$customer);
+			return $this->fetch();
+		}
 	}
-}
+?>

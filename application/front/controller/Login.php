@@ -41,7 +41,7 @@
             Session::set('account', null);
             Session::set('customerId', null);
 
-            $this->success("退出成功",Url('index/index'));
+            $this->redirect('index/index');
         }
 	}
  ?>

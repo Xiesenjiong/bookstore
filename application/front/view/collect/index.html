@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>小幌疏我的信息</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/xhhindex.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
+</head>
+<body>
+	<!-- 顶部 -->
+	{include file="../application/front/view/common/header.html"}
+	<!-- end -->
+
+	<!-- 头部logo 搜索栏 -->
+	{include file="../application/front/view/common/searchbox.html"}
+	<!-- end -->
+	<div class="order-box1">
+		<div class="f1">
+			<!-- 左侧菜单栏 -->
+			{include file="../application/front/view/common/orderlmenu.html"}
+			<!-- end -->
+			<div class="personal-list-item ml-10 bd-1-e8 fl">
+				<ul>
+					<li class="list-item active">
+						<div class="mycolle-info mb-20">
+							<h3 class="list-item-title bb-1-e8 mb-20">我的收藏</h3>
+							<div class="goodlist">
+								<div class="mycolle-empty ta-ct">
+									<table width="100%" cellspacing="0" cellpadding="0" border="0">
+										<tbody>
+											<tr>
+												<td align="center" height="400">
+													<img src="/bookstore/public/front/images/coll-empt.png">
+													<p>还没有任何收藏呢</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="cb"></div>
+							</div>
+							<div class="mt-10">
+								<div class="page-number-group tcdPageCode fr">
+								</div>
+								<div class="cb"></div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="cb"></div>
+		</div>
+
+		<!-- 尾部 -->
+		{include file="../application/front/view/common/footer.html"}
+		<!-- end -->
+
+	</body>
+	</html>

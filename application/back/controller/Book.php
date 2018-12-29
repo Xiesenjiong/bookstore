@@ -48,6 +48,7 @@
 			$model->soldNum = $data['soldNum'];
 			$model->stockNum = $data['stockNum'];
 			$model->price = $data['price'];
+			$model->press = $data['press'];
 			// if( $data['press'] == ""){
 			// 	$model->press = $data['cover'];
 			// }else{
@@ -61,11 +62,7 @@
 			$model = new BookModel($data);
 
 			//保存到数据库
-			$ret = $model->save();
-			if($ret==false){
-				$this->error("失败");
-			}
-			$this->success("成功");
+			$model->allowField(true)->save();		
 		}
 
 		// public function setStatus($bookId) {

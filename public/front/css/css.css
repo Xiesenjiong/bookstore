@@ -164,7 +164,7 @@ body.login{background: url("/xhh/images/3.jpg") no-repeat center top;}
 /***************************************order.v.php**********************************/
 .order-box1{height: 700px; width: 1200px;margin: 0 auto;box-sizing: border-box;}
 .order-box1 .f1{height: 600px; width: 1200px;margin: 0 auto ; margin-top: 20px;}
-.order-box1 .f1 .f1-left{width:179px;padding-left: 19px;padding-bottom: 20px;height: 573px;float: left;border: 1px #e8e8e8 solid; }
+.order-box1 .f1 .f1-left{width:179px;padding-left: 19px;padding-bottom: 20px;height: 300px;float: left;border: 1px #e8e8e8 solid; }
 .order-box1 .f1 .f1-left .f1-left-title{font-size: 18px;font-weight: normal;line-height: 2.5;}
 .order-box1 .f1 .f1-left .left-box1{width: 150px;padding-left: 19px;border-top: 1px #e8e8e8 solid;padding-bottom: 16px;}
 .order-box1 .f1 .f1-left .left-box1 .item{margin-top: 14px;text-indent: 0.5em;border-left: 2px transparent solid;}
