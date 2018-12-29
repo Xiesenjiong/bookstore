@@ -3,7 +3,6 @@
 	use think\Controller;
 	use think\Request;
 	use think\Session;
-	use think\Db;
 	use app\back\model\Book as BookModel;
 	use app\back\model\Category as CategoryModel;
 
@@ -13,15 +12,15 @@
 	class Book extends Controller {
 		
 		public function index() {
-			$model 	= new BookModel;
-			// $list = $model->paginate(5);
-			$result = Db::table('book')->alias('a')->join('category b','a.categoryId = b.categoryId')
-					  ->paginate(5);
-			$num 	= count($result);
-			$option = array(array('title' => '启用', 'icon' => '&#xe62f;'), array('title' => '停用', 'icon' => '&#xe601;'));
+			$list = BookModel::where(['isdelete' => 0])->paginate(5);
+
+			// $list = Db::table('book')->alias('a')->join('category b','a.categoryId = b.categoryId')
+			// 		  ->paginate(5);
+			$num 	= count($list);
+			$option = array(array('title' => '上架', 'icon' => '&#xe62f;'), array('title' => '下架', 'icon' => '&#xe601;'));
 
 			$this->assign('option', $option);
-			$this->assign('list', $result);
+			$this->assign('list', $list);
 			$this->assign('num', $num);
 
 			return $this->fetch();
@@ -35,6 +34,15 @@
 			$info = BookModel::get($bookId)->toarray();
 			$this->assign('info',$info);
 
+			return $this->fetch();
+		}
+
+		public function delete() {
+			$list = BookModel::where(['isdelete' => 1])->paginate(5);
+			$num = count($list);
+
+			$this->assign('list', $list);
+			$this->assign('num', $num);
 			return $this->fetch();
 		}
 
@@ -68,16 +76,16 @@
 			$this->success("成功");
 		}
 
-		// public function setStatus($bookId) {
-		// 	$bookId = $_POST['bookId'];			
-		// 	$model = BookModel::get($bookId);
-		// 	if ($model->status == 1) {
-		// 		$model->status = 0;
-		// 	} else {
-		// 		$model->status = 1;
-		// 	}
-		// 	$model->save();
-		// }
+		public function setStatus($bookId) {
+			$bookId = $_POST['bookId'];			
+			$model = BookModel::get($bookId);
+			if ($model->status == 1) {
+				$model->status = 0;
+			} else {
+				$model->status = 1;
+			}
+			$model->save();
+		}
 
 		public function isDelete($bookId) {
 			$bookId = $_POST['bookId'];			

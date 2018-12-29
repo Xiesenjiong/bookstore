@@ -18,18 +18,15 @@
       <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
       <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style type="text/css">
-		.layui-table td, .layui-table th{word-break: keep-all;padding: 12px 10px;}
-	</style>
   </head>
   
-  <body class="layui-anim layui-anim-up">
+  <body>
     <div class="x-nav">
       <span class="layui-breadcrumb">
         <a href="">首页</a>
         <a href="">书籍管理</a>
         <a>
-          <cite>书籍列表</cite></a>
+          <cite>书籍删除</cite></a>
       </span>
       <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
         <i class="layui-icon" style="line-height:30px">ဂ</i></a>
@@ -39,16 +36,15 @@
         <form class="layui-form layui-col-md12 x-so">
           <input class="layui-input" placeholder="开始日" name="start" id="start">
           <input class="layui-input" placeholder="截止日" name="end" id="end">
-          <input type="text" name="username"  placeholder="请输入书名/ISBN" autocomplete="off" class="layui-input">
+          <input type="text" name="username"  placeholder="书名" autocomplete="off" class="layui-input">
           <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
         </form>
       </div>
       <xblock>
-        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <button class="layui-btn" onclick="x_admin_show('添加新书','{:Url('Book/add')}',800,600)"><i class="layui-icon"></i>添加</button>
-        <span class="x-right" style="line-height:40px">共有数据：{$num}条</span>
+        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量恢复</button>
+        <span class="x-right" style="line-height:40px">共有数据：{$num} 条</span>
       </xblock>
-      <table class="layui-table" style="word-break: normal;">
+      <table class="layui-table">
         <thead>
           <tr>
             <th>
@@ -56,7 +52,7 @@
             </th>
             <th>ID</th>
             <th>书名</th>
-            <!-- <th>类别</th> -->
+            <th>类别</th>
             <th>ISBN</th>
             <th>作者</th>
             <!-- <th>图片</th>
@@ -78,7 +74,7 @@
             </td>
             <td>{$vo.bookId}</td>
             <td>{$vo.title}</td>
-            <!-- <td>{$vo.categoryId}</td> -->
+            <td>{$vo.categoryId}</td>
             <td>{$vo.isbn}</td>
             <td>{$vo.author}</td>
             <!-- <td><img src="{$vo.press}" width="100"></td> -->
@@ -88,23 +84,15 @@
             <td>{$vo.soldNum}</td>
             <td>{$vo.stockNum}</td>
             <!-- <td>2017-01-01 11:11:42</td> -->
-
             <td class="td-status">
-              {if $vo.status == 1}
-              <span class="layui-btn layui-btn-normal layui-btn-mini">已上架</span>
-              {else}
-              <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">已下架</span>
-              {/if}
+              <span class="layui-btn layui-btn-danger layui-btn-mini">已删除</span>
             <td class="td-manage">
-              <a onclick="setStatus(this, {$vo.bookId})" href="javascript:;"  title="{$option[$vo.status]['title']}">
-                <i class="layui-icon">{$option[$vo.status]['icon']}</i>
+              <a title="恢复" onclick="isDelete(this, {$vo.bookId})" href="javascript:;">
+                <i class="layui-icon">&#xe618;</i>
               </a>
-              <a title="编辑"  onclick="x_admin_show('编辑','{:Url('Book/edit')}?bookId={$vo.bookId}',800,600)" href="javascript:;">
-                <i class="layui-icon">&#xe642;</i>
-              </a>
-              <a title="删除" onclick="isDelete(this, {$vo.bookId})" href="javascript:;">
+              <!-- <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
-              </a>
+              </a> -->
             </td>
           </tr>
           {/volist}
@@ -112,7 +100,7 @@
       </table>
       <div class="page">
         <div>
-        	{$list->render()}          
+          {$list->render()}
         </div>
       </div>
 
@@ -132,49 +120,17 @@
         });
       });
 
-      /*书籍-上架、下架*/
-      function setStatus(obj,id) {
-          if($(obj).attr('title')=='上架'){
-              layer.confirm('确认要上架吗？', function(index){
-                  //发异步把用户状态进行更改
-                  $.post(
-                      "{:Url('Book/setStatus')}",
-                      {bookId:id},
-                      function(){
-                          $(obj).attr('title','下架');
-                          $(obj).find('i').html('&#xe601;');
-                          $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已上架');
-                          layer.msg('已上架!', {icon:6, time:1000});
-                      }
-                  );
-              });
-          } else {
-              layer.confirm('确认要下架吗？', function(index){
-                  //发异步把用户状态进行更改
-                  $.post(
-                      "{:Url('Book/setStatus')}",
-                      {bookId:id},
-                      function(){
-                          $(obj).attr('title','上架');
-                          $(obj).find('i').html('&#xe62f;');
-                          $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已下架');
-                          layer.msg('已下架!', {icon:5, time:1000});
-                      }
-                  );
-              });
-          }
-      }
 
-      /*用户-删除*/
+      /*用户-恢复*/
       function isDelete(obj,id) {
-          layer.confirm('确认要删除吗？',function(index){
+          layer.confirm('确认要恢复吗？',function(index){
               //发异步删除数据
               $.post(
                   "{:Url('Book/isDelete')}",
                   {bookId:id},
                   function(){
                      $(obj).parents("tr").remove();
-                      layer.msg('已删除!', {icon:1, time:1000});
+                      layer.msg('已恢复!', {icon:1, time:1000});
                   }
               );
           });
@@ -186,9 +142,9 @@
 
         var data = tableCheck.getData();
   
-        layer.confirm('确认要删除吗？'+data,function(index){
+        layer.confirm('确认要恢复吗？'+data,function(index){
             //捉到所有被选中的，发异步进行删除
-            layer.msg('删除成功', {icon: 1});
+            layer.msg('恢复成功', {icon:1, time:1000});
             $(".layui-form-checked").not('.header').parents('tr').remove();
         });
       }

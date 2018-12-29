@@ -107,24 +107,16 @@
               data:$("#add-form").serialize(),
               dataType: "text",
               success: function () {
-                showMsg("添加成功");
+                layer.alert("添加成功", {icon: 6});
               },
               error: function () {
-                showMsg("添加失败");
+                layer.alert("添加失败", {icon: 5});
               }
             })
             return false;
           });
       });
 
-      function showMsg(msg) {
-        layer.alert(msg, {icon: 6},function () {
-              // 获得frame索引
-              var index = parent.layer.getFrameIndex(window.name);
-              //关闭当前frame
-              parent.layer.close(index);
-            });
-      }
 
       /*分类-删除*/
       function isDelete(obj,id) {
@@ -149,14 +141,6 @@
             $(".layui-form-checked").not('.header').parents('tr').remove();
           });
       }
-    </script>
-    <script>
-      var _hmt = _hmt || []; (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
     </script>
   </body>
 
