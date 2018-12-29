@@ -2,12 +2,9 @@
 	namespace app\front\controller;
 	use think\Controller;
 
-	/**
-	 * 
-	 */
-	class Information extends Controller {
+	class Goods extends Controller {
 		
-		public function Index() {
+		public function index() {
 			return $this->fetch();
 		}
 	}

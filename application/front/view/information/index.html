@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>小幌疏我的信息</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/xhhindex.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
+</head>
+<body>
+	<!-- 顶部 -->
+	{include file="../application/front/view/common/header.html"}
+	<!-- end -->
+
+	<!-- 头部logo 搜索栏 -->
+	{include file="../application/front/view/common/searchbox.html"}
+	<!-- end -->
+	<div class="order-box1">
+		<div class="f1">
+			<!-- 左侧菜单栏 -->
+			{include file="../application/front/view/common/orderlmenu.html"}
+			<!-- end -->
+			<div class="information-box">
+				<ul>
+					<li class="information-box-top">
+						<div class="my-info pb-20" style="padding-bottom: 20px; width: 951px; height: 66px;">
+							<h3 class="p">我的信息</h3>
+						</div>
+						<table width="100%" cellpadding="0" cellspacing="0" border="0">
+							<tbody>
+								<tr>
+									<td class="pr-20" width="150" rowspan="4" style="padding-right: 20px;">
+										<img class="va-md" src="https://bnmpstyle.bookuu.com/wap/images/default_user.jpg" alt="" width="150" height="150">
+									</td>
+									<td width="190">
+										<p>欢迎，13538646590！</p>
+									</td>
+									<td width="468">&nbsp;</td>
+									<td class="ta-rt">
+										<a class="cl-bl" href="{:Url('Set/set')}" style="color: #2db4ea;">[编辑个人信息]</a>
+									</td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td><span class="cl-6">账户余额</span>&nbsp;&nbsp;¥0.00</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td><span class="cl-6">优惠券</span>&nbsp;&nbsp;&nbsp;5张</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+						<ul class="information-box-bottom">
+							<li class="item"><b>订单提醒</b></li>
+							<li class="item"><a href="{:Url('Order/waitpay')}">待付款订单&nbsp;&nbsp;<span>0</span></a></li>
+							<li class="item"><a href="{:Url('Order/waitsend')}">待发货订单&nbsp;&nbsp;<span>0</span></a></li>
+							<li class="item"><a href="{:Url('Order/beensend')}">待收货订单&nbsp;&nbsp;<span>0</span></a></li>
+							<li class="item"><a href="{:Url('Order/waitcomment')}">待评价订单&nbsp;&nbsp;<span>0</span></a></li>
+							<li class="cb"></li>
+						</ul>
+					</li>
+				</ul>
+
+			</div>
+		</div>	
+	<!-- 尾部 -->
+	{include file="../application/front/view/common/footer.html"}
+	<!-- end -->
+
+	</body>
+	</html>
