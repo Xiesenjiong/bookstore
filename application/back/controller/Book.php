@@ -8,17 +8,19 @@
 	use app\back\model\Category as CategoryModel;
 
 	/**
-	 * 书籍管理、书籍分类
+	 * 书籍管理
 	 */
 	class Book extends Controller {
 		
 		public function index() {
-			$model = new BookModel;
+			$model 	= new BookModel;
 			// $list = $model->paginate(5);
 			$result = Db::table('book')->alias('a')->join('category b','a.categoryId = b.categoryId')
 					  ->paginate(5);
-			$num = count($result);
+			$num 	= count($result);
+			$option = array(array('title' => '启用', 'icon' => '&#xe62f;'), array('title' => '停用', 'icon' => '&#xe601;'));
 
+			$this->assign('option', $option);
 			$this->assign('list', $result);
 			$this->assign('num', $num);
 
@@ -46,11 +48,11 @@
 			$model->soldNum = $data['soldNum'];
 			$model->stockNum = $data['stockNum'];
 			$model->price = $data['price'];
-			if( $data['press'] == NULL){
-				$model->press = $data['cover'];
-			}else{
-				$model->press = $data['press'];
-			}
+			// if( $data['press'] == ""){
+			// 	$model->press = $data['cover'];
+			// }else{
+			// 	$model->press = $data['press'];
+			// }
 			$model->save();
 		}
 
@@ -66,22 +68,19 @@
 			$this->success("成功");
 		}
 
-		public function cate(){
-			$model = new CategoryModel;		
-			return $this->fetch('cate/cate');
-		}
-
-		public function setStatus($bookId) {
-			$model = BookModel::get($bookId);
-			if ($model->status == 1) {
-				$model->status = 0;
-			} else {
-				$model->status = 1;
-			}
-			$model->save();
-		}
+		// public function setStatus($bookId) {
+		// 	$bookId = $_POST['bookId'];			
+		// 	$model = BookModel::get($bookId);
+		// 	if ($model->status == 1) {
+		// 		$model->status = 0;
+		// 	} else {
+		// 		$model->status = 1;
+		// 	}
+		// 	$model->save();
+		// }
 
 		public function isDelete($bookId) {
+			$bookId = $_POST['bookId'];			
 			$model = BookModel::get($bookId);
 			if ($model->isdelete == 1) {
 				$model->isdelete = 0;

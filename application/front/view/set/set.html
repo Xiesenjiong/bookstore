@@ -3,59 +3,24 @@
 <head>
 	<title>小幌疏我的信息</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="/xhh/css/css.css">
-	<link rel="stylesheet" type="text/css" href="/xhh/fontawesome/css/all.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/xhhindex.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
 </head>
 <body>
-	<header class="header">
-		<div class="top ma wid-1200">
-			<p class="fl pclear cl-6">
-				<span>
-					<a target="_self">登录</a>
-					<span class="line">|</span>
-					<a target="_self">免费注册</a>
-				</span>
-			</p>
-			<p class="fr pclear cl-6">
-				<span>
-					<span class="line">|</span>				
-					<a target="_self">收藏夹</a>
-					<span class="line">|</span>
-					<a target="_self">店铺管理</a>
-					<span class="line">|</span>
-					<a target="_self">联系客服</a>
-				</span>
-			</p>
-			<div class="fr myhh">
-				<label class="cp cl-6">我的幌疏</label>
-				<i class="fas fa-angle-down cp cl-9"></i>
-				<div class="hhbox">
-					<a class="cl-6" target="_blank" href="">我的幌疏</a>
-					<a class="cl-6" target="_blank" href="/xhhindex/order/index">我的订单</a>
-					<a class="cl-6" target="_blank" href="">我的优惠券</a>
-					<a class="cl-6" target="_blank" href="">我的收藏</a>
-					<a class="cl-6" target="_blank" href="">我的收入</a>
-					<a class="cl-6" target="_blank" href="">官方消息</a>
-				</div>
-			</div>
-		</div>
-	</header>
+	<!-- 顶部 -->
+	{include file="../application/front/view/common/header.html"}
+	<!-- end -->
+
+	<!-- 头部logo 搜索栏 -->
+	{include file="../application/front/view/common/searchbox.html"}
+	<!-- end -->
 	<div class="order-box1">
 		<div class="f1">
-			<div class="f1-left">
-				<div class="f1-left-title">个人中心</div>
-				<ul class="left-box1">
-					<li class="item active" ><a href="/xhhindex/Information/index">我的信息</a></li>
-					<li class="item"><a href="/xhhindex/order/index">我的订单</a></li>
-					<li class="item"><a href="">我的等级</a></li>
-					<li class="item"><a href="">我的积分</a></li>
-					<li class="item"><a href="">我的收藏</a></li>
-				</ul>
-				<ul class="left-box1">
-					<li class="item" style="border-left: 2px #2db4ea solid;"><a href="/xhhindex/address/index">我的收货地址</a></li>
-					<li class="item active"><a href="">个人设置</a></li>
-				</ul>
-			</div>
+			<!-- 左侧菜单栏 -->
+			{include file="../application/front/view/common/orderlmenu.html"}
+			<!-- end -->
 
 
 			<div class="personal-list-item ml-10 bd-1-e8 fl">
@@ -146,50 +111,6 @@
 					</ul>
 				</div>
 			</div>
-			<footer class="footer">
-				<div class="tag">
-					<ul class="clearfix">
-						<li class="cl-4 lh-25 pd-0500 wd-25p fl">
-							<img src="/xhh/images/zheng.png" width="50" height="50" class="fl mr-10 defaultlazy" />
-							<div class="fl">
-								<p class="fs-24 ">全场正品</p>
-								<p>出版社直采·博库正品</p>
-							</div>
-							<div class="cb"></div>
-						</li>
-						<li class="cl-4 lh-25 pd-0500 wd-25p fl">
-							<img src="/xhh/images/sheng.png" alt="" width="50" height="50" class="fl mr-10 defaultlazy" />
-							<div class="fl">
-								<p class="fs-24 ">全场满59包邮</p>
-								<p>惊喜不断·让利多多</p>
-							</div>
-							<div class="cb"></div>
-						</li>
-						<li class="cl-4 lh-25 pd-0500 wd-25p fl">
-							<img src="/xhh/images/huo.png" alt="" width="50" height="50" class="fl mr-10 defaultlazy" />
-							<div class="fl">
-								<p class="fs-24 ">门店自取</p>
-								<p>就近取货·方式灵活</p>
-							</div>
-							<div class="cb"></div>
-						</li>
-						<li class="cl-4 lh-25 pd-0500 wd-25p fl">
-							<img src="/xhh/images/you.png" alt="" width="50" height="50" class="fl mr-10 defaultlazy" />
-							<div class="fl">
-								<p class="fs-24 ">售后无忧</p>
-								<p>服务体验·更加精彩</p>
-							</div>
-							<div class="cb"></div>
-						</li>
-					</ul>
-				</div>
-				<div class="copyright">
-					<div class="box1" style="width: 100%;">
-						<div class="box2">
-							<p>©2018 版权所有</p>
-						</div>
-					</div>
-				</div>
-			</footer>
+		
 		</body>
 		</html>
