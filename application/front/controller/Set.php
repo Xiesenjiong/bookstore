@@ -12,8 +12,8 @@
 	{
 		public function set()
 		{
-			$account = Request::instance()->param('account');
-			$customer = CustomerModel::where(['account' => $account, 'isdelete' => 0]);
+			$account = Session::get('account');
+			$customer = CustomerModel::get(['account' => $account, 'isdelete' => 0])->toarray();
 			$this->assign('customer',$customer);
 			return $this->fetch();
 		}

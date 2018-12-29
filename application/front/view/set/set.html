@@ -34,7 +34,7 @@
 										<tr>
 											<td class="pr-15" width="15%" height="28" align="right">手机号：</td>
 											<td>
-												13538646590
+												{$customer['phone']}
 											</td>
 											<td width="15%" align="right" colspan="2"><a class="edit" href="javascript:void(0);" title="编辑">编辑</a></td>
 										</tr>
@@ -44,11 +44,11 @@
 										</tr>
 										<tr>
 											<td class="pr-15" height="28" align="right">性别：</td>
-											<td id="gender">男</td>
+											<td id="gender">{$customer['sex']}</td>
 										</tr>
 										<tr>
 											<td class="pr-15" height="28" align="right">邮箱：</td>
-											<td id="occupation">{$Think.session.email}</td>
+											<td id="occupation">{$customer['email']}</td>
 										</tr>
 										<tr>
 											<td class="pr-15" height="28" align="right">签名：</td>
