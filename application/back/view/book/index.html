@@ -62,8 +62,8 @@
             <!-- <th>图片</th>
             <th>书籍描述</th>
             <th>出版社</th> -->
-            <th>销售量</th>
             <th>价格</th>
+            <th>销售量</th>
             <th>库存</th>
 
             <!-- <th>加入时间</th> -->
@@ -78,21 +78,26 @@
             </td>
             <td>{$vo.bookId}</td>
             <td>{$vo.title}</td>
-            <td>{$vo.cateName}</td>
+            <td>{$vo.categoryId}</td>
             <td>{$vo.isbn}</td>
             <td>{$vo.author}</td>
             <!-- <td><img src="{$vo.press}" width="100"></td> -->
             <!-- <td>{$vo.description}</td> -->
             <!-- <td>{$vo.paddress}</td> -->
-            <td>{$vo.soldNum}</td>
             <td>{$vo.price}</td>
+            <td>{$vo.soldNum}</td>
             <td>{$vo.stockNum}</td>
             <!-- <td>2017-01-01 11:11:42</td> -->
+
             <td class="td-status">
-              <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
+              {if $vo.status == 1}
+              <span class="layui-btn layui-btn-normal layui-btn-mini">已上架</span>
+              {else}
+              <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">已下架</span>
+              {/if}
             <td class="td-manage">
-              <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
-                <i class="layui-icon">&#xe601;</i>
+              <a onclick="setStatus(this, {$vo.bookId})" href="javascript:;"  title="{$option[$vo.status]['title']}">
+                <i class="layui-icon">{$option[$vo.status]['icon']}</i>
               </a>
               <a title="编辑"  onclick="x_admin_show('编辑','{:Url('Book/edit')}?bookId={$vo.bookId}',800,600)" href="javascript:;">
                 <i class="layui-icon">&#xe642;</i>
@@ -127,28 +132,37 @@
         });
       });
 
-       /*用户-停用*/
-      function member_stop(obj,id){
-          layer.confirm('确认要停用吗？',function(index){
-
-              if($(obj).attr('title')=='启用'){
-
-                //发异步把用户状态进行更改
-                $(obj).attr('title','停用')
-                $(obj).find('i').html('&#xe62f;');
-
-                $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
-                layer.msg('已停用!',{icon: 5,time:1000});
-
-              }else{
-                $(obj).attr('title','启用')
-                $(obj).find('i').html('&#xe601;');
-
-                $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
-                layer.msg('已启用!',{icon: 5,time:1000});
-              }
-              
-          });
+      /*书籍-上架、下架*/
+      function setStatus(obj,id) {
+          if($(obj).attr('title')=='上架'){
+              layer.confirm('确认要上架吗？', function(index){
+                  //发异步把用户状态进行更改
+                  $.post(
+                      "{:Url('Book/setStatus')}",
+                      {bookId:id},
+                      function(){
+                          $(obj).attr('title','下架');
+                          $(obj).find('i').html('&#xe601;');
+                          $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已上架');
+                          layer.msg('已上架!', {icon:6, time:1000});
+                      }
+                  );
+              });
+          } else {
+              layer.confirm('确认要下架吗？', function(index){
+                  //发异步把用户状态进行更改
+                  $.post(
+                      "{:Url('Book/setStatus')}",
+                      {bookId:id},
+                      function(){
+                          $(obj).attr('title','上架');
+                          $(obj).find('i').html('&#xe62f;');
+                          $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已下架');
+                          layer.msg('已下架!', {icon:5, time:1000});
+                      }
+                  );
+              });
+          }
       }
 
       /*用户-删除*/
@@ -179,12 +193,6 @@
         });
       }
     </script>
-    <script>var _hmt = _hmt || []; (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();</script>
   </body>
 
 </html>

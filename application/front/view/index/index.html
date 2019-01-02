@@ -20,70 +20,70 @@
 	<section class="mid-box bc-f5" style="padding-bottom: 5px;">
 		<!-- 左侧目录栏 -->
 		<div class="lmenu fl">
-			<div class="title">
+			<div class="title literature" name="literature">
 				<i class="fas fa-feather-alt"></i>
 				<span class="fz-14">文学艺术</span>
 				<div class="patch fr ta-center">
 					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
 				</div>
 			</div>
-			<div class="title">
+			<div class="title child" name="child">
 				<i class="fas fa-fish"></i>
 				<span class="fz-14">少儿童书</span>
 				<div class="patch fr ta-center">
 					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
 				</div>
 			</div>
-			<div class="title">
+			<div class="title society" name="society">
 				<i class="fas fa-globe-asia"></i>
 				<span class="fz-14">人文社科</span>
 				<div class="patch fr ta-center">
 					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
 				</div>
 			</div>
-			<div class="title">
+			<div class="title manage" name="manage">
 				<i class="fas fa-suitcase-rolling"></i>
 				<span class="fz-14">经管励志</span>
 				<div class="patch fr ta-center">
 					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
 				</div>
 			</div>
-			<div class="title">
+			<div class="title fasion" name="fasion">
 				<i class="fas fa-gift"></i>
 				<span class="fz-14">生活时尚</span>
 				<div class="patch fr ta-center">
 					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
 				</div>
 			</div>
-			<div class="title">
+			<div class="title technology" name="technology">
 				<i class="fas fa-broom"></i>
 				<span class="fz-14">科技教育</span>
 				<div class="patch fr ta-center">
 					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
 				</div>
 			</div>
-			<div class="title">
+			<div class="title stationery" name="stationery">
 				<i class="fas fa-pencil-ruler"></i>
 				<span class="fz-14">创意文具</span>
 				<div class="patch fr ta-center">
 					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
 				</div>
 			</div>
-			<div class="title">
+			<div class="title art" name="art">
 				<i class="fas fa-chess"></i>
 				<span class="fz-14">生活美学</span>
 				<div class="patch fr ta-center">
 					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
 				</div>
 			</div>
-			<div class="title">
+			<div class="title daily" name="daily">
 				<i class="fas fa-couch"></i>
 				<span class="fz-14">居家日用</span>
 				<div class="patch fr ta-center">
 					<i class="fas fa-angle-right" style="margin: 0px;"></i>					
 				</div>
 			</div>
-			<div class="title">
+			<div class="title video" name="video">
 				<i class="fas fa-compact-disc"></i>
 				<span class="fz-14">影音原版</span>
 				<div class="patch fr ta-center">
@@ -153,22 +153,26 @@
 			<div class="booklist">
 				<div class="book-six">
 					<ul>
+						{volist name="list" id="vo"}
 						<li class="scale-box fl ma">
 							<div class="box">
 								<div class="box-img visible">
-									<a href="{:Url('Goods/index')}"><img src="/bookstore/public/front/images/book1.jpg"></a>
+									<a href="{:Url('Goods/index')}?bookId={$vo.bookId}">
+										<p class="ta-center"><img src="{$vo.press}"></p>
+										</a>
 								</div>
 								<div class="box-text ta-center">
-									<a href="{:Url('Goods/index')}" class="lh-18 cl-6 fz-14 oh">爱上优秀的自己(共10册有声版绘本)/儿童情商培养和励志绘本</a>
+									<a href="{:Url('Goods/index')?bookId={$vo.bookId}}" class="lh-18 cl-6 fz-14 oh">{$vo.title}</a>
 									<div class="ta-center">
-										<span class="cl-e4 fz-16">￥9.90</span>
+										<span class="cl-e4 fz-16">￥{$vo.price}.00</span>
 										<span class="cl-9">|</span>
 										<del class="fz-12 cl-9">￥150.00</del>
 									</div>
 								</div>
 							</div>
 						</li>
-						<li class="scale-box fl ma">
+						{/volist}
+						<!-- <li class="scale-box fl ma">
 							<div class="box">
 								<div class="box-img ta-center visible">
 									<a href=""><img src="/bookstore/public/front/images/book2.jpg"></a>
@@ -242,7 +246,7 @@
 									</div>
 								</div>
 							</div>
-						</li>
+						</li> -->
 						<p class="clear"></p>
 					</ul>
 				</div>

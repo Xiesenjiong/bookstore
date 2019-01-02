@@ -18,8 +18,6 @@ ul li{list-style:none; }
 .ma{margin: 0 auto;}
 .wid-1200{width: 1200px;}
 .clear{clear: both;}
-.fl{float: left;}
-.fr{float: right;}
 .fz-12{font-size: 12px;}
 .fz-14{font-size: 14px;}
 .fz-16{font-size: 16px;}
@@ -68,7 +66,6 @@ ul li{list-style:none; }
 .mt-35 {margin-top: 35px;}
 .mt-20{margin-top: 20px; }
 .mt-40 { margin-top: 40px;}
-.mr-20 {margin-right: 20px;}
 .ml-10 {margin-left: 10px;}
 .mb-20 {margin-bottom: 20px;}
 .mg-3 {margin: 3px;}
@@ -156,10 +153,6 @@ body.login{background: url("/xhh/images/3.jpg") no-repeat center top;}
 .wd-300 {width: 300px;}
 .square-box.one-one {padding-bottom: 100%;}
 .bgimg {background-position: center center;background-size: contain;background-repeat: no-repeat;}
-.count-box {width: 114px;height: 28px;line-height: 28px;border: 1px #ddd solid;}
-.count-box .count-sub {width: 28px;height: 28px;border-right: 1px #ddd solid;text-align: center;font-size: 25px;cursor: pointer;user-select: none;}
-.count-box input {width: 56px;height: 28px;font-size: 16px;color: #212121;text-align: center;line-height: 28px;border: none;}
-.count-box .count-add {width: 28px;height: 28px;border-left: 1px #ddd solid;text-align: center;color: #696967;font-size: 22px;cursor: pointer;user-select: none;}
 
 /***************************************order.v.php**********************************/
 .order-box1{height: 700px; width: 1200px;margin: 0 auto;box-sizing: border-box;}
@@ -211,6 +204,18 @@ body.login{background: url("/xhh/images/3.jpg") no-repeat center top;}
     font-weight: normal;
     line-height: 2.5;
 }
+/**
+ *个人设置
+ */
+.hide{
+    display: none;
+}
+.set-info-form {
+    display: none; 
+}
+.set-info-form.active{
+    display: block;
+}
 .set-info input[type=text] {
     text-indent: 0.5em;
 }
@@ -226,9 +231,7 @@ body.login{background: url("/xhh/images/3.jpg") no-repeat center top;}
 .set-info-form .btn-save {
     display: inline-block;
 }
-.set-info-form {
- display: block; 
-}
+
 
 /***************************************quality.v.php**********************************/
 .section.bc-f5 {

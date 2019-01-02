@@ -7,9 +7,9 @@
 
 	class Goods extends Controller {
 		
-		public function index() {			
-			$list = BookModel::where(['isdelete'=>0]);
-			$this->assign('list', $list);
+		public function index($bookId) {			
+			$info = BookModel::get($bookId)->toarray();
+			$this->assign('info',$info);
 			return $this->fetch();
 		}
 	}

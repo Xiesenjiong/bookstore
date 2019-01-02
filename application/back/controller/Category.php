@@ -37,7 +37,7 @@
 			$info = CategoryModel::get($categoryId)->toarray();
 			$this->assign('info',$info);
 
-			return $this->fetch('cate/edit');
+			return $this->fetch('category/edit');
 		}
 
 		public function update(){

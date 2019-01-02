@@ -35,23 +35,23 @@
 				<div class="fl mr-20 wid-430">
 					<div class="bigpic oh pr bd-1-f5">
 						<div>
-							<img width="430" src="/bookstore/public/front/images/30045400.jpg">
+							<p class="ta-center"><img height="430" src="{$info['press']}"></p>
 						</div>
 					</div>
 					<div class="smpic bd-1-f5 oh mt-20">
 						<div>
-							<img width="76" src="/bookstore/public/front/images/30045400.jpg">
+							<img width="76" src="{$info['press']}">
 						</div>
 					</div>
 				</div>
 				<div class="fl wid-520 ml-20">
-					<p class="cl-3 mb-10 fz-18 fw-bold">爱上优秀的自己(共10册有声版绘本)/儿童情商培养和励志绘本</p>
-					<p class="cl-9 fz-16 oh mt-10 mb-10 hei-50">一套让孩子情商变高的绘本故事</p>
+					<p class="cl-3 mb-10 fz-18 fw-bold">{$info['title']}</p>
+					<p class="cl-9 fz-16 oh mt-10 mb-10 hei-50 oh">{$info['description']}</p>
 					<div class="cl-9 fz-14 mt-10 mb-10 lh-30">
 						作者：
-						<a href="" class="cl-3a mr-10">廉东星</a>
+						<a href="" class="cl-3a mr-10">{$info['author']}</a>
 						出版社：
-						<a href="" class="cl-3a">海豚</a>
+						<a href="" class="cl-3a">{$info['paddress']}</a>
 					</div>
 					<div class="bc-e5 pd-15">
 						<table class="lh-30" width="100%">
@@ -59,14 +59,14 @@
 								<tr>
 									<td width="70" class="cl-9 fz-14">定  价</td>
 									<td class="cl-3">
-										<del>￥150.00</del>
+										<del>￥{$info['price']}.00</del>
 									</td>
 								</tr>
 								<tr>
 									<td width="70" class="cl-9 fz-14">售  价</td>
 									<td class="cl-e4">
 										￥
-										<span class="cl-e4 fz-28">46.50</span>
+										<span class="cl-e4 fz-28">{$info['price']}.00</span>
 									</td>
 								</tr>
 							</tbody>
@@ -81,7 +81,7 @@
 								</tr>
 								<tr>
 									<td width="70" class="cl-9 fz-14">销量</td>
-									<td class="cl-3 fz-14">9231件</td>
+									<td class="cl-3 fz-14">{$info['soldNum']}</td>
 								</tr>
 								<tr>
 									<td width="70" class="cl-9 fz-14">数量</td>
@@ -90,7 +90,7 @@
 											<div class="fl cl-c count-sub fz-25">-</div>
 											<input type="tel" name="" class="count-text fl cl-c" value="1">
 											<div class="fl cl-c count-add fz-25 mr-20">+</div>
-											<span class=" cl-9">库存：689</span>
+											<span class=" cl-9">库存：{$info['stockNum']}</span>
 										</div>
 									</td>
 								</tr>
@@ -217,59 +217,25 @@
 						<ul class="fz-14 cl-3 pd-3040 lh-30">
 							<li class="wid-33p fl">
 								<span>出版社：</span>
-								<span>海豚</span>
+								<span>{$info['paddress']}</span>
 							</li>
 							<li class="wid-33p fl">
 								<span>ISBN：</span>
-								<span>9787511036933</span>
+								<span>{$info['isbn']}</span>
 							</li>
 							<li class="wid-33p fl">
 								<span>作者：</span>
-								<span>廉东星</span>
-							</li>
-							<li class="wid-33p fl">
-								<span>页数：</span>
-								<span>160</span>
-							</li>
-							<li class="wid-33p fl">
-								<span>出版日期：</span>
-								<span>2017-03-01</span>
-							</li>
-							<li class="wid-33p fl">
-								<span>印刷日期：</span>
-								<span>2017-03-01</span>
-							</li>
-							<li class="wid-33p fl">
-								<span>包装：</span>
-								<span>平装</span>
-							</li>
-							<li class="wid-33p fl">
-								<span>开本：</span>
-								<span>16开</span>
-							</li>
-							<li class="wid-33p fl">
-								<span>版次：</span>
-								<span>1</span>
-							</li>
-							<li class="wid-33p fl">
-								<span>印次：</span>
-								<span>1</span>
-							</li>
-							<li class="wid-33p fl">
-								<span>字数</span>
-								<span>125千字</span>
-							</li>
+								<span>{$info['author']}</span>
+							</li>																		
 							<p class="clear"></p>						
 						</ul>
+						<p class="pd-3040 fz-14 lh-30 cl-3">
+							<span>简介：</span>
+							<span>{$info['description']}</span>
+						</p>
 						<p class="clear"></p>
 					</div>
-				</div>
-				<div class="mt-20 pd-10 bd-1-f5">
-					<p><img src="/bookstore/public/front/images/1514191394979110.jpg"></p>
-					<p><img src="/bookstore/public/front/images/1514191393668638.jpg"></p>
-					<p><img src="/bookstore/public/front/images/1514191397997254.jpg"></p>
-					<p><img src="/bookstore/public/front/images/1514191396479650.jpg"></p>
-				</div>
+				</div>				
 			</div>			
 		</div>
 		<p class="clear"></p>

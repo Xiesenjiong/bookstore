@@ -8,14 +8,24 @@
 	/**
 	 * 	编辑个人信息页面
 	 */
-	class Set extends Controller
+	class Setinfo extends Controller
 	{
-		public function set()
+		public function index()
 		{
 			$account = Session::get('account');
 			$customer = CustomerModel::get(['account' => $account, 'isdelete' => 0])->toarray();
 			$this->assign('customer',$customer);
 			return $this->fetch();
+		}
+
+		public function update(){
+			$data = Request::instance()->post();
+			$model = CustomerModel::get($data['customerId']);			
+			$model->phone = $data['phone'];
+			$model->name = $data['name'];
+			$model->email = $data['email'];
+			// $model->sex = $data['sex'];
+			$model->save();
 		}
 	}
 ?>
