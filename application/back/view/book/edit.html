@@ -60,9 +60,9 @@
                 <select id="L_cateName" name="categoryId">
                   {volist name="catelist" id="vo"}
                   <option value="{$vo.categoryId}">{$vo.cateName}</option>                               
-                  {/volist}}
-                </select>                  
-              </div>              
+                  {/volist}
+                </select>
+              </div>
           </div>
           <div class="layui-form-item">
               <label for="L_isbn" class="layui-form-label">
@@ -135,7 +135,7 @@
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="L_press" name="press"  
-                  autocomplete="off" class="layui-input">
+                  autocomplete="off" class="layui-input" value="{$info['press']}">
               </div>
           </div>
           <div class="layui-form-item">
