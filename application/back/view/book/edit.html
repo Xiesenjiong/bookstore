@@ -53,6 +53,18 @@
               </div>              
           </div>
           <div class="layui-form-item">
+              <label for="L_title" class="layui-form-label">
+                  <span class="x-red">*</span>类别
+              </label>
+              <div class="layui-input-inline">
+                <select id="L_cateName" name="categoryId">
+                  {volist name="catelist" id="vo"}
+                  <option value="{$vo.categoryId}">{$vo.cateName}</option>                               
+                  {/volist}}
+                </select>                  
+              </div>              
+          </div>
+          <div class="layui-form-item">
               <label for="L_isbn" class="layui-form-label">
                   <span class="x-red">*</span>ISBN
               </label>
@@ -168,16 +180,17 @@
             })
             return false;
           });
-          
-          function showMsg(msg) {
-            layer.alert(msg, {icon: 6},function () {
+        });
+        
+        function showMsg(msg) {
+          layer.alert(msg, {icon: 6},function () {
               // 获得frame索引
               var index = parent.layer.getFrameIndex(window.name);
               //关闭当前frame
               parent.layer.close(index);
             });
-          }
-        });
+        }
+        
     </script>
   </body>
 

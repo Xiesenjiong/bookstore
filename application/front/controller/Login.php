@@ -33,7 +33,15 @@
             }
 
             Session::set('account', $account);
+            Session::set('customerId', $customer->customerId);
             $this->redirect('index/index');
 		}
+
+        public function logOut(){
+            Session::set('account', null);
+            Session::set('customerId', null);
+
+            $this->redirect('index/index');
+        }
 	}
  ?>

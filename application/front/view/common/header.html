@@ -2,18 +2,23 @@
 	<div class="top ma wid-1200">
 		<p class="fl pclear cl-6">
 			<span>
+				{eq name="Think.session.customerId" value=""}
 				<a href="{:Url('Login/index')}" target="_self">登录</a>
 				<span class="line">|</span>
 				<a href="{:Url('Register/index')}" target="_self">免费注册</a>
+				{else/}
+				<a>欢迎，{$Think.session.account}</a>
+				<span class="line">|</span>
+				<a href="{:Url('Login/logOut')}" target="_self" >退出</a>				
+				{/eq}				
+				
 			</span>
 		</p>
 		<p class="fr pclear cl-6">
 			<span>
 				<span class="line">|</span>				
-				<a target="_self">收藏夹</a>
-				<span class="line">|</span>
-				<a target="_self">店铺管理</a>
-				<span class="line">|</span>
+				<a target="_self" href="{:Url('Collect/index')}">收藏夹</a>
+				<span class="line">|</span>				
 				<a target="_self">联系客服</a>
 			</span>
 		</p>
@@ -21,12 +26,19 @@
 			<label class="cp cl-6">我的幌疏</label>
 			<i class="fas fa-angle-down cp cl-9 fz-14"></i>
 			<div class="hhbox">
-				<a class="cl-6" target="_blank" href="">我的幌疏</a>
+				{eq name="Think.session.customerId" value=""}
+				<a class="cl-6" target="_blank" href="{:Url('Login/index')}">我的幌疏</a>
+				<a class="cl-6" target="_blank" href="{:Url('Login/index')}">我的订单</a>
+				<a class="cl-6" target="_blank" href="{:Url('Login/index')}">我的优惠券</a>
+				<a class="cl-6" target="_blank" href="{:Url('Login/index')}">我的收藏</a>
+				<a class="cl-6" target="_blank" href="{:Url('Login/index')}">官方消息</a>
+				{else/}
+				<a class="cl-6" target="_blank" href="{:Url('Information/index')}">我的幌疏</a>
 				<a class="cl-6" target="_blank" href="{:Url('Order/index')}">我的订单</a>
 				<a class="cl-6" target="_blank" href="">我的优惠券</a>
-				<a class="cl-6" target="_blank" href="">我的收藏</a>
-				<a class="cl-6" target="_blank" href="">我的收入</a>
+				<a class="cl-6" target="_blank" href="{:Url('Collect/index')}">我的收藏</a>
 				<a class="cl-6" target="_blank" href="">官方消息</a>
+				{/eq}				
 			</div>
 		</div>
 	</div>

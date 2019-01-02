@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>小幌疏图书</title>
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/xhhindex.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
+</head>
+<body>
+	<!-- 顶部 -->
+	{include file="../application/front/view/common/header.html"}
+	<!-- end -->
+
+	<!-- 头部logo 搜索栏 -->
+	{include file="../application/front/view/common/searchbox.html"}
+	<!-- end -->
+
+	<section class="detail-box">
+		<div class="wid-1200 ma mb-20">
+			<p class="lh-50 cl-3 fz-14">
+				您的当前位置：
+				<a href="">全部分类</a>
+				>
+				<a href="">图书</a>
+				>
+				<a href="">艺术</a>
+				>
+				<a href="">绘画</a>
+				>
+				<a href="">画册/作品集</a>				
+			</p>
+			<div class="booklist mt-20">
+				<div class="book-six">
+					<ul>
+						{volist name="list" id="vo"}
+						<li class="scale-box fl ma mt-10">
+							<div class="box">
+								<div class="box-img visible">
+									<a href="{:Url('Goods/index')}?bookId={$vo.bookId}">
+										<p class="ta-center"><img src="{$vo.press}"></p>
+									</a>
+								</div>
+								<div class="box-text ta-center">
+									<a href="" class="lh-18 cl-6 fz-14 oh">{$vo.title}</a>
+									<div class="ta-center">
+										<span class="cl-e4 fz-16">￥{$vo.price}.00</span>
+										<span class="cl-9">|</span>
+										<del class="fz-12 cl-9">￥90</del>
+									</div>
+								</div>
+							</div>
+						</li>
+						{/volist}					
+						<p class="clear"></p>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- 尾部 -->
+	{include file="../application/front/view/common/footer.html"}
+	<!-- end -->
+
+</body>
+</html>

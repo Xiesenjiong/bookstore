@@ -24,21 +24,36 @@
 		<div class="mainBox">
 			<div class="top">小幌疏帐号注册</div>
 			<div class="loginArea">
-				<form action="{:Url('xhhindex/Register/insert')}" method="post">
-					<p><input type="text" name="tell" placeholder="请输入手机号码" id="tell"></p>
-					<p>
-						<input type="text" name="" placeholder="短信验证码" class="code">
-						<button id="tellcode-btn" type="button">
+				<form class="layui-form" id="reg-form">
+					<div>
+						<label class="ta-right fl wid-90 lh-46">账号：</label>
+						<input class="layui-input" type="text" name="account" placeholder="请输入账号" id="account" lay-verify="account" autocomplete="off">
+					</div>
+					<div>
+						<label class="ta-right fl wid-90 lh-46">手机号：</label>
+						<input class="layui-input" type="tel" name="phone" placeholder="请输入手机号码" id="phone" lay-verify="phone" autocomplete="off"></p>
+					<div>
+						<label class="ta-right fl wid-90 lh-46">验证码：</label>
+						<input class="layui-input code" type="text" name="smscode" placeholder="短信验证码" lay-verify="smscode">
+						<button id="telecode-btn" type="button">
 							获取验证码
 						</button>
-					</p>
-					<p>
-						<input type="text" name="code" placeholder="图片验证码" class="code" style="float: left;">
-						<img src="{:Url('Register/verify')}" style="float: left; width: 120px; margin: 3px 0 0 5px;" onclick="this.src='{:Url('Register/verify')}?r='+Math.random()">
-					</p>
-					<p><input type="password" name="pwd" placeholder="密码" style="margin-top: 20px;"></p>
-					<p><input type="password" name="repwd" placeholder="确认密码"></p>
-					<input type="submit" name="submit" value="立即注册">
+					</div>
+					<div>
+						<label class="ta-right fl wid-90 lh-46">图形验证码：</label>
+						<input class="layui-input code" type="text" name="imgcode" placeholder="图片验证码" style="float: left;" lay-verify="imgcode">
+						<img src="{:Url('Register/verify')}" class="fl wid-120" style="margin: 3px 0 0 5px;" onclick="this.src='{:Url('Register/verify')}?r='+Math.random()">
+						<p class="cb"></p>
+					</div>
+					<div>
+						<label class="ta-right fl wid-90 lh-46">密码：</label>
+						<input class="layui-input" type="password" name="password"  lay-verify="password" placeholder="密码" autocomplete="off">
+					</div>
+					<div>
+						<label class="ta-right fl wid-90 lh-46">确认密码：</label>
+						<input class="layui-input" type="password" name="repass"  placeholder="确认密码" lay-verify="repass" autocomplete="off">
+					</div>
+					<button lay-filter="reg" lay-submit="" class="layui-btn regbtn">立即注册</button>
 				</form>
 			</div>
 		
@@ -49,16 +64,85 @@
 	{include file="../application/front/view/common/footer.html"}
 	<!-- end -->
 
-	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	<script src="/bookstore/public/front/AmazeUI/assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/bookstore/public/xhh-admin/lib/layui/layui.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/bookstore/public/xhh-admin/js/xadmin.js"></script>
 	<script type="text/javascript">
-		$('#tellcode-btn').click(function()
+		layui.use(['form','layer'], function(){
+			$ = layui.jquery;
+			var form = layui.form
+			,layer = layui.layer;
+
+          	//自定义验证规则
+          	form.verify({
+          		account: function(value){
+          			if(value == ""){
+          				return '账号不能为空';
+          			}
+          		}
+          		,phone: function(value){
+          			if(value == ""){
+          				return '手机号码不能为空';
+          			}
+          		}
+          		,smscode: function(value){
+          			if(value == ""){
+          				return '请填写手机验证码';
+          			}
+          		}
+          		,imgcode: function(value){
+          			if(value == ""){
+          				return '请填写图形验证码';
+          			}
+          		}
+          		,password: [/(.+){6,12}$/, '密码必须6到12位']
+          		,repass: function(value){
+          			if($('#L_pass').val()!=$('#L_repass').val()){
+          				return '两次密码不一致';
+          			}
+          		}
+          	});
+       
+          	//监听提交
+          	form.on('submit(reg)', function(data){
+          		console.log(data);
+            	//发异步，把数据提交给php
+            	$.ajax({
+            		async: false,
+            		type: "POST",
+            		url:'{:Url('Register/save')}',
+            		contentType : "application/x-www-form-urlencoded; charset=utf-8",
+            		data:$("#reg-form").serialize(),
+            		dataType: "text",
+            		success: function () {
+            			showMsg("添加成功");
+            		},
+            		error: function () {
+            			showMsg("添加失败");
+            		}
+            	})
+            	return false;
+        	});
+      	});
+
+		function showMsg(msg) {
+			layer.alert(msg, {icon: 6},function () {
+              // 获得frame索引
+              var index = parent.layer.getFrameIndex(window.name);
+              //关闭当前frame
+              parent.layer.close(index);
+          });
+		}
+	</script>
+	<script type="text/javascript">
+		$('#telecode-btn').click(function()
 		{
-			var tell = $('#tell').val();//document.getElenmentById('tell').value
-			$.post('/index/reg/sendSms',{'tell':tell},function(ret){
+			var tele = $('#phone').val();//document.getElenmentById('tell').value
+			$.post('{:Url('Register/sendSms')}',{'tele':tele},function(ret){
 				// alert(ret);
 				if(ret.status == true)
 				{
-					alert('ok');//倒计时60s
+					alert('发送成功，请注意查收');//倒计时60s
 				}
 			},'json');
 		});

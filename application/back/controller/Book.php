@@ -13,14 +13,15 @@
 		
 		public function index() {
 			$list = BookModel::where(['isdelete' => 0])->paginate(5);
-
 			// $list = Db::table('book')->alias('a')->join('category b','a.categoryId = b.categoryId')
 			// 		  ->paginate(5);
+			$catelist = CategoryModel::select();
 			$num 	= count($list);
 			$option = array(array('title' => '上架', 'icon' => '&#xe62f;'), array('title' => '下架', 'icon' => '&#xe601;'));
 
 			$this->assign('option', $option);
 			$this->assign('list', $list);
+			$this->assign('catelist', $catelist);
 			$this->assign('num', $num);
 
 			return $this->fetch();
@@ -32,7 +33,9 @@
 
 		public function edit($bookId){
 			$info = BookModel::get($bookId)->toarray();
+			$catelist = CategoryModel::select();			
 			$this->assign('info',$info);
+			$this->assign('catelist', $catelist);			
 
 			return $this->fetch();
 		}
@@ -56,11 +59,9 @@
 			$model->soldNum = $data['soldNum'];
 			$model->stockNum = $data['stockNum'];
 			$model->price = $data['price'];
-			// if( $data['press'] == ""){
-			// 	$model->press = $data['cover'];
-			// }else{
-			// 	$model->press = $data['press'];
-			// }
+			$model->press = $data['press'];
+			$model->categoryId = $data['categoryId'];
+			
 			$model->save();
 		}
 
@@ -69,11 +70,7 @@
 			$model = new BookModel($data);
 
 			//保存到数据库
-			$ret = $model->save();
-			if($ret==false){
-				$this->error("失败");
-			}
-			$this->success("成功");
+			$model->allowField(true)->save();		
 		}
 
 		public function setStatus($bookId) {

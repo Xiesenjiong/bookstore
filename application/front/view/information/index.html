@@ -21,10 +21,10 @@
 			<!-- 左侧菜单栏 -->
 			{include file="../application/front/view/common/orderlmenu.html"}
 			<!-- end -->
-			<div class="information-box">
+			<div class="information-box fz-14">
 				<ul>
 					<li class="information-box-top">
-						<div class="my-info pb-20" style="padding-bottom: 20px; width: 951px; height: 66px;">
+						<div class="my-info" style="width: 951px; height: 66px;">
 							<h3 class="p">我的信息</h3>
 						</div>
 						<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -34,11 +34,11 @@
 										<img class="va-md" src="https://bnmpstyle.bookuu.com/wap/images/default_user.jpg" alt="" width="150" height="150">
 									</td>
 									<td width="190">
-										<p>欢迎，13538646590！</p>
+										<p>欢迎，{$Think.session.account}！</p>
 									</td>
 									<td width="468">&nbsp;</td>
 									<td class="ta-rt">
-										<a class="cl-bl" href="{:Url('Set/set')}" style="color: #2db4ea;">[编辑个人信息]</a>
+										<a class="cl-bl" href="{:Url('Setinfo/index')}" style="color: #2db4ea;">[编辑个人信息]</a>
 									</td>
 								</tr>
 								<tr>
@@ -71,6 +71,7 @@
 
 			</div>
 		</div>	
+	</div>
 	<!-- 尾部 -->
 	{include file="../application/front/view/common/footer.html"}
 	<!-- end -->
