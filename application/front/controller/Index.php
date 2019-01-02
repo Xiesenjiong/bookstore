@@ -8,7 +8,7 @@
 	class Index extends Controller {
 		
 		public function Index() {
-			$list = BookModel::where(['isdelete'=>0])->paginate(6);
+			$list = BookModel::where(['status' => 1, 'isdelete' => 0])->paginate(6);
 			$this->assign('list', $list);			
 			return $this->fetch();
 		}
