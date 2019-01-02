@@ -11,6 +11,5 @@
     	protected $table = 'address';
     	// // 自动写入时间戳字段
     	// protected $autoWriteTimestamp = true;
-
 	}
  ?>

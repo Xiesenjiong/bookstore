@@ -31,7 +31,9 @@
 			<i class="fas fa-shopping-cart"></i>
 			<div class="p3">购物车还是空的</div>
 			<div class="bottom">
+				{eq name="Think.session.customerId" value=""}
 				<a href="{:Url('Login/index')}" class="button1">登录</a>
+				{/eq}
 				<a href="{:Url('Index/index')}" class="button2">继续逛</a>
 			</div>
 		</div>

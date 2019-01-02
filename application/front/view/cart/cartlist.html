@@ -1,50 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title购物车界面</title>
+	<title>购物车界面</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="/xhh/css/css.css">
-	<link rel="stylesheet" type="text/css" href="/xhh/fontawesome/css/all.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/xhhindex.css">
+	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
 </head>
 <body>
-	<header class="header">
-		<div class="top ma wid-1200">
-			<p class="fl pclear cl-6">
-				<span>
-					<a target="_self">登录</a>
-					<span class="line">|</span>
-					<a target="_self">免费注册</a>
-				</span>
-			</p>
-			<p class="fr pclear cl-6">
-				<span>
-					<span class="line">|</span>				
-					<a target="_self">收藏夹</a>
-					<span class="line">|</span>
-					<a target="_self">店铺管理</a>
-					<span class="line">|</span>
-					<a target="_self">联系客服</a>
-				</span>
-			</p>
-			<div class="fr myhh">
-				<label class="cp cl-6">我的幌疏</label>
-				<i class="fas fa-angle-down cp cl-9"></i>
-				<div class="hhbox">
-					<a class="cl-6" target="_blank" href="">我的幌疏</a>
-					<a class="cl-6" target="_blank" href="/xhhindex/order/index">我的订单</a>
-					<a class="cl-6" target="_blank" href="">我的优惠券</a>
-					<a class="cl-6" target="_blank" href="">我的收藏</a>
-					<a class="cl-6" target="_blank" href="">我的收入</a>
-					<a class="cl-6" target="_blank" href="">官方消息</a>
-				</div>
+	<!-- 顶部 -->
+	{include file="../application/front/view/common/header.html"}
+	<!-- end -->
+	<div class="header-box bc-f">
+		<div class= "logo-box">
+			<div class="logo-box-f1">
+				<a href="{:Url('Index/index')}"><img src="/bookstore/public/front/images/xhslogo.jpg"></a>
 			</div>
 		</div>
-	</header>
-	<div class="header-box">
-		<div class= "logo-box">
-
-			<div class="logo-box-f1"></div>
-		</div>
+		<p class="clear"></p>
 	</div>
 	<div class="center-box">
 		<div class="center-box-f1">
@@ -55,7 +29,7 @@
 		</div>
 
 		<table width="100%" class="total-box tablecart" style="border-collapse: collapse;width: 1200px;margin: 0 auto;">
-			<thead class="thead-1" >
+			<thead class="thead-1 fz-14" >
 				<tr>
 					<td align="center" width="40" class="pr fs-15">
 						<input type="checkbox" style="cursor:pointer" class="choose choose-total choose-total product pafull-box op-0">
@@ -70,15 +44,13 @@
 				</tr>
 			</thead>
 		</table>
-
-
-		<table  class="choose-container ta-lf tablecart">
+		<table  class="choose-container ta-lf tablecart fz-14">
 			<tbody class="choose-box">
-				<tr class="lh-50 ht-50 fs-16 ">
+				<tr class="lh-50 ht-50 fz-14 ">
 					<td align="center" width="40" class="pr fs-15">
 						<input type="checkbox" style="cursor:pointer" class="choose choose-all product pafull-box zi-1 op-0">
 					</td>
-					<td colspan="7" align="left" ">自营&nbsp;&nbsp;运费：<span name="postageinfo" data-poatage="59" data-poatagerule="5">5.00</span></td>
+					<td colspan="7" align="left">自营&nbsp;&nbsp;运费：<span name="postageinfo" data-poatage="59" data-poatagerule="5">5.00</span></td>
 				</tr>
 				<tr id="ssid_1">
 					<td colspan="8" class="fs-16 lh-50 pd-0010">图书仓</td>
@@ -93,7 +65,7 @@
 								<li class="wd-450 ht-100 fl">
 									<div class="fl wd-100 pr">
 										<a class="db square-box one-one bgimg lazyload hidden" href="">
-											<img src="/xhh/images/4.jpg" width="100px">
+											<img src="/bookstore/public/front/images/30045400.jpg" width="100px">
 										</a>
 									</div>
 									<div class="fr wd-300 ">
@@ -103,22 +75,20 @@
 								</li>
 								<li class="ta-ct wd-160 fl lh-30">
 									<del class="cl-9 mt-10">¥56.00</del>
-									<p class="fs-16">¥<span class="money">39.90</span></p>
-									<!-- <label class="cl-bl-l bd-1-bl-d bc-bl-l pd-0208 br-2">卖家促销<span class="icon-down-line ml-5 fs-13">&#xe91e;</span></label> -->
+									<p class="fz-16">¥<span class="money">39.90</span></p>					
 								</li>
-								<li class="ta-ct wd-120 fl">
+								<li class="ta-ct wd-140 fl">
 									<div class="count-box mt-35">
-										<div class="count-sub fl cl-c" data-price="39.90" data-id="100000815" onclick="Sub(this);">-</div>
-										<input class="text fl number-box" type="tel" data-id="100000815" data-count="1038" data-max="1038" value="1" onkeyup="input_Change(this);">
-										<div class="count-add fr" data-price="39.90" data-id="100000815" onclick="Add(this);">+</div>
+										<div class="fl cl-c count-sub fz-25" onclick="MycountSub(this);">-</div>
+										<input type="tel" name="" class="count-text fl cl-c" value="1">
+										<div class="fl cl-c count-add fz-25 mr-20" onclick="MycountAdd(this);">+</div>
 									</div>
 								</li>
 								<li>
 								</li>
 								<li class="fs-16  cl-rd ta-ct wd-200 fl mt-35">¥<span>39.90</span></li>
-								<li class="fs-16 wd-120 fl">
-									<p style="cursor:pointer" class=" mt-35" onclick="in_collect(this)" data-id="100000815">移入收藏夹</p>
-									<span class="cl-bl-l cp" >删除</span>
+								<li class="fs-16 wd-120 fl mt-35">									
+									<span class="cl-bl-l cp">删除</span>
 								</li>
 								<div class="cb"></div>
 							</ul>
@@ -129,8 +99,8 @@
 		</table>
 
 
-		<table width="100%" class="total-box tablecart" style="border-collapse: collapse;width: 1200px;margin: 0 auto; margin-top: 10px;">
-			<tfoot >
+		<table width="100%" class="total-box tablecart fz-14" style="border-collapse: collapse;width: 1200px;margin: 0 auto; margin-top: 10px;">
+			<tfoot>
 				<tr>
 					<td align="center" width="40" class="pr fs-15">
 						<input type="checkbox" style="cursor:pointer" class="choose choose-total product pafull-box op-0">
@@ -145,58 +115,15 @@
 						<p style="color: #666;padding: 0 30px;">商品合计 ¥<span class="money-box withpostage">0.00</span><span class="pd-0015">邮费：¥<span class="postage">0.00</span></span><!--您已从本次购买中<span class=" cl-21">节省了<span class="economize_num">0</span>元</span>--></p>
 					</td>
 					<td align="center">
-						<a href="" id="">去结算</a>
+						<a href="{:Url('Pay/index')}" id="">去结算</a>
 					</td>
 				</tr>
 			</tfoot>
 		</table>
-
-
 	</div>
-	<div class="footer">
-		<div class="tag">
-			<ul class="clearfix">
-				<li class="cl-4 lh-25 pd-0500 wd-25p fl">
-					<img src="/xhh/images/zheng.png" width="50" height="50" class="fl mr-10 defaultlazy" />
-					<div class="fl">
-						<p class="fs-24 ">全场正品</p>
-						<p>出版社直采·博库正品</p>
-					</div>
-					<div class="cb"></div>
-				</li>
-				<li class="cl-4 lh-25 pd-0500 wd-25p fl">
-					<img src="/xhh/images/sheng.png" alt="" width="50" height="50" class="fl mr-10 defaultlazy" />
-					<div class="fl">
-						<p class="fs-24 ">全场满59包邮</p>
-						<p>惊喜不断·让利多多</p>
-					</div>
-					<div class="cb"></div>
-				</li>
-				<li class="cl-4 lh-25 pd-0500 wd-25p fl">
-					<img src="/xhh/images/huo.png" alt="" width="50" height="50" class="fl mr-10 defaultlazy" />
-					<div class="fl">
-						<p class="fs-24 ">门店自取</p>
-						<p>就近取货·方式灵活</p>
-					</div>
-					<div class="cb"></div>
-				</li>
-				<li class="cl-4 lh-25 pd-0500 wd-25p fl">
-					<img src="/xhh/images/you.png" alt="" width="50" height="50" class="fl mr-10 defaultlazy" />
-					<div class="fl">
-						<p class="fs-24 ">售后无忧</p>
-						<p>服务体验·更加精彩</p>
-					</div>
-					<div class="cb"></div>
-				</li>
-			</ul>
-		</div>
-		<div class="copyright">
-			<div class="box1" style="width: 100%;">
-				<div class="box2">
-					<p>©2018 版权所有</p>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- 尾部 -->
+	{include file="../application/front/view/common/footer.html"}
+	<!-- end -->
+
 </body>
 </html>

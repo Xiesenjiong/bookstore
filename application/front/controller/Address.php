@@ -1,11 +1,12 @@
 <?php 
 	namespace app\front\controller;
 	use think\Controller;
+	use think\Request;
 	use think\Session;
 	use app\front\model\Address as AddressModel;
 
 	/**
-	 * 
+	 * 收货地址
 	 */
 	class Address extends Controller {
 				
@@ -17,27 +18,31 @@
 			return $this->fetch();
 		}
 
-		public function edit($addressId) {
-			$info = AddressModel::get($addressId)->toarray();
-			// dump($info);
-
-			$this->assign('info', $info);
+		public function add(){
 			return $this->fetch();
 		}
 
-		public function add() {
-			$data = Request::instance()->post();
-			$model = new AddressModel($data);
-			$model->customerId = Session::get('customerId');
-
-			//保存到数据库
-			$model->allowField(true)->save();
+		public function edit($addressId){
+			$info = AddressModel::get($addressId)->toarray();
+			$this->assign('info', $info);
+			
+			return $this->fetch();
 		}
 
-		public function save($addressId) {
+		public function update(){
 			$data = Request::instance()->post();
-			// dump($data);
+			$model = AddressModel::get($data['addressId']);			
+			$model->name = $data['name'];
+			$model->phone = $data['phone'];
+			$model->address = $data['address'];
+			$model->zipCode = $data['zipCode'];
+			$model->save();
+		}
+
+		public function save(){
+			$data = Request::instance()->post();			
 			$model = new AddressModel($data);
+      $model->customerId = Session::get('customerId');
 
 			//保存到数据库
 			$model->allowField(true)->save();
