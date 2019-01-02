@@ -367,6 +367,21 @@
 	padding: 0 15px;
 	height: 325px;
 }
+.box-img{
+	display: none;
+}
+.rank a{
+	color: #333;
+}
+.rank a:hover{
+	color: #333;
+}
+.rank:hover{
+	line-height: 100px;
+}
+.rank:hover .box-img{
+	display: block;
+}
 /*人气作家栏*/
 .popular-writer{
 	border-bottom: 2px solid #5babbb;
