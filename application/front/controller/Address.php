@@ -9,11 +9,12 @@
 	 * 收货地址
 	 */
 	class Address extends Controller {
-		
+				
 		public function index() {
 			$customerId = Session::get('customerId');
-			$list = AddressModel::where(['customerId' => $customerId])->select();
-			$this->assign('list',$list);
+			$list = AddressModel::all(['customerId' => $customerId]);
+
+			$this->assign('list', $list);
 			return $this->fetch();
 		}
 
@@ -39,12 +40,17 @@
 		}
 
 		public function save(){
-			$customerId = Session::get('customerId');
 			$data = Request::instance()->post();			
 			$model = new AddressModel($data);
+      $model->customerId = Session::get('customerId');
 
 			//保存到数据库
 			$model->allowField(true)->save();
+		}
+
+		public function delete($addressId) {
+			$model = AddressModel::get($addressId);
+			$model->delete();
 		}
 	}
  ?>
