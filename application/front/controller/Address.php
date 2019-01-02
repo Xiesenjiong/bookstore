@@ -25,6 +25,12 @@
 			return $this->fetch();
 		}
 
+		public function add() {
+			$data = Request::instance()->post();
+			$model = new AddressModel($data);
+			$model->customerId = Session::get('customerId');
+		}
+
 		public function save($addressId) {
 			$data = Request::instance()->post();
 			// dump($data);
