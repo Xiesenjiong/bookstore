@@ -249,7 +249,30 @@ body.login{background: url("/xhh/images/3.jpg") no-repeat center top;}
     zoom: 1;
 }
 
+/***************************************pay.v.php**********************************/
+.fold-box {
+    overflow: hidden;
+    background-color: #fff;
+    position: relative;
+}
+.fold-box .fold-content {
+    overflow: hidden;
+}
+.mh-160 {
+    max-height: 160px;
+}
 
+.to-hd {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.border-patch {
+    width: 1198px;
+    position: relative;
+    border: 1px #e8e8e8 solid;
+    border-width: 1px 0 1px 0;
+}
 /***************************************footer.v.php**********************************/
 
 .footer{border-top: 1px #e1e1e1 solid; background-color: #fff;}

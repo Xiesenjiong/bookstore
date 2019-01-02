@@ -16,16 +16,22 @@ ul li{list-style: none;}
 .cl-3a{color: #3ab5e6;}
 .cl-ea{color: #ea5863;}
 .cl-e4{color: #e4393c;}
+.cl-bl-l{color: #2db4ea;}
 .bc-f3{background-color: #f3f3f3}
 .bc-f5{background-color: #f5f5f5}
 .bc-e5{background-color: #e5e5e5;}
 .bc-f{background-color: #fff;}
 .bc-63{background-color: #63c5e5;}
+.bc-db{background-color: #dbdbdb;}
+.bc-rd{background-color: #de1616}
 .hei-400{height: 400px;}
 .hei-36{height: 36px;}
+.hei-40{height: 40px;}
 .hei-50{height: 50px;}
+.hei-60{height: 60px;}
 .hei-93{height: 93px;}
 .hei-100{height: 100px;}
+.hei-140{height: 140px;}
 .hei-183{height: 183px;}
 .ma{margin: 0 auto;}
 .wid-25p{width: 25%;}
@@ -36,7 +42,13 @@ ul li{list-style: none;}
 .wid-90{width: 90px;}
 .wid-100{width: 100px;}
 .wid-120{width: 120px;}
+.wid-150{width: 150px;}
+.wid-160{width: 160px;}
+.wid-550{width: 550px;}
+.wid-1180{width: 1180px;}
+.wid-200{width: 200px;}
 .wid-220{width: 220px;}
+.wid-260{width: 260px;}
 .wid-390{width: 390px;}
 .wid-430{width: 430px;}
 .wid-480{width: 480px;}
@@ -51,13 +63,18 @@ ul li{list-style: none;}
 .fz-14{font-size: 14px;}
 .fz-16{font-size: 16px;}
 .fz-18{font-size: 18px;}
+.fz-20{font-size: 20px;}
 .fz-21{font-size: 21px;}
 .fz-25{font-size: 25px;}
 .fz-28{font-size: 28px;}
+.fz-28{font-size: 28px;}
+.fz-46{font-size: 46px;}
 .lh-18{line-height: 18px;}
 .lh-28{line-height: 28px;}
 .lh-30{line-height: 30px;}
+.lh-35{line-height: 35px;}
 .lh-40{line-height: 40px;}
+.lh-45{line-height: 45px;}
 .lh-50{line-height: 50px;}
 .lh-60{line-height: 60px;}
 .lh-46{line-height: 46px;}
@@ -70,6 +87,7 @@ ul li{list-style: none;}
 .mr-10{margin-right: 10px;}
 .mr-15{margin-right: 15px;}
 .mr-20{margin-right: 20px;}
+.mr-30{margin-right: 30px;}
 .mt-5{margin-top: 5px;}
 .mt-10{margin-top: 10px;}
 .mt-20{margin-top: 20px;}
@@ -79,8 +97,12 @@ ul li{list-style: none;}
 .pd-15{padding: 15px;}
 .pr-15{padding-right: 15px;}
 .pd-0015{padding: 0 15px;}
+.pd-0010{padding: 0 10px;}
 .pd-0020{padding: 0 20px;}
+.pd-0204{padding: 2px 4px;}
 .pd-3040{padding: 30px 40px;}
+.pd-0500{padding: 5px 0;}
+.pd-1530{padding: 15px 30px;}
 .fw-bold{font-weight: bold}
 .ta-left{text-align: left;}
 .ta-center{text-align: center;}
@@ -93,6 +115,10 @@ ul li{list-style: none;}
 .pr{position: relative;}
 .bd-1-f5{border: 1px solid #f5f5f5;}
 .bt-1-f5{border: 1px solid #f5f5f5;}
+.bb-1-e8{border-bottom: 1px solid #e8e8e8;}
+.bt-1-e8{border-top: 1px solid #e8e8e8;}
+.mh-160{max-height: 160px;}
 .bgimg{background-position: center center; background-size: contain; background-repeat: no-repeat;background-size: 100%;}
 .visible{transition: all 0.3s}
 .visible:hover{transform: scale(1.1,1.1);opacity: 1;}
+.to-hd {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
