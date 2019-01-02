@@ -12,7 +12,7 @@
 	class Book extends Controller {
 		
 		public function index() {
-			$list = BookModel::where(['isdelete' => 0])->paginate(5);
+			$list = BookModel::where(['isdelete' => 0])->paginate(10);
 			// $list = Db::table('book')->alias('a')->join('category b','a.categoryId = b.categoryId')
 			// 		  ->paginate(5);
 			$catelist = CategoryModel::select();
@@ -28,12 +28,15 @@
 		}
 
 		public function add(){
+			$catelist = CategoryModel::select();
+			$this->assign('catelist', $catelist);		
+
 			return $this->fetch();
 		}
 
 		public function edit($bookId){
 			$info = BookModel::get($bookId)->toarray();
-			$catelist = CategoryModel::select();			
+			$catelist = CategoryModel::select();		
 			$this->assign('info',$info);
 			$this->assign('catelist', $catelist);			
 

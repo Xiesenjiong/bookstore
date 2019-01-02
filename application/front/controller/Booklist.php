@@ -8,9 +8,11 @@
 
 	class Booklist extends Controller {
 		
-		public function index() {			
-			$list = BookModel::where(['isdelete' => 0])->select();
+		public function index($categoryId) {
+			$list = BookModel::where(['isdelete' => 0, 'categoryId' => $categoryId])->select();
+			$catename = CategoryModel::where(['categoryId' => $categoryId])->value('cateName');
 			$this->assign('list',$list);
+			$this->assign('catename',$catename);
 			return $this->fetch();
 		}
 	}
