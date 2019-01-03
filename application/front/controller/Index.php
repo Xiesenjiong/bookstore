@@ -20,7 +20,7 @@
 			$k = 0;
 			if (strlen($tmp)>0)
 			{
-				for($i=0;$i<31;$i++){
+				for($i = 0;$i<31;$i++){
 					if(strpos($provinces[$i],$tmp)!==false){
        					//传递值给val
 						$val[$k]=$provinces[$i];
