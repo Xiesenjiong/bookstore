@@ -29,23 +29,7 @@
                 <!--已有地址-->
                 <div class="fold-content mh-160">
                     <div class="lh-30 fz-14">
-                        <ul class="tab-title tab-order" id="address_choice_list">
-                            <li class="wid-260 pd-0010 hei-140 mt-10 fl mr-15 on-tab delete-box" style="border: 2px #2db4ea solid;">
-                                <p class="lh-30 bb-1-e8 to-hd">
-                                    <span class="fz-12 cl-f bc-db mr-5 pd-0204">默认地址</span>
-                                    北京 北京市（吴鹏飞 收）
-                                </p>
-                                <div class="pd-0500 lh-20">
-                                    <p class="to-hd">北京 北京市 东城区</p>
-                                    <p class="to-hd">121</p>
-                                    <p class="to-hd">13538646590</p>
-                                </div>
-                                <p>
-                                    <span class="mr-20 add-address">修改</span>
-                                    <span class="cp">删除</span>
-                                </p>
-                                <div class="patch2"></div>
-                            </li>
+                        <ul class="tab-title tab-order" id="address_choice_list">                           
 
                             {volist name="address" id="vo"}
                             <li class="wid-260 pd-0010 hei-140 mt-10 fl mr-15 on-tab delete-box" style="border: 2px #2db4ea solid;">
@@ -133,7 +117,7 @@
             <table width="100%">
                 <tr>
                     <td width="1007">商品应付总计：</td>
-                    <td width="130">¥{$book['price']}</td>
+                    <td width="130">¥{$book['price']}.00</td>
                 </tr>
                 <tr>
                     <td class="pr">
@@ -147,13 +131,15 @@
                 </tr>
                 <tr>
                     <td>应付金额：</td>
-                    <td width="130" class="cl-rd-l fz-18 pay_money">¥{$book['price']}</td>
+                    <td width="130" class="cl-rd-l fz-18 pay_money">¥{$book['price']}.00</td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <div class="mt-30 ht-50 lh-50">
                             <a class="cl-bl-l mr-30" href="{:Url('Cart/cartlist')}">返回购物车修改</a>
-                            <span id="order_submit" class="cp fz-18 cl-f bc-rd pd-1530" onclick="">提交订单</span>
+                            <a href="{:Url('Pay/choosepay')}?price={$book['price']}">
+                                <span id="order_submit" class="cp fz-18 cl-f bc-rd pd-1530">提交订单</span>
+                            </a>
                         </div>
                     </td>
                 </tr>
