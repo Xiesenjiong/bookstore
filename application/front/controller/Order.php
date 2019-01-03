@@ -68,6 +68,7 @@
 			$item->orderId = $model->orderId;
 			$item->bookId = $book->bookId;
 			$item->booktitle = $book->title;
+			$item->bookpress = $book->press;
 			$item->bookPrice = $book->price;
 			$item->num = $num;
 			$item->bookId = $book->price * $num;

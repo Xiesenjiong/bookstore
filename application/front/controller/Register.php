@@ -1,9 +1,9 @@
 <?php 
 	namespace app\front\controller;
 	use think\Controller;
-	use think\captcha\Captcha;
 	use think\Request;
 	use think\Session;
+	use org\Verify;
 	use app\front\model\Customer as CustomerModel;
 
 	class Register extends Controller {
@@ -13,23 +13,13 @@
 		}
 
 		public function verify() {
-			// $captcha = new Captcha();
-			// $captcha->imageH = 32;
-			// $captcha->imageW = 100;
-			// $captcha->length = 4;
-			// $captcha->useNoise = false;
-			// $captcha->fontSize = 14;
-			// return $captcha->entry();
-			$config =    [
-    		// 验证码字体大小
-				'fontSize'    =>    30,    
-    		// 验证码位数
-				'length'      =>    3,   
-    		// 关闭验证码杂点
-				'useNoise'    =>    false, 
-			];
-			$captcha = new Captcha($config);
-			return $captcha->entry();			
+			$verify = new Verify();
+	        $verify->imageH = 32;
+	        $verify->imageW = 100;
+	        $verify->length = 4;
+	        $verify->useNoise = false;
+	        $verify->fontSize = 14;
+	        return $verify->entry();			
 		}
 
 		public function sendSms()
