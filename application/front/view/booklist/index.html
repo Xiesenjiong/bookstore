@@ -30,13 +30,13 @@
 						{volist name="list" id="vo"}
 						<li class="scale-box fl ma mt-10">
 							<div class="box">
-								<div class="box-img visible">
+								<div class="box-img visible" style="display: block;">
 									<a href="{:Url('Goods/index')}?bookId={$vo.bookId}">
 										<p class="ta-center"><img src="{$vo.press}"></p>
 									</a>
 								</div>
 								<div class="box-text ta-center">
-									<a href="" class="lh-18 cl-6 fz-14 oh">{$vo.title}</a>
+									<a href="{:Url('Goods/index')}?bookId={$vo.bookId}" class="lh-18 cl-6 fz-14 oh">{$vo.title}</a>
 									<div class="ta-center">
 										<span class="cl-e4 fz-16">￥{$vo.price}.00</span>
 										<span class="cl-9">|</span>

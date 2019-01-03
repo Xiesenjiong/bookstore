@@ -1,5 +1,5 @@
 <?php 
-	namespace app\back\model\Order;
+	namespace app\back\model;
 	use think\Model;
 
 	/**

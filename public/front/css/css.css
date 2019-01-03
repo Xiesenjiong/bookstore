@@ -4,7 +4,6 @@
 body{word-wrap:break-word;word-break: break-all;}
 a{text-decoration: none;cursor: pointer;}
 a:hover{color: #3ab5e6;}
-ul li{list-style:none; }
 .cp{cursor: pointer;}
 .pclear{margin: 0;}
 .cl-6{color: #666;}
@@ -30,7 +29,6 @@ ul li{list-style:none; }
 .lh-30 {line-height: 30px;}
 .lh-28 {line-height: 28px;}
 .lh-20 {line-height: 20px;}
-.lh-40 {line-height: 40px;}
 .fs-16 {font-size: 16px;}
 .fs-18 {font-size: 18px;}
 .fs-12 {font-size: 12px;}
@@ -51,7 +49,6 @@ ul li{list-style:none; }
 .pt-18 {padding-top: 18px;}
 .fs-15 {font-size: 15px;}
 .pr {position: relative;}
-.bb-1-e8 {border-bottom: 1px #e8e8e8 solid;}
 .wd-1200 {width: 1200px;}
 .wd-120{width: 120px;}
 .wd-80 {width: 80px;}
@@ -177,7 +174,6 @@ body.login{background: url("/xhh/images/3.jpg") no-repeat center top;}
 /***************************************address.v.php**********************************/
 .personal-list-item {width: 951px;padding-left: 18px; padding-right: 19px;padding-top: 16px;}
 .address-info {position: relative;}
-.bb-1-e8 {border-bottom: 1px #e8e8e8 solid;}
 .mb-20 { margin-bottom: 20px;}
 .list-item-title { font-size: 18px;font-weight: normal;line-height: 2.5;}
 .fs-14 {font-size: 14px;}
@@ -266,12 +262,6 @@ body.login{background: url("/xhh/images/3.jpg") no-repeat center top;}
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
-.border-patch {
-    width: 1198px;
-    position: relative;
-    border: 1px #e8e8e8 solid;
-    border-width: 1px 0 1px 0;
 }
 /***************************************footer.v.php**********************************/
 
