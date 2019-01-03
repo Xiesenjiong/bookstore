@@ -26,7 +26,7 @@
 			<!-- end -->
 
 			<div class="personal-list-item ml-10 bd-1-e8 fl fz-14">
-				{eq name="Think.session.addressId" value=""}
+				{eq name="num" value="0"}
 				<div class="address-info mb-20" style="height: 467px;">
 					<div class="address-none ta-center">
 						<div class="address-none-cont">
@@ -45,7 +45,7 @@
 							<div class="address-info-address">
 								<div class="">
 									<h3 class="list-item-title fl">已保存收货地址<span class="fs-14 cl-9">
-									(地址最多50条，还能保存49条)</span></h3>
+									(地址最多50条，还能保存48条)</span></h3>
 									<div class="fr pt-6"><a class="new-address cl-bl-l" data-count="" title="新建地址" onclick="x_admin_show('新增地址','{:Url('Address/add')}',500,450)" href="javascript:;">+新建地址</a></div>
 									<div class="cb"></div>
 								</div>
@@ -73,7 +73,7 @@
 											<td class="item">
 												<a class="edit-address cl-bl-l" data-id="838439" title="编辑" onclick="x_admin_show('编辑地址','{:Url('Address/edit')}?addressId={$vo.addressId}',500,450)" href="javascript:;">编辑</a>
 												&nbsp;&nbsp;
-												<a class="del-address cl-bl-l" href="javascript:void(0);" data-id="838439" title="删除">删除</a>
+												<a class="del-address cl-bl-l" onclick="delete(this, {$vo.addressId})"  href="javascript:;" data-id="838439" title="删除">删除</a>
 											</td>											
 										</tr>
 										{/volist}										
@@ -96,6 +96,22 @@
 	</div>
 	<!-- 尾部 -->
 	{include file="../application/front/view/common/footer.html"}
+	<script>
+		/*地址-删除*/
+      function delete(id) {
+          layer.confirm('确认要删除吗？',function(index){
+              //发异步删除数据
+              $.post(
+                  "{:Url('Address/delete')}",
+                  {addressId:id},
+                  function(){
+                     $(obj).parents("tr").remove();
+                      layer.msg('已删除!', {icon:1, time:1000});
+                  }
+              );
+          });
+      }
+	</script>
 	<!-- end -->
 
 </body>

@@ -30,8 +30,8 @@
 			$bookId = Request::instance()->post('bookId');
 			$book = BookModel::get($bookId);
 			// dump($book);
-			// $customerId = Session::get('customerId');
-			$customerId = 1;
+			$customerId = Session::get('customerId');
+			// $customerId = 1;
 			$cart = CartModel::get(['customerId' => $customerId, 'bookId' => $bookId, 'orderId' => 0]);
 			if ($cart) {
 				$cart->num++;

@@ -13,7 +13,9 @@
 		public function index() {
 			$customerId = Session::get('customerId');
 			$list = AddressModel::all(['customerId' => $customerId]);
+			$num = count($list);
 
+			$this->assign('num', $num);
 			$this->assign('list', $list);
 			return $this->fetch();
 		}
