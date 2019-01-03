@@ -30,7 +30,6 @@
 					<div class="bigpic oh pr bd-1-f5">
 						<div>
 							<p class="ta-center"><img height="430" src="{$info['press']}"></p>
-							<input type="hidden" name="bookId" id="bookId" value="{$info['bookId']}">		
 						</div>
 					</div>
 					<div class="smpic bd-1-f5 oh mt-20">
@@ -86,10 +85,11 @@
 										<td class="cl-3 fz-14">
 											<div class="fl mr-20 count-box">
 												<div class="fl cl-c fz-25 count_sub" id="count_sub">-</div>
-												<input class="text fl count_text" type="tel" value="1" id="count_text" onchange="setVal()">
+												<input class="text fl count_text" type="tel" name="num" value="1" id="count_text" onchange="setVal()">
 												<div class="fl cl-c fz-25 mr-20 count_add" id="count_add">+</div>
 												<span class="cl-9">库存：{$info['stockNum']}</span>
 												<input type="hidden" id="goods-store" value="{$info['stockNum']}">
+												<input type="hidden" name="bookId" id="bookId" value="{$info['bookId']}">
 											</div>
 										</td>
 									</tr>
@@ -304,7 +304,6 @@
 	/*加入购物车传值*/
 	function addToCart(bookId){
 		num = count_text.value;
-		count_text.value
 		//发异步删除数据
         $.post(
           "{:Url('Cart/addToCart')}",
@@ -314,20 +313,6 @@
           	  alert('已添加!');
           }
         );
-		// $.ajax({
-		// 	async: false,
-		// 	type : 'POST',
-		// 	url : '{:Url('Cart/addToCart')}',
-		// 	contentType : false,
-		// 	date : {bookId : bookId},
-		// 	dataType: "json",
-		// 	success: function () {
-  //               alert("成功加入购物车");
-  //             },
-  //           error: function () {
-  //               alert("加入购物车失败");
-  //             }
-		// });
 	}
     </script>
 </body>

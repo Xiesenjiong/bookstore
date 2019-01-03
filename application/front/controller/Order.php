@@ -81,8 +81,8 @@
 			$model->price = $book->price * $num;
 			$model->actualPrice = $book->price * $num;
 			//保存订单到数据库
-			// $model->save();
-			dump($model);
+			$model->save();
+			// dump($model);
 
 			$item = new CartModel;
 			$item->customerId = Session::get('customerId');
@@ -90,12 +90,20 @@
 			$item->bookId = $book->bookId;
 			$item->booktitle = $book->title;
 			$item->bookpress = $book->press;
-			$item->bookPrice = $book->price;
+			$item->bookprice = $book->price;
 			$item->num = $num;
-			$item->bookId = $book->price * $num;
+			$item->price = $book->price * $num;
 			//保存订单项目到数据库
-			// $item->save();
-			dump($item);
+			$item->save();
+			// dump($item);
+			
+			return $model->orderId;
+		}
+
+		public function orderState($orderId, $state) {
+			$order = OrderModel::get($orderId);
+			$order->orderstate = $state;
+			$order->save();
 		}
 	}
  ?>

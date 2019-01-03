@@ -14,16 +14,23 @@ class pay extends Controller {
 		$num = Request::instance()->post('num');
 		$add = AddressModel::all(['customerId' => $customerId]);
 		$book = BookModel::get($bookId);
-			// dump($book);
+		$price = $book->price * $num;
+		// dump($book);
 
 		$this->assign('num', $num);
+		$this->assign('price', $price);
 		$this->assign('book', $book);
 		$this->assign('address', $add);
 		return $this->fetch();
 	}
 
-	public function choosepay($price) {
+	public function choosepay($bookId, $num, $addressId, $price) {
+		//调用订单控制器创建订单
+		$event = controller('Order', 'controller');
+		$orderId = $event->buy($bookId, $num, $addressId);
+
 		$this->assign('price', $price);
+		$this->assign('orderId', $orderId);
 		return $this->fetch();
 	}
 
@@ -138,7 +145,8 @@ class pay extends Controller {
 			require_once ROOT_PATH.'vendor/alipay/pagepay/service/AlipayTradeService.php';
 
 
-			$arr=$_GET;
+			$arr = $_GET;
+			dump($arr);
 			$alipaySevice = new \AlipayTradeService($config); 
 			$result = $alipaySevice->check($arr);
 
@@ -162,6 +170,12 @@ class pay extends Controller {
 				$trade_no = htmlspecialchars($_GET['trade_no']);
 
 				echo "验证成功<br />支付宝交易号：".$trade_no;
+
+				//更改订单状态
+				$event = controller('Order', 'controller');
+				$event->orderState($arr['out_trade_no'], 2);
+
+				// $this->success();
 
 				//——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
 				

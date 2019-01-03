@@ -101,9 +101,9 @@
                     <li class="ta-ct wid-150 fl">
                         <p>¥{$book['price']}</p>                        
                     </li>
-                    <li class="wid-200 fl ta-ct">1</li>
+                    <li class="wid-200 fl ta-ct">{$num}</li>
                     <li class="wid-160 fl ta-ct">¥0</li>
-                    <li class="fz-18 cl-rd-l wid-120 fl ta-ct">¥{$book['price']}</li>
+                    <li class="fz-18 cl-rd-l wid-120 fl ta-ct">¥{$price}</li>
                     <div class="cb"></div>
                 </ul>
             </div>
@@ -117,7 +117,7 @@
             <table width="100%">
                 <tr>
                     <td width="1007">商品应付总计：</td>
-                    <td width="130">¥{$book['price']}.00</td>
+                    <td width="130">¥{$price}</td>
                 </tr>
                 <tr>
                     <td class="pr">
@@ -131,13 +131,15 @@
                 </tr>
                 <tr>
                     <td>应付金额：</td>
-                    <td width="130" class="cl-rd-l fz-18 pay_money">¥{$book['price']}.00</td>
+                    <td width="130" class="cl-rd-l fz-18 pay_money">¥{$price}</td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <div class="mt-30 ht-50 lh-50">
                             <a class="cl-bl-l mr-30" href="{:Url('Cart/index')}">返回购物车修改</a>
-                            <a href="{:Url('Pay/choosepay')}?price={$book['price']}">
+                            
+                            <!-- <a href="{:Url('Pay/choosepay')}?price={$price}"> -->
+                            <a href="{:Url('Pay/choosepay')}?bookId={$book['bookId']}&num={$num}&addressId={$address[0]['addressId']}&price={$price}">
                                 <span id="order_submit" class="cp fz-18 cl-f bc-rd pd-1530">提交订单</span>
                             </a>
                         </div>
