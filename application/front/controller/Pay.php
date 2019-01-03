@@ -146,7 +146,7 @@ class pay extends Controller {
 
 
 			$arr = $_GET;
-			dump($arr);
+			// dump($arr);
 			$alipaySevice = new \AlipayTradeService($config); 
 			$result = $alipaySevice->check($arr);
 
@@ -175,7 +175,7 @@ class pay extends Controller {
 				$event = controller('Order', 'controller');
 				$event->orderState($arr['out_trade_no'], 2);
 
-				// $this->success();
+				$this->success("支付成功",Url('Order/index'));
 
 				//——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
 				
