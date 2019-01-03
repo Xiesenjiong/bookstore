@@ -303,10 +303,13 @@
 	
 	/*加入购物车传值*/
 	function addToCart(bookId){
+		num = count_text.value;
+		count_text.value
 		//发异步删除数据
         $.post(
           "{:Url('Cart/addToCart')}",
-          {bookId:bookId},
+          {'bookId':bookId,
+          	'num':num},
           function(){
           	  alert('已添加!');
           }
