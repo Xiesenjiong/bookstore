@@ -50,7 +50,8 @@
 			$model->allowField(true)->save();
 		}
 
-		public function delete($addressId) {
+		public function delete() {
+			$addressId = Request::instance()->post('addressId');
 			$model = AddressModel::get($addressId);
 			$model->delete();
 		}

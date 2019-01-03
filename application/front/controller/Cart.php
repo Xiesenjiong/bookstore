@@ -48,5 +48,24 @@
 			}
 			$cart->save();
 		}
+
+		public function changeNum() {
+			$itemId = Request::instance()->post('itemId');
+			$option = Request::instance()->post('option');
+			$item = CartModel::get($itemId);
+			if ($option == '加') {
+				$item->num++;
+				$item->price = $item->bookprice * $item->num;
+			} elseif ($option == '减') {
+				$item->num--;
+				$item->price = $item->bookprice * $item->num;
+			}
+		}
+
+		public function delete() {
+			$itemId = Request::instance()->post('itemId');
+			$model = CartModel::get($itemId);
+			$model->delete();
+		}
 	}
  ?>
