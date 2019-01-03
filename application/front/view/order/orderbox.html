@@ -35,12 +35,15 @@
                         <td class="item br-1-e8 ta-ct" width="148" ><p><b class="fs-16 cl-rd">¥{$vo.price}</b><br/><span class="cl-9">(含运费：¥5.00)</span></p></td>
                         <td class="item br-1-e8 ta-ct" width="148" ><p>待付款</p>
                         </td>
+                        
+                    </tr>
+                    {/volist}
+                    <tr class="info-text">
                         <td class="item ta-ct" width="148" colspan="2" >
                             <a class="btn-buy wd-60 ma" href="/cashier/pay.php?product_id=1812252114371441" title="立即付款">立即付款</a>
                             <a class="btn-cancel wd-60 ma" href="javascript:void(0);" onclick="cancel(1812252114371441,43.68,  this)" title="取消订单">取消订单</a>
                         </td>
                     </tr>
-                    {/volist}
                 </tbody>
             </table>
         </li>
