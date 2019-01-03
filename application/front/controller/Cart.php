@@ -2,6 +2,7 @@
 	namespace app\front\controller;
 	use think\Controller;
 	use think\Session;
+	use think\Request;
 	use app\front\model\Cart as CartModel;
 	use app\front\model\Book as BookModel;
 
@@ -29,8 +30,8 @@
 			$bookId = Request::instance()->post('bookId');
 			$book = BookModel::get($bookId);
 			// dump($book);
-			
-			$customerId = Session::get('customerId');
+			// $customerId = Session::get('customerId');
+			$customerId = 1;
 			$cart = CartModel::get(['customerId' => $customerId, 'bookId' => $bookId, 'orderId' => 0]);
 			if ($cart) {
 				$cart->num++;
