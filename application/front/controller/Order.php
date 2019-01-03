@@ -13,38 +13,59 @@
 	class Order extends Controller {
 		
 		public function index() {
-			$list = OrderModel::all();
+			$customerId = Session::get('customerId');
+			$list = OrderModel::all(['customerId' => $customerId]);
+			$num = count($list);
 
+			$this->assign('num', $num);
 			$this->assign('list', $list);
 			return $this->fetch();
 		}
 
 		public function waitpay(){
-			$list = OrderModel::all(['orderstate' => 1]);
+			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 1]);
+			$num = count($list);
 
+			$this->assign('num', $num);
 			$this->assign('list', $list);
 			return $this->fetch();
 		}
 
 		public function waitsend(){
-			$list = OrderModel::all(['orderstate' => 2]);
+			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 2]);
+			$num = count($list);
 
+			$this->assign('num', $num);
 			$this->assign('list', $list);
 			return $this->fetch();
 		}
 
 		public function beensend(){
-			$list = OrderModel::all(['orderstate' => 3]);
+			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 3]);
+			$num = count($list);
 
+			$this->assign('num', $num);
 			$this->assign('list', $list);
 			return $this->fetch();
 		}
 
 		public function waitcomment(){
-			$list = OrderModel::all(['orderstate' => 0]);
+			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 0]);
+			$num = count($list);
 
+			$this->assign('num', $num);
 			$this->assign('list', $list);
-			return $this->fetch();			
+			return $this->fetch();		
+		}
+
+		public function orderbox($orderId) {
+			$order = OrderModel::get(['orderId' => $orderId]);
+			$list = CartModel::all(['orderId' => $orderId]);
+			// dump($list);
+
+			$this->assign('order', $order);
+			$this->assign('list', $list);
+			return $this->fetch();
 		}
 
 		public function buy($bookId, $num, $addressId) {
@@ -75,10 +96,6 @@
 			//保存订单项目到数据库
 			// $item->save();
 			dump($item);
-		}
-
-		public function orderbox(){			
-			return $this->fetch();			
 		}
 	}
  ?>

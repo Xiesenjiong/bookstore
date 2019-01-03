@@ -36,7 +36,7 @@
 			// $customerId = 1;
 			$cart = CartModel::get(['customerId' => $customerId, 'bookId' => $bookId, 'orderId' => 0]);
 			if ($cart) {
-				$cart->num++;
+				$cart->num+=$num;
 				$cart->price = $book->price * $cart->num;
 			} else {
 				$cart = new CartModel;
@@ -46,7 +46,7 @@
 				$cart->bookpress = $book->press;
 				$cart->bookprice = $book->price;
 				$cart->num = $num;
-				$cart->price = $book->price;
+				$cart->price = $book->price * $cart->num;
 			}
 			$cart->save();
 		}

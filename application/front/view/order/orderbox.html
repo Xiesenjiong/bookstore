@@ -15,23 +15,24 @@
             <table class="myorder-info-table bd-1-e8 mt-20" border="0" cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr class="info-title ta-ct" style="height: 38px;">
-                        <td class="item bb-1-e8" width="12%">博库体验店</td>
-                        <td class="item bb-1-e8" width="38%" colspan="3">订单号:&nbsp;<span>1812252114371441</span></td>
-                        <td class="item bb-1-e8" width="38%" colspan="3">下单时间:&nbsp;<span>2018-12-25 14:37:31</span></td>
+                        <!-- <td class="item bb-1-e8" width="12%">博库体验店</td> -->
+                        <td class="item bb-1-e8" width="38%" colspan="3">订单号:&nbsp;<span>{$order.orderId}</span></td>
+                        <td class="item bb-1-e8" width="38%" colspan="3">下单时间:&nbsp;<span>{$order.create_time}</span></td>
                         <td class="item bb-1-e8">&nbsp;</td>
                     </tr>
+                    {volist name="list" id="vo"}
                     <tr class="info-text">
                         <td class="item bb-1-e8">
-                            <img src="/xhh/images/4.jpg" width="100px">
+                            <img src="{$vo.bookpress}" width="100px">
                         </td>
-                        <td class="item bb-1-e8 pt-18 va-tp" width="174">美的历程(精)/李泽厚集</td>
+                        <td class="item bb-1-e8 pt-18 va-tp" width="174">{$vo.booktitle}</td>
                         <td class="item bb-1-e8 ta-ct" width="120">
-                            <p class="price-init">¥56.00</p>
-                            <p>¥38.68</p>
+                            <p class="price-init">¥{$vo.bookprice}</p>
+                            <p>¥{$vo.bookprice}</p>
                         </td>
-                        <td class="item bb-1-e8 br-1-e8" width="90">x&nbsp;1</td>
+                        <td class="item bb-1-e8 br-1-e8" width="90">x&nbsp;{$vo.num}</td>
 
-                        <td class="item br-1-e8 ta-ct" width="148" ><p><b class="fs-16 cl-rd">¥43.68</b><br/><span class="cl-9">(含运费：¥5.00)</span></p></td>
+                        <td class="item br-1-e8 ta-ct" width="148" ><p><b class="fs-16 cl-rd">¥{$vo.price}</b><br/><span class="cl-9">(含运费：¥5.00)</span></p></td>
                         <td class="item br-1-e8 ta-ct" width="148" ><p>待付款</p>
                         </td>
                         <td class="item ta-ct" width="148" colspan="2" >
@@ -39,6 +40,7 @@
                             <a class="btn-cancel wd-60 ma" href="javascript:void(0);" onclick="cancel(1812252114371441,43.68,  this)" title="取消订单">取消订单</a>
                         </td>
                     </tr>
+                    {/volist}
                 </tbody>
             </table>
         </li>
