@@ -28,10 +28,12 @@
 
 		public function addToCart() {
 			$bookId = Request::instance()->post('bookId');
+			// dump($bookId);
+			$num = Request::instance()->post('num');
 			$book = BookModel::get($bookId);
 			// dump($book);
-			// $customerId = Session::get('customerId');
-			$customerId = 1;
+			$customerId = Session::get('customerId');
+			// $customerId = 1;
 			$cart = CartModel::get(['customerId' => $customerId, 'bookId' => $bookId, 'orderId' => 0]);
 			if ($cart) {
 				$cart->num++;
@@ -43,7 +45,7 @@
 				$cart->booktitle = $book->title;
 				$cart->bookpress = $book->press;
 				$cart->bookprice = $book->price;
-				$cart->num = 1;
+				$cart->num = $num;
 				$cart->price = $book->price;
 			}
 			$cart->save();

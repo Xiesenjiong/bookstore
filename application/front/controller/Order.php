@@ -77,20 +77,8 @@
 			dump($item);
 		}
 
-		// public function create($itemId, $addressId) {
-		// 	$cart = CartModel::get($itemId);
-		// 	$address = AddressModel::get($addressId);
-		// 	$model = new OrderModel;
-		// 	$model->customerId = Session::get('customerId');
-		// 	$model->name = $address->name;
-		// 	$model->phone = $address->phone;
-		// 	$model->address = $address->address;
-		// 	$model->zipCode = $address->zipCode;
-		// 	$model->price = $cart->price;
-		// 	$model->actualPrice = $cart->price;
-			
-		// 	$model->save();
-		// 	dump($model->orderId);
-		// }
+		public function orderbox(){			
+			return $this->fetch();			
+		}
 	}
  ?>
