@@ -14,7 +14,7 @@
 		
 		public function index() {
 			$customerId = Session::get('customerId');
-			$list = OrderModel::all(['customerId' => $customerId]);
+			$list = OrderModel::where(['customerId' => $customerId])->order('orderId desc')->paginate(5);
 			$num = count($list);
 
 			$this->assign('num', $num);
@@ -24,7 +24,8 @@
 
 		public function waitpay(){
 			$customerId = Session::get('customerId');
-			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 1]);
+			$list = OrderModel::where(['customerId' => $customerId, 'orderstate' => 1])
+					->order('orderId desc')->paginate(5);
 			$num = count($list);
 
 			$this->assign('num', $num);
@@ -34,7 +35,8 @@
 
 		public function waitsend(){
 			$customerId = Session::get('customerId');
-			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 2]);
+			$list = OrderModel::where(['customerId' => $customerId, 'orderstate' => 2])
+					->order('orderId desc')->paginate(5);
 			$num = count($list);
 
 			$this->assign('num', $num);
@@ -44,7 +46,8 @@
 
 		public function beensend(){
 			$customerId = Session::get('customerId');
-			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 3]);
+			$list = OrderModel::where(['customerId' => $customerId, 'orderstate' => 3])
+					->order('orderId desc')->paginate(5);
 			$num = count($list);
 
 			$this->assign('num', $num);
@@ -54,7 +57,8 @@
 
 		public function waitcomment(){
 			$customerId = Session::get('customerId');
-			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 0]);
+			$list = OrderModel::where(['customerId' => $customerId, 'orderstate' => 0])
+					->order('orderId desc')->paginate(5);
 			$num = count($list);
 
 			$this->assign('num', $num);

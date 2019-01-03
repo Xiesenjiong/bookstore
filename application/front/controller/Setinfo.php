@@ -20,11 +20,12 @@
 
 		public function update(){
 			$data = Request::instance()->post();
-			$model = CustomerModel::get($data['customerId']);			
+			$model = CustomerModel::get($data['customerId']);				
 			$model->phone = $data['phone'];
 			$model->name = $data['name'];
-			$model->email = $data['email'];
-			// $model->sex = $data['sex'];
+			$model->email = $data['email'];			
+			$model->sex = $data['sex'];		
+			
 			$model->save();
 		}
 	}
