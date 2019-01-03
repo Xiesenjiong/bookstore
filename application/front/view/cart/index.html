@@ -77,9 +77,9 @@
 								</li>
 								<li class="ta-ct wd-140 fl">
 									<div class="count-box mt-35">
-										<div class="fl cl-c count_sub fz-25" id="count_sub" onclick="changeNum({$vo.itemId},'减')">-</div>
-										<input type="tel" name="" class="count_text fl cl-c" value="{$vo.num}" id="count_text{$vo.itemId}">
-										<div class="fl cl-c count_add fz-25 mr-20" id="count_add" onclick="changeNum({$vo.itemId},'加')">+</div>
+										<div class="fl cl-c count_sub fz-25" id="count_sub">-</div>
+										<input type="tel" name="" class="count_text fl cl-c" value="{$vo.num}" id="count_text">
+										<div class="fl cl-c count_add fz-25 mr-20" id="count_add">+</div>
 									</div>
 								</li>
 								<li>
@@ -133,53 +133,50 @@
 	{include file="../application/front/view/common/footer.html"}
 	<!-- end -->
 	<script>
-	// //增加减少购物车
- //    var count_add = document.getElementById("count_add{$vo.itemId}");
- //    alert(count_add.value);
-    // var count_text{$vo.itemId} = document.getElementById("count_text{$vo.itemId}");
- //    var count_sub = document.getElementById("count_sub{$vo.itemId}");
- //    var itemId = document.getElementById("itemId").value;
 
- //    document.getElementById('price').innerHTML = count_text.value * {$vo.bookprice};
-    
-   
- //    //add
- //    count_add.onclick = function(){    	
- //    	count_text.value = parseInt(count_text.value) + 1;
- //    	changeNum(itemId,'加');
- //    	setVal();  	
- //    }
+	//增加减少购物车
+    var count_add = document.getElementById("count_add");    
+    var count_text = document.getElementById("count_text");
+    var count_sub = document.getElementById("count_sub");
+    var itemId = document.getElementById("itemId").value;
 
- //    //sub
- //    count_sub.onclick = function(){
- //    	if( count_text.value < 2 ){
- //    		alert("555~ 商品不能再少了");
- //    		count_text.value = 1;
- //    	}else{
- //    		count_text.value = parseInt(count_text.value) - 1;
- //    		changeNum(itemId,'减');
- //    		setVal();
- //    	}    	
- //    }
+    document.getElementById('totalPrice').innerHTML = count_text.value * {$vo.bookprice};
+       
+    //add
+    count_add.onclick = function(){    	
+    	count_text.value = parseInt(count_text.value) + 1;
+    	changeNum(itemId,'加');
+    	setVal();  	
+    }
 
- //    function setVal(){
- //    	document.getElementById('price').innerHTML = count_text.value * {$vo.bookprice};
- //    }
+    //sub
+    count_sub.onclick = function(){
+    	if( count_text.value < 2 ){
+    		alert("555~ 商品不能再少了");
+    		count_text.value = 1;
+    	}else{
+    		count_text.value = parseInt(count_text.value) - 1;
+    		changeNum(itemId,'减');
+    		setVal();
+    	}    	
+    }
+
+    function setVal(){
+    	document.getElementById('price').innerHTML = count_text.value * {$vo.bookprice};
+    }
  	// document.getElementById('price').innerHTML = count_text.value * {$vo.bookprice};   	  	
 
     function changeNum(itemId, option){
- 	    var count_text = document.getElementById("count_text{$vo.itemId}").value;
- 	    alert(count_text);
- 	    document.getElementById('price{$vo.itemId}').innerHTML = count_text * {$vo.bookprice};   	  	
-    // alert(option);			
+ 	    // var count_text = document.getElementById("count_text{$vo.itemId}").value;
+ 	    // alert(count_text);
+ 	    // document.getElementById('price{$vo.itemId}').innerHTML = count_text * {$vo.bookprice};   	  	
+    	// alert(option);			
 		//发异步
         $.post(
           "{:Url('Cart/changeNum')}",
           {'itemId':itemId,
           	'option':option}          
         );
-        
-
 	}
 
     /*订单-删除*/
