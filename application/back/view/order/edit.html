@@ -30,15 +30,30 @@
   
   <body>
     <div class="x-body layui-anim layui-anim-up" style="position: relative;">
-        <form class="layui-form" id="add-form">          
+        <form class="layui-form" id="edit-form">
+          <div class="layui-form-item">
+              <label for="L_customerId" class="layui-form-label">
+                  <span class="x-red">*</span>ID
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="L_orderId" name="orderId" required="" readonly="readonly"
+                  autocomplete="off" class="layui-input" value="{$info['orderId']}">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>订单编号（不可修改）
+              </div>
+          </div>
           <div class="layui-form-item">
               <label for="L_title" class="layui-form-label">
                   <span class="x-red">*</span>客户ID
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="L_customerId" name="customerId"
-                  autocomplete="off" class="layui-input">
-              </div>
+                  autocomplete="off" class="layui-input" value="{$info['customerId']}" readonly="readonly">
+              </div>    
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>客户ID（不可修改）
+              </div>          
           </div>
           <div class="layui-form-item">
               <label for="L_name" class="layui-form-label">
@@ -46,7 +61,7 @@
               </label>
               <div class="layui-input-inline">
                 <input type="text" id="L_name" name="name"
-                  autocomplete="off" class="layui-input">
+                  autocomplete="off" class="layui-input" value="{$info['name']}">
               </div>
           </div>
           <div class="layui-form-item">
@@ -55,7 +70,7 @@
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="L_phone" name="phone"
-                  autocomplete="off" class="layui-input">
+                  autocomplete="off" class="layui-input" value="{$info['phone']}">
               </div>                      
           </div>
           <div class="layui-form-item">
@@ -64,7 +79,7 @@
               </label>
               <div class="layui-input-inline">
                   <textarea type="text" id="L_address" name="address" 
-                  autocomplete="off" class="layui-input"></textarea>
+                  autocomplete="off" class="layui-input">{$info['address']}</textarea>
               </div>
           </div>
           <div class="layui-form-item">
@@ -73,7 +88,7 @@
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="L_zipCode" name="zipCode" 
-                  autocomplete="off" class="layui-input">
+                  autocomplete="off" class="layui-input" value="{$info['zipCode']}">
               </div>
           </div>
           <div class="layui-form-item">
@@ -82,7 +97,7 @@
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="L_price" name="price" 
-                  autocomplete="off" class="layui-input" readonly="">
+                  autocomplete="off" class="layui-input" value="{$info['price']}" readonly="">
               </div>
           </div>
           <div class="layui-form-item">
@@ -91,7 +106,7 @@
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="L_actualPrice" name="actualPrice" 
-                  autocomplete="off" class="layui-input">
+                  autocomplete="off" class="layui-input" value="{$info['actualPrice']}">
               </div>
           </div>
           <div class="layui-form-item">
@@ -100,7 +115,7 @@
               </label>
               <div class="layui-input-inline">                
                 <select name="orderstate">
-                  <option value="">订单状态</option>
+                  <option value="{$info['orderstate']}">订单状态</option>
                   <option value="1">待支付</option>
                   <option value="2">待发货</option>
                   <option value="3">待收货</option>
@@ -109,56 +124,40 @@
               </div>              
           </div>
           <div class="layui-form-item">
-            <label for="payment" class="layui-form-label">
-              <span class="x-red">*</span>支付方式
-            </label>
-            <div class="layui-input-inline">
-              <select name="payment">
-                <option>支付方式</option>
-                <option>支付宝</option>
-                <option>微信</option>
-              </select>
-            </div>
-          </div>      
+              <label for="L_payment" class="layui-form-label">
+                  <span class="x-red">*</span>支付方式
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="L_payment" name="payment"  
+                  autocomplete="off" class="layui-input" value="{$info['payment']}" readonly="">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                  <span class="x-red">*</span>（不可修改）
+              </div>   
+          </div>          
           <div class="layui-form-item">
               <label for="L_kuaidi" class="layui-form-label">
                   <span class="x-red">*</span>快递单号
               </label>
               <div class="layui-input-inline">
                   <input type="text" id="L_kuaidi" name="kuaidi"  
-                  autocomplete="off" class="layui-input">
+                  autocomplete="off" class="layui-input" value="{$info['kuaidi']}">
               </div>
           </div>
-          <div class="layui-form-item layui-form-text">
-              <label for="desc" class="layui-form-label">
-                  商品增加
+          <div class="layui-form-item">
+              <label for="L_create_time" class="layui-form-label">
+                  <span class="x-red">*</span>创建时间
               </label>
-              <div class="layui-input-block">
-                  <table class="layui-table">
-                    <tbody>
-                      <tr>
-                        <td>haier海尔 BC-93TMPF 93升单门冰箱</div></td>
-                        <td>0.01</div></td>
-                        <td>984</div></td>
-                        <td>1</td>
-                        <td>删除</td>
-                      </tr>
-                      <tr>
-                        <td>haier海尔 BC-93TMPF 93升单门冰箱</div></td>
-                        <td>0.01</div></td>
-                        <td>984</div></td>
-                        <td>1</td>
-                        <td>删除</td>
-                      </tr>
-                    </tbody>
-                  </table>
+              <div class="layui-input-inline">
+                  <input type="text" id="L_create_time" name="create_time"  
+                  autocomplete="off" class="layui-input" value="{$info['create_time']}" readonly="">
               </div>
-          </div>      
+          </div>
           <div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
               </label>
-              <button  class="layui-btn" lay-filter="add" lay-submit="">
-                  添加
+              <button  class="layui-btn" lay-filter="edit" lay-submit="">
+                  保存修改
               </button>
           </div>          
       </form>
@@ -170,21 +169,21 @@
           ,layer = layui.layer;
                   
           //监听提交
-          form.on('submit(add)', function(data){
+          form.on('submit(edit)', function(data){
             console.log(data);
             //发异步，把数据提交给php
             $.ajax({
               async: false,
               type: "POST",
-              url:'{:Url('Order/save')}',
+              url:'{:Url('Order/update')}',
               contentType : "application/x-www-form-urlencoded; charset=utf-8",
-              data:$("#add-form").serialize(),
+              data:$("#edit-form").serialize(),
               dataType: "text",
               success: function () {
-                showMsg("添加成功");
+                showMsg("修改成功");
               },
               error: function () {
-                showMsg("添加失败");
+                showMsg("修改失败");
               }
             })
             return false;

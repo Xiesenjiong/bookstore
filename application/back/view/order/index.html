@@ -67,9 +67,12 @@
         </form>
       </div>
       <xblock>
+        <p style="color: #666;padding: 0 10px;">订单状态：1-待支付，2-待发货，3-待收货，0-完成</p>
+      </xblock>
+      <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <button class="layui-btn" onclick="x_admin_show('添加用户','{:Url('Order/add')}')"><i class="layui-icon"></i>添加</button>
-        <span class="x-right" style="line-height:40px">共有数据：88 条</span>
+        <button class="layui-btn" onclick="x_admin_show('添加订单','{:Url('Order/add')}')"><i class="layui-icon"></i>添加</button>
+        <span class="x-right" style="line-height:40px">共有数据：{$num} 条</span>
       </xblock>
       <table class="layui-table">
         <thead>
@@ -83,11 +86,11 @@
             <th>应付金额</th>
             <th>订单状态</th>
             <th>支付状态</th>
-            <th>发货状态</th>
             <th>支付方式</th>
+            <th>快递单号</th>
             <th>配送方式</th>
             <th>下单时间</th>
-            <th >操作</th>
+            <th>操作</th>
             </tr>
         </thead>
         <tbody>
@@ -97,18 +100,21 @@
               <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
             </td>
             <td>{$vo.orderId}</td>
-            <td>老王:18925139194</td>
-            <td>7829.10</td>
-            <td>7854.10</td>
-            <td>待确认</td>
-            <td>未支付</td>
-            <td>未发货</td>
-            <td>其他方式</td>
+            <td>{$vo.name}:{$vo.phone}</td>
+            <td>{$vo.price}</td>
+            <td>{$vo.actualPrice}</td>
+            <td>{$vo.orderstate}</td>
+            <td>{$vo.orderstate}</td>
+            <td>{$vo.payment}</td>
+            <td>{$vo.kuaidi}</td>
             <td>申通物流</td>
-            <td>2017-08-17 18:22</td>
+            <td>{$vo.create_time}</td>
             <td class="td-manage">
-              <a title="查看"  onclick="x_admin_show('编辑','order-view.html')" href="javascript:;">
+              <a title="查看"  onclick="x_admin_show('订单详情','{:Url('Order/detail')}?orderId={$vo.orderId}',800,600)" href="javascript:;">
                 <i class="layui-icon">&#xe63c;</i>
+              </a>
+              <a title="编辑"  onclick="x_admin_show('编辑订单','{:Url('Order/edit')}?orderId={$vo.orderId}',800,600)" href="javascript:;">
+                <i class="layui-icon">&#xe642;</i>
               </a>
               <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
@@ -120,12 +126,7 @@
       </table>
       <div class="page">
         <div>
-          <a class="prev" href="">&lt;&lt;</a>
-          <a class="num" href="">1</a>
-          <span class="current">2</span>
-          <a class="num" href="">3</a>
-          <a class="num" href="">489</a>
-          <a class="next" href="">&gt;&gt;</a>
+          {$list->render()}          
         </div>
       </div>
 
