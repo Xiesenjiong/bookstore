@@ -1,6 +1,7 @@
 <?php 
 	namespace app\front\controller;
 	use think\Controller;
+	use think\Session;
 	use app\front\model\Orderitem as OrderitemModel;
 	use app\front\model\Cart as CartModel;
 
