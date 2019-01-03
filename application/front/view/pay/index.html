@@ -46,6 +46,28 @@
                                 </p>
                                 <div class="patch2"></div>
                             </li>
+
+                            {volist name="address" id="vo"}
+                            <li class="wid-260 pd-0010 hei-140 mt-10 fl mr-15 on-tab delete-box" style="border: 2px #2db4ea solid;">
+                                <p class="lh-30 bb-1-e8 to-hd">
+                                    <span class="fz-12 cl-f bc-db mr-5 pd-0204">默认地址</span>
+                                    {$vo.name} 收
+                                </p>
+                                <div class="pd-0500 lh-20">
+                                    <p class="to-hd">{$vo.address}</p>
+                                    <p class="to-hd">{$vo.zipCode}</p>
+                                    <p class="to-hd">{$vo.phone}</p>
+                                </div>
+                                <p>
+                                    <span class="mr-20 add-address">修改</span>
+                                    <span class="cp">删除</span>
+                                </p>
+                                <div class="patch2"></div>
+                            </li>
+                            {/volist}
+
+
+
                             <div class="cb"></div>
                         </ul>
                     </div>
@@ -83,21 +105,21 @@
                 <ul class="wid-1180 pd-10 lh-100 bt-1-e8">
                     <li class="wid-550 fl">
                         <div class="fl wid-100" >
-                            <a href=""><img src="/bookstore/public/front/images/c1.jpg" width="100"></a>
+                            <a href=""><img src="{$book['press']}" width="100"></a>
                         </div>
                         <div class="fr wid-450">
                             <p class="minh-60 lh-20">
-                                2018高考满分作文特辑&满分作文素材解析
+                                {$book['title']}
                             </p>
                         </div>
                         <div class="cb"></div>
                     </li>
                     <li class="ta-ct wid-150 fl">
-                        <p >¥29.90</p>                        
+                        <p>¥{$book['price']}</p>                        
                     </li>
                     <li class="wid-200 fl ta-ct">1</li>
-                    <li class="wid-160 fl ta-ct">¥32.70</li>
-                    <li class="fz-18 cl-rd-l wid-120 fl ta-ct">¥29.90</li>
+                    <li class="wid-160 fl ta-ct">¥0</li>
+                    <li class="fz-18 cl-rd-l wid-120 fl ta-ct">¥{$book['price']}</li>
                     <div class="cb"></div>
                 </ul>
             </div>
@@ -111,7 +133,7 @@
             <table width="100%">
                 <tr>
                     <td width="1007">商品应付总计：</td>
-                    <td width="130">¥29.90</td>
+                    <td width="130">¥{$book['price']}</td>
                 </tr>
                 <tr>
                     <td class="pr">
@@ -125,7 +147,7 @@
                 </tr>
                 <tr>
                     <td>应付金额：</td>
-                    <td width="130" class="cl-rd-l fz-18 pay_money">¥29.90</td>
+                    <td width="130" class="cl-rd-l fz-18 pay_money">¥{$book['price']}</td>
                 </tr>
                 <tr>
                     <td colspan="2">
