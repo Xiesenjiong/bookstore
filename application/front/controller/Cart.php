@@ -2,8 +2,8 @@
 	namespace app\front\controller;
 	use think\Controller;
 	use think\Session;
-	use app\front\model\Orderitem as OrderitemModel;
 	use app\front\model\Cart as CartModel;
+	use app\front\model\Book as BookModel;
 
 	/**
 	 * 购物车
@@ -25,8 +25,12 @@
 			return $this->fetch();
 		}
 
-		public function addCart() {
-			# code...
+		public function addToCart() {
+			$customerId = Session::get('customerId');
+			$bookId = Request::instance()->post('bookId');
+			$book = BookModel::get($bookId);
+
+			dump($book);
 		}
 	}
  ?>
