@@ -11,6 +11,12 @@
 	class Cart extends Controller {
 		
 		public function Index() {
+			// if (condition) {
+			// 	# code...
+			// } else {
+			// 	# code...
+			// }
+			
 			$customerId = Session::get('customerId');
 			$list = CartModel::all(['customerId' => $customerId, 'orderId' => 0]);
 

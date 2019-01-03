@@ -60,7 +60,8 @@
 			$model->price = $book->price * $num;
 			$model->actualPrice = $book->price * $num;
 			//保存订单到数据库
-			$model->save();
+			// $model->save();
+			dump($model);
 
 			$item = new CartModel;
 			$item->customerId = Session::get('customerId');
@@ -71,7 +72,8 @@
 			$item->num = $num;
 			$item->bookId = $book->price * $num;
 			//保存订单项目到数据库
-			$item->save();
+			// $item->save();
+			dump($item);
 		}
 
 		// public function create($itemId, $addressId) {
