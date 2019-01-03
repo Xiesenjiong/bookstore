@@ -84,7 +84,7 @@
 								</li>
 								<li>
 								</li>
-								<li class="fs-16  cl-rd ta-ct wd-200 fl mt-35">¥<span id="price{$vo.itemId}"></span></li>
+								<li class="fs-16  cl-rd ta-ct wd-200 fl mt-35">¥<span id="price"></span></li>
 								<li class="fs-16 wd-120 fl mt-35">									
 									<span class="cl-bl-l cp" onclick="del(this, {$vo.itemId})" href="javascript:;">删除</span>
 									<input type="hidden" name="itemId" id="itemId" value="{$vo.itemId}">
@@ -136,10 +136,12 @@
 
 	//增加减少购物车
     var count_add = document.getElementById("count_add");    
-    var count_text = document.getElementById("count_text");
+    var count_text = document.getElementById("count_text"); 
     var count_sub = document.getElementById("count_sub");
     var itemId = document.getElementById("itemId").value;
 
+    document.getElementById('price').innerHTML = count_text.value * {$vo.bookprice};
+    document.getElementById('actualPrice').innerHTML = count_text.value * {$vo.bookprice};
     document.getElementById('totalPrice').innerHTML = count_text.value * {$vo.bookprice};
        
     //add
@@ -163,14 +165,12 @@
 
     function setVal(){
     	document.getElementById('price').innerHTML = count_text.value * {$vo.bookprice};
+    	document.getElementById('actualPrice').innerHTML = count_text.value * {$vo.bookprice};
+    	document.getElementById('totalPrice').innerHTML = count_text.value * {$vo.bookprice};
     }
  	// document.getElementById('price').innerHTML = count_text.value * {$vo.bookprice};   	  	
 
-    function changeNum(itemId, option){
- 	    // var count_text = document.getElementById("count_text{$vo.itemId}").value;
- 	    // alert(count_text);
- 	    // document.getElementById('price{$vo.itemId}').innerHTML = count_text * {$vo.bookprice};   	  	
-    	// alert(option);			
+    function changeNum(itemId, option){ 	    		
 		//发异步
         $.post(
           "{:Url('Cart/changeNum')}",
