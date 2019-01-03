@@ -33,7 +33,7 @@
 							<i class="fas fa-map-marked-alt fz-46 cl-9"></i>
 							<p class="fz-20 mt-10">您还没有收货地址</p>
 							<div class="pt-6">
-								<a class="new-address cl-bl-l" data-count="" title="新建地址" onclick="x_admin_show('新增地址','{:Url('Address/add')}',500,450)" href="javascript:;">+新建地址</a>
+								<a class="new-address cl-bl-l" data-count="" title="新建地址" onclick="x_admin_show('新增地址','{:Url('Address/add')}',600,450)" href="javascript:;">+新建地址</a>
 							</div>
 						</div>									
 					</div>
@@ -61,7 +61,7 @@
 											<td class="item bb-1-e8" width="10%">操作</td>
 										</tr>
 										{volist name="list" id="vo"}
-										<tr class="info-text ta-ct">											
+										<tr class="info-text ta-ct">										
 											<td class="item">{$vo.addressId}</td>
 											<td class="item">{$vo.name}</td>
 											<td class="item">{$vo.address}</td>
@@ -71,9 +71,9 @@
 												<a class="btn-address active" href="javascript:void(0);" data-id="838439" title="默认地址" >默认地址</a>
 											</td>
 											<td class="item">
-												<a class="edit-address cl-bl-l" data-id="838439" title="编辑" onclick="x_admin_show('编辑地址','{:Url('Address/edit')}?addressId={$vo.addressId}',500,450)" href="javascript:;">编辑</a>
+												<a class="edit-address cl-bl-l" data-id="838439" title="编辑" onclick="x_admin_show('编辑地址','{:Url('Address/edit')}?addressId={$vo.addressId}',600,450)" href="javascript:;">编辑</a>
 												&nbsp;&nbsp;
-												<a class="del-address cl-bl-l" onclick="delete(this, {$vo.addressId})"  href="javascript:;" data-id="838439" title="删除">删除</a>
+												<a class="del-address cl-bl-l" onclick="del(this, {$vo.addressId})"  href="javascript:;" data-id="838439" title="删除">删除</a>
 											</td>											
 										</tr>
 										{/volist}										
@@ -98,11 +98,11 @@
 	{include file="../application/front/view/common/footer.html"}
 	<script>
 		/*地址-删除*/
-      function delete(id) {
+      function del(obj,id) {
           layer.confirm('确认要删除吗？',function(index){
               //发异步删除数据
               $.post(
-                  "{:Url('Address/delete')}",
+                  "{:Url('Address/del')}",
                   {addressId:id},
                   function(){
                      $(obj).parents("tr").remove();

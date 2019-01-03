@@ -145,7 +145,7 @@ body.login{background: url("/xhh/images/3.jpg") no-repeat center top;}
 .total-box tfoot a{font-size: 24px;color: #fff;background-color: #de1616;display: block;height: 96px;line-height: 96px;}
 .choose-container{width: 1200px;margin: 0 auto;}
 .choose-container .choose-box{line-height: 24px;}
-.typecart-2{border: 1px #e8e8e8 solid;height: 112px;    border-width: 1px 1px 0 1px;}
+.typecart-2{border: 1px #e8e8e8 solid;height: 112px;    border-width: 1px 1px 1px 1px;}
 .delete-box {position: relative;}
 .wd-300 {width: 300px;}
 .square-box.one-one {padding-bottom: 100%;}

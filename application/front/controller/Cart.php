@@ -21,7 +21,6 @@
 			$customerId = Session::get('customerId');
 			$list = CartModel::all(['customerId' => $customerId, 'orderId' => 0]);
 			
-
 			$this->assign('list', $list);
 			return $this->fetch();
 		}
@@ -62,9 +61,10 @@
 				$item->num--;
 				$item->price = $item->bookprice * $item->num;
 			}
+			$item->save();
 		}
 
-		public function delete() {
+		public function del() {
 			$itemId = Request::instance()->post('itemId');
 			$model = CartModel::get($itemId);
 			$model->delete();
