@@ -21,7 +21,7 @@
 	z-index: 1001;
 }
 .header .hhbox{
-	width: 60px;
+	width: 70px;
 	border: 1px solid #f5f5f5;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
 	padding: 0px 10px 10px 10px;
@@ -645,3 +645,28 @@
 .ff-ht {font-family: "黑体";}
 .bc-bl {background-color: #2ab4e8;}
 .pd-0830 {padding: 8px 30px;}
+
+/*分页显示*/
+.pagination {}
+.pagination li {
+	display: inline-block;
+	margin-right: -1px;
+	border: 1px solid #e2e2e2;
+	text-align: center;
+}
+.pagination li.active {
+	background: #2db4ea;
+	color: #fff;
+	border: 1px solid #2db4ea;
+}
+.pagination li a, .pagination li span {
+	display: block;
+	width: 40px;
+	text-align: center;
+	line-height: 40px;
+	height: 40px;
+	text-align: center;
+}
+.pagination li a {
+	cursor: pointer;
+}

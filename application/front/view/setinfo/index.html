@@ -22,7 +22,7 @@
 			<div class="f1-left mb-20">
 				<div class="f1-left-title">个人中心</div>
 				<ul class="left-box1 fz-14">
-					<li class="item" style="border-left: 2px #2db4ea solid;"><a href="{:Url('Information/index')}">我的信息</a></li>
+					<li class="item"><a href="{:Url('Information/index')}">我的信息</a></li>
 					<li class="item"><a href="{:Url('Order/index')}">我的订单</a></li>
 					<li class="item"><a href="">我的等级</a></li>
 					<li class="item"><a href="">我的积分</a></li>
@@ -59,7 +59,10 @@
 										</tr>
 										<tr>
 											<td class="pr-15" height="28" align="right">性别：</td>
-											<td id="sex">{$customer['sex']}</td>
+											{switch name="customer.sex"}
+												{case value="1"}<td id="sex">男</td>{/case}
+												{case value="2"}<td id="sex">女</td>{/case}
+											{/switch}
 										</tr>
 										<tr>
 											<td class="pr-15" height="28" align="right">邮箱：</td>
@@ -75,7 +78,7 @@
 										<div class="fl mr-20 lh-28 ta-right wd-80">
 											<label for="user-name-rel">昵称</label></div>
 											<div class="fl">
-												<input id="name" class="wd-158 bd-1-e8 br-4 lh-28" type="text" name="name" value="">
+												<input id="name" class="wd-158 bd-1-e8 br-4 lh-28" type="text" name="name" value="{$customer['name']}">
 												<input id="customerId" class="wd-158 bd-1-e8 br-4 lh-28" type="hidden" name="customerId" value="{$customer['customerId']}">
 											</div>
 											<div class="cb"></div>
@@ -86,12 +89,12 @@
 												<label class="user-lable">
 													<span style="cursor:pointer" class="icon-checkbox-line2" data-sex="1" ></span>
 													<span class="cl-21">&nbsp;男</span>
-													<input name="user-sex" class="hidden" type="radio" value="男">
+													<input name="sex" class="hidden" type="radio" value="1">
 												</label>
 												<label class="user-lable">
 													<span style="cursor:pointer" class="icon-checkbox-line" data-sex="2"></span>
 													<span class="cl-21">&nbsp;女</span>
-													<input name="user-sex" class="hidden" type="radio" value="女">
+													<input name="sex" class="hidden" type="radio" value="2">
 												</label>
 											</div>
 											<div class="cb"></div>
@@ -149,21 +152,6 @@
 			$ = layui.jquery;
 			var form = layui.form
 			,layer = layui.layer;
-
-          // //自定义验证规则
-          // form.verify({
-          // 	account: function(value){
-          // 		if(value.length < 3){
-          // 			return '账号至少得3个字符';
-          // 		}
-          // 	}
-          // 	,password: [/(.+){6,12}$/, '密码必须6到12位']
-          // 	,repass: function(value){
-          // 		if($('#L_pass').val()!=$('#L_repass').val()){
-          // 			return '两次密码不一致';
-          // 		}
-          // 	}
-          // });
 
           //监听提交
           form.on('submit(save)', function(data){

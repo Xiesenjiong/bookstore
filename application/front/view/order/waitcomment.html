@@ -67,6 +67,11 @@
 												{volist name="list" id="vo"}
 												<iframe align="center" width="100%" height="auto" src="{:Url('Order/orderbox')}?orderId={$vo.orderId}"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" class="bc-f" onload="setIframeHeight(this)" id="external-frame"></iframe>
 												{/volist}
+												<div class="page mt-20" style="padding: 0 350px;">
+													<div>
+														{$list->render()}
+													</div>
+												</div>
 												{/eq}
 											</tbody>
 										</table>
