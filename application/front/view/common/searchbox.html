@@ -4,13 +4,14 @@
 			<a class="logo fl" href="{:Url('Index/index')}">
 				<img src="/bookstore/public/front/images/xhslogo.jpg">
 			</a>
-			<div class="search-box fl">
+			<div class="search-box fl pr">
 				<div class="search">
-					<input type="text" name="search" class="search-input fl" placeholder="二月河">
+					<input type="text" name="search" class="search-input fl" placeholder="二月河" onkeyup="showResult(this.value);">
 					<a href=""><i class="fas fa-search icon fl"></i></a>
+					<div id="livesearch" class="fz-14 cl-9 fl pd-1005"></div>
 				</div>					
 			</div>
-			<p class="fl tip">
+			<p class="fl tip mt-15">
 				<a href="" class="cl-9 fz-12" target="_blank">金庸</a>
 				<span class="line">|</span>	
 				<a href="" class="cl-9 fz-12" target="_blank">红星照耀中国</a>

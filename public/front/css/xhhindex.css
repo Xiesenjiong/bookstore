@@ -89,6 +89,13 @@
 .search-box .logo-container{
 	height: 90px;
 }
+.search-box #livesearch{
+	position: absolute;
+	top: 39px;
+	width: 493px;
+	z-index: 1001;
+	background: #fff;
+}
 .search-box.active{
 	position: fixed;
 	z-index: 1000;
@@ -546,7 +553,7 @@
 .detail-box .detail-show{
 	padding-top: 20px;	
 }
-.count-box .count-sub{
+.count-box .count_sub{
 	width: 30px;
 	height: 30px;
 	line-height: 30px;
@@ -554,7 +561,7 @@
 	cursor: pointer;
 	border: 1px solid #ddd;
 }
-.count-box .count-add{
+.count-box .count_add{
 	width: 30px;
 	height: 30px;
 	line-height: 30px;
@@ -568,7 +575,7 @@
 	line-height: 30px;
 	border: none;
 }
-.count-box .count-text{
+.count-box .count_text{
 	width: 60px;
 	height: 30px;
 	line-height: 30px;

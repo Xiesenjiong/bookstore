@@ -14,6 +14,7 @@
 			$cateName = CategoryModel::where(['categoryId' => $categoryId])->value('cateName');
 			$this->assign('info',$info);
 			$this->assign('cateName',$cateName);
+			$this->assign('categoryId',$categoryId);
 			return $this->fetch();
 		}
 	}
