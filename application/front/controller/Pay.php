@@ -24,6 +24,12 @@ class pay extends Controller {
 		return $this->fetch();
 	}
 
+	public function orderpay($price, $orderId) {
+		$this->assign('price', $price);
+		$this->assign('orderId', $orderId);
+		return $this->fetch('choosepay');
+	}
+
 	public function choosepay($bookId, $num, $addressId, $price) {
 		//调用订单控制器创建订单
 		$event = controller('Order', 'controller');
@@ -169,7 +175,7 @@ class pay extends Controller {
 				//支付宝交易号
 				$trade_no = htmlspecialchars($_GET['trade_no']);
 
-				echo "验证成功<br />支付宝交易号：".$trade_no;
+				// echo "验证成功<br />支付宝交易号：".$trade_no;
 
 				//更改订单状态
 				$event = controller('Order', 'controller');

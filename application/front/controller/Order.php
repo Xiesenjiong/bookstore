@@ -69,10 +69,15 @@
 		public function orderbox($orderId) {
 			$order = OrderModel::get(['orderId' => $orderId]);
 			$list = CartModel::all(['orderId' => $orderId]);
+			$price = 0.0;
+			for ($i=0; $i < count($list); $i++) { 
+				$price+=$list[$i]->price;
+			}
 			// dump($list);
 
 			$this->assign('order', $order);
 			$this->assign('list', $list);
+			$this->assign('price', $price);
 			return $this->fetch();
 		}
 

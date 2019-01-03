@@ -23,6 +23,7 @@
                             {case value="1" break="1"}<td class="item bb-1-e8" width="38%">待付款</td>{/case}
                             {case value="2" break="1"}<td class="item bb-1-e8" width="38%">待发货</td>{/case}
                             {case value="3" break="1"}<td class="item bb-1-e8" width="38%">待收货</td>{/case}
+                            {case value="4" break="1"}<td class="item bb-1-e8" width="38%">已取消</td>{/case}
                             {case value="0" break="1"}<td class="item bb-1-e8" width="38%">已完成</td>{/case}
                         {/switch}                
                     </tr>
@@ -43,22 +44,41 @@
                                 <span class="cl-9">(含运费：¥5.00)</span>
                             </p>
                         </td>
-                                                
                     </tr>
                     {/volist}
                     <tr>
                         <td colspan="4"></td>                        
-                        <td class="info-text">                        
-                            <a class="btn-buy ma" href="/cashier/pay.php?product_id=1812252114371441" title="立即付款" target="_blank">立即付款</a>
+                        <td class="info-text">
+                            <b class="fs-16 cl-rd">¥{$price}</b>
+                            <a class="btn-buy ma" href="{:Url('Pay/orderpay')}?price={$price}&orderId={$order.orderId}" title="立即付款" target="_blank">立即付款</a>
                         </td>
                         <td class="info-text">
-                            <a class="btn-cancel ma" href="javascript:void(0);" onclick="cancel(1812252114371441,43.68,  this)" title="取消订单">取消订单</a>   
+                            <a class="btn-cancel ma" href="javascript:void(0);" onclick="canc({$order.orderId}, {$order.orderstate})" title="取消订单">取消订单</a>   
                         </td>
                     </tr>
                 </tbody>
             </table>
         </li>
     </ul>
-
 </body>
+<script type="text/javascript">
+    /*取消订单*/
+    function canc(id, state) {
+        if (state == 1) {
+            //发异步更改状态
+            $.post(
+                "{:Url('Order/orderState')}",
+                {addressId:id},
+                function(){
+                    alert("已取消！");
+                }
+            );
+        } else if (state == 4) {
+            alert("订单已取消，不可重复取消！");
+        } else {
+            alert("已发货不可取消！");
+        }
+        
+    }
+</script>
 </html>
