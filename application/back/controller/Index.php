@@ -6,6 +6,8 @@
     use think\Session;
     use app\back\model\Customer as CustomerModel;
     use app\back\model\Book as BookModel;
+    use app\back\model\Category as CategoryModel;
+    use app\back\model\Order as OrderModel;
 
     class Index extends Controller {
 
@@ -26,8 +28,8 @@
         	$count = array(
         		'会员数' => count(CustomerModel::all()),
         		'书籍数' => count(BookModel::all()),
-        		'分类数' => count(CustomerModel::all()),
-        		'待处理订单数' => count(CustomerModel::all())
+        		'分类数' => count(CategoryModel::all()),
+        		'待处理订单数' => count(OrderModel::all(['orderstate' => 2]))
         	);
 
         	// mysql_connect("127.0.0.1","root","password");
