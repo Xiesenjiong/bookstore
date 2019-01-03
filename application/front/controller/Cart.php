@@ -25,10 +25,8 @@
 			return $this->fetch();
 		}
 
-		public function Cartlist(){
-			$list = OrderitemModel::select();
-			$this->assign('list',$list);
-			return $this->fetch();
+		public function addCart() {
+			# code...
 		}
 	}
  ?>
