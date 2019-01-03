@@ -42,7 +42,7 @@
 		public function save(){
 			$data = Request::instance()->post();			
 			$model = new AddressModel($data);
-      $model->customerId = Session::get('customerId');
+      		$model->customerId = Session::get('customerId');
 
 			//保存到数据库
 			$model->allowField(true)->save();

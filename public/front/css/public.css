@@ -38,9 +38,11 @@ ul li{list-style: none;}
 .wid-50p{width: 50%;}
 .wid-33p{width: 33.3333333333%;}
 .wid-30{width: 30px;}
+.wid-40{width: 40px;}
 .wid-80{width: 80px;}
 .wid-90{width: 90px;}
 .wid-100{width: 100px;}
+.wid-110{width: 110px;}
 .wid-120{width: 120px;}
 .wid-150{width: 150px;}
 .wid-160{width: 160px;}
@@ -92,6 +94,7 @@ ul li{list-style: none;}
 .mt-10{margin-top: 10px;}
 .mt-15{margin-top: 15px;}
 .mt-20{margin-top: 20px;}
+.mt-30 {margin-top: 30px;}
 .mb-10{margin-bottom: 10px;}
 .mb-20{margin-bottom: 20px;}
 .pd-10{padding: 10px;}

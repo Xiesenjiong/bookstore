@@ -66,46 +66,46 @@
 						</table>
 					</div>
 					<form action="{:Url('Pay/index')}" method="post">
-					<div class="pd-0015">
-						<table width="100%" class="lh-30 mt-10">
-							<tbody>
-								<tr>
-									<td width="70" class="cl-9 fz-14">运费</td>
-									<td class="cl-3 fz-14">满59包邮</td>
-								</tr>
-								<tr>
-									<td width="70" class="cl-9 fz-14">销量</td>
-									<td class="cl-3 fz-14">{$info['soldNum']}</td>
-								</tr>
-								<tr>
-									<td width="70" class="cl-9 fz-14">数量</td>
-									<td class="cl-3 fz-14">
-										<div class="fl mr-20 count-box">
-											<div class="fl cl-c fz-25 count_sub" id="count_sub">-</div>
-											<input class="text fl count_text" type="tel" value="1" id="count_text" onchange="setVal()">
-											<div class="fl cl-c fz-25 mr-20 count_add" id="count_add">+</div>
-											<span class="cl-9">库存：{$info['stockNum']}</span>
-                      <input type="hidden" name="bookId" value="{$info['bookId']}">
-											<input type="hidden" id="goods-store" value="{$info['stockNum']}">
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="mt-20 ta-left">
-						<label class="im-buy cp fl">
-							<p>立即购买</p>
-						</label>
-						<label class="add-cart cp fl">
-							<i class="fas fa-shopping-cart mr-5"></i>加入购物车
-						</label>
+						<div class="pd-0015">
+							<table width="100%" class="lh-30 mt-10">
+								<tbody>
+									<tr>
+										<td width="70" class="cl-9 fz-14">运费</td>
+										<td class="cl-3 fz-14">满59包邮</td>
+									</tr>
+									<tr>
+										<td width="70" class="cl-9 fz-14">销量</td>
+										<td class="cl-3 fz-14">{$info['soldNum']}</td>
+									</tr>
+									<tr>
+										<td width="70" class="cl-9 fz-14">数量</td>
+										<td class="cl-3 fz-14">
+											<div class="fl mr-20 count-box">
+												<div class="fl cl-c fz-25 count_sub" id="count_sub">-</div>
+												<input class="text fl count_text" type="tel" value="1" id="count_text" onchange="setVal()">
+												<div class="fl cl-c fz-25 mr-20 count_add" id="count_add">+</div>
+												<span class="cl-9">库存：{$info['stockNum']}</span>
+												<input type="hidden" name="bookId" value="{$info['bookId']}">
+												<input type="hidden" id="goods-store" value="{$info['stockNum']}">
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="mt-20 ta-left">
+							<label class="im-buy cp fl">
+								<p>立即购买</p>
+							</label>
+							<label class="add-cart cp fl">
+								<i class="fas fa-shopping-cart mr-5"></i>加入购物车
+							</label>
 							<div class="store-up cp fl">
 								<i class="far fa-star fz-16"></i>
 								<p>收藏</p>
 							</div>						
-						<input type="submit" name="" value="立即购买" style="padding: 10px 52px;float: left;margin-top: -46px;opacity: 0;cursor: pointer;" />
-					</div>
+							<input type="submit" name="" value="立即购买" style="padding: 10px 52px;float: left;margin-top: -46px;opacity: 0;cursor: pointer;" />
+						</div>
 					</form>				
 						<table width="100%" class="lh-60">
 							<tbody>
