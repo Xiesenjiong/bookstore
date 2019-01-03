@@ -39,6 +39,8 @@ ul li{list-style: none;}
 .wid-33p{width: 33.3333333333%;}
 .wid-30{width: 30px;}
 .wid-40{width: 40px;}
+.wid-50{width: 50px;}
+.wid-60{width: 60px;}
 .wid-80{width: 80px;}
 .wid-90{width: 90px;}
 .wid-100{width: 100px;}
@@ -127,3 +129,4 @@ ul li{list-style: none;}
 .visible{transition: all 0.3s}
 .visible:hover{transform: scale(1.1,1.1);opacity: 1;}
 .to-hd {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.vm{vertical-align: middle;}

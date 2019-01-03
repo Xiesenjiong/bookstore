@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
 	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
 	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<!-- 顶部 -->
@@ -51,7 +52,7 @@
 												</tr>
 												{else/}
 												{volist name="list" id="vo"}
-												<iframe align="center" width="100%" height="170" src="{:Url('Order/orderbox')}?orderId={$vo.orderId}"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes"></iframe>
+												<iframe align="center" width="100%" height="auto" src="{:Url('Order/orderbox')}?orderId={$vo.orderId}"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" class="bc-f" onload="setIframeHeight(this)" id="external-frame"></iframe>
 												{/volist}
 												{/eq}
 											</tbody>
@@ -63,10 +64,26 @@
 					</li>
 				</ul>
 			</div>
+		<div class="cb"></div>
 		</div>
 	</div>
 	<!-- 尾部 -->
 	{include file="../application/front/view/common/footer.html"}
 	<!-- end -->
+
+	<script>
+		function setIframeHeight(iframe) {
+			if (iframe) {
+				var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+				if (iframeWin.document.body) {
+					iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+				}
+			}
+		};
+
+		window.onload = function () {
+			setIframeHeight(document.getElementById('external-frame'));
+		};
+	</script>
 </body>
 </html>
