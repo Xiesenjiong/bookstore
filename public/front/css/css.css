@@ -166,12 +166,14 @@ body.login{background: url("/xhh/images/3.jpg") no-repeat center top;}
 .btn-buy {color: #fff;background-color: #2db4ea;border-color: #2db4ea;display: block;line-height: 30px;text-align: center;padding-left: 10px;padding-right: 10px;border: 1px transparent solid;}
 .btn-buy:hover{color: #fff;background-color: #5CACEE}
 .btn-cancel{display: block;line-height: 30px;text-align: center;padding-left: 10px;padding-right: 10px;border: 1px #e8e8e8 solid;}
+
 /***************************************information.v.php**********************************/
 .information-box{ width: 951px;padding-left: 18px;padding-right: 19px;padding-top: 16px;border: 1px #e8e8e8 solid;margin-left: 10px;float: right;height: 580px;}
 .information-box-top{display: block;height: 228px;width: 951px;}
 .information-box-top .p{ font-size: 18px;font-weight: normal;line-height: 2.5; border-bottom: 1px #e8e8e8 solid;}
 .information-box .information-box-bottom{height: 42px;width: 698px;line-height: 20px;background-color: #f5f5f5;border: 1px #e8e8e8 solid;text-align: center;margin-bottom: 232px;margin-top: 30px;}
 .information-box .information-box-bottom .item{float: left;width: 130px;padding: 10px 0;}
+
 /***************************************address.v.php**********************************/
 .personal-list-item {width: 951px;padding-left: 18px; padding-right: 19px;padding-top: 16px;}
 .address-info {position: relative;}
@@ -182,10 +184,14 @@ body.login{background: url("/xhh/images/3.jpg") no-repeat center top;}
 .address-info-table {width: 100%;}
 .bd-1-e8 {border: 1px #e8e8e8 solid;}
 .address-info-table .info-title {height: 48px;background-color: #f5f5f5;}
-.address-info-table .info-text {height: auto;width: 100%;}
+.address-info-table .info-text {height: 100px;width: 100%; border-bottom: 1px solid #e8e8e8;}
 .address-info-table .btn-address.active {color: #2db4ea;border-color: #2db4ea;background-color: #c2eeff;}
 .address-info-table .btn-address {display: inline-block;width: 108px;text-align: center;line-height: 28px;border: 1px transparent solid; border-radius: 6px;}
 .address-info-table.active{display: none;}
+
+/***************************************order.v.php**********************************/
+.myorder-info .info-title{height: 48px;background-color: #f5f5f5;}
+.myorder-info .info-text {height: auto;width: 100%;}
 /***************************************set.v.php**********************************/
 .personal-list-item {
     width: 951px;
