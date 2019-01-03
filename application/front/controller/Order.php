@@ -23,6 +23,7 @@
 		}
 
 		public function waitpay(){
+			$customerId = Session::get('customerId');
 			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 1]);
 			$num = count($list);
 
@@ -32,6 +33,7 @@
 		}
 
 		public function waitsend(){
+			$customerId = Session::get('customerId');
 			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 2]);
 			$num = count($list);
 
@@ -41,6 +43,7 @@
 		}
 
 		public function beensend(){
+			$customerId = Session::get('customerId');
 			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 3]);
 			$num = count($list);
 
@@ -50,6 +53,7 @@
 		}
 
 		public function waitcomment(){
+			$customerId = Session::get('customerId');
 			$list = OrderModel::all(['customerId' => $customerId, 'orderstate' => 0]);
 			$num = count($list);
 

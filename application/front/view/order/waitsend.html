@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
 	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
 	<link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<!-- 顶部 -->
@@ -20,7 +21,20 @@
 	<div class="order-box1">
 		<div class="f1">
 			<!-- 左侧菜单栏 -->
-			{include file="../application/front/view/common/orderlmenu.html"}
+			<div class="f1-left mb-20">
+				<div class="f1-left-title">个人中心</div>
+				<ul class="left-box1 fz-14">
+					<li class="item active" ><a href="{:Url('Information/index')}">我的信息</a></li>
+					<li class="item" style="border-left: 2px #2db4ea solid;"><a href="{:Url('Order/index')}">我的订单</a></li>
+					<li class="item"><a href="">我的等级</a></li>
+					<li class="item"><a href="">我的积分</a></li>
+					<li class="item"><a href="{:Url('Collect/index')}">我的收藏</a></li>
+				</ul>
+				<ul class="left-box1 fz-14">
+					<li class="item"><a href="{:Url('Address/index')}">我的收货地址</a></li>
+					<li class="item active"><a href="{:Url('Setinfo/index')}">个人设置</a></li>
+				</ul>
+			</div>
 			<!-- end -->
 			<div class="f1-right">
 				<ul>
@@ -34,20 +48,26 @@
 								<li class="item "><a href="{:Url('Order/waitcomment')}" data-type="wait_comment">待评价</a></li>
 								<li class="cb" style="float: none !important;visibility: hidden !important;height: 0px !important;border: none !important;outline: none !important;margin: 0px !important;padding: 0px !important;font-size: 0px !important;line-height: 0px !important;clear: both;"></li>
 							</ul>
-							<div class="scroll" style="margin-top: 10px;position: relative;height: 2px;background-color: #e8e8e8;left: 302px;">
-								<div class="scroll-x " style="position: absolute;width: 150px;height: 100%;left: 0%;top: 0px;background-color: #2db4ea; "></div>
+							<div class="scroll" style="margin-top: 10px;position: relative;height: 2px;background-color: #e8e8e8;left: 0;">
+								<div class="scroll-x " style="position: absolute;width: 150px;height: 100%;left: 302px;top: 0px;background-color: #2db4ea; "></div>
 							</div>
 							<ul class="myorder-item " style="margin-top: 14px;">
 								<li class="item2">
 									<div class="mycolle-empty ">
 										<table width="100%" cellspacing="0" cellpadding="0" border="0">
 											<tbody>
+												{eq name="num" value="0"}
 												<tr>
 													<td align="center" height="400">
 														<img src="https://bnmpstyle.bookuu.com/www/images/empt-order.png">
 														<p>还没有任何订单</p>
 													</td>
 												</tr>
+												{else/}
+												{volist name="list" id="vo"}
+												<iframe align="center" width="100%" height="auto" src="{:Url('Order/orderbox')}?orderId={$vo.orderId}"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" class="bc-f" onload="setIframeHeight(this)" id="external-frame"></iframe>
+												{/volist}
+												{/eq}
 											</tbody>
 										</table>
 									</div>
@@ -58,9 +78,25 @@
 				</ul>
 			</div>
 		</div>
+		<div class="cb"></div>		
 	</div>
 	<!-- 尾部 -->
 	{include file="../application/front/view/common/footer.html"}
 	<!-- end -->
+
+	<script>
+		function setIframeHeight(iframe) {
+			if (iframe) {
+				var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+				if (iframeWin.document.body) {
+					iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+				}
+			}
+		};
+
+		window.onload = function () {
+			setIframeHeight(document.getElementById('external-frame'));
+		};
+	</script>
 </body>
 </html>

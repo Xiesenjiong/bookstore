@@ -16,10 +16,23 @@
 	<!-- 头部logo 搜索栏 -->
 	{include file="../application/front/view/common/searchbox.html"}
 	<!-- end -->
-	<div class="order-box1">
+	<div class="order-box1 mb-20">
 		<div class="f1">
 			<!-- 左侧菜单栏 -->
-			{include file="../application/front/view/common/orderlmenu.html"}
+			<div class="f1-left mb-20">
+				<div class="f1-left-title">个人中心</div>
+				<ul class="left-box1 fz-14">
+					<li class="item" style="border-left: 2px #2db4ea solid;"><a href="{:Url('Information/index')}">我的信息</a></li>
+					<li class="item"><a href="{:Url('Order/index')}">我的订单</a></li>
+					<li class="item"><a href="">我的等级</a></li>
+					<li class="item"><a href="">我的积分</a></li>
+					<li class="item"><a href="{:Url('Collect/index')}">我的收藏</a></li>
+				</ul>
+				<ul class="left-box1 fz-14">
+					<li class="item"><a href="{:Url('Address/index')}">我的收货地址</a></li>
+					<li class="item"><a href="{:Url('Setinfo/index')}">个人设置</a></li>
+				</ul>
+			</div>			
 			<!-- end -->
 			<div class="information-box fz-14">
 				<ul>
@@ -60,17 +73,18 @@
 						</table>
 						<ul class="information-box-bottom">
 							<li class="item"><b>订单提醒</b></li>
-							<li class="item"><a href="{:Url('Order/waitpay')}">待付款订单&nbsp;&nbsp;<span>0</span></a></li>
-							<li class="item"><a href="{:Url('Order/waitsend')}">待发货订单&nbsp;&nbsp;<span>0</span></a></li>
-							<li class="item"><a href="{:Url('Order/beensend')}">待收货订单&nbsp;&nbsp;<span>0</span></a></li>
-							<li class="item"><a href="{:Url('Order/waitcomment')}">待评价订单&nbsp;&nbsp;<span>0</span></a></li>
+							<li class="item"><a href="{:Url('Order/waitpay')}">待付款订单&nbsp;&nbsp;<span>{$waitpayNum}</span></a></li>
+							<li class="item"><a href="{:Url('Order/waitsend')}">待发货订单&nbsp;&nbsp;<span>{$waitsendNum}</span></a></li>
+							<li class="item"><a href="{:Url('Order/beensend')}">待收货订单&nbsp;&nbsp;<span>{$beensendNum}</span></a></li>
+							<li class="item"><a href="{:Url('Order/waitcomment')}">待评价订单&nbsp;&nbsp;<span>{$waitcommentNum}</span></a></li>
 							<li class="cb"></li>
 						</ul>
 					</li>
 				</ul>
 
 			</div>
-		</div>	
+		</div>
+		<div class="cb"></div>	
 	</div>
 	<!-- 尾部 -->
 	{include file="../application/front/view/common/footer.html"}
