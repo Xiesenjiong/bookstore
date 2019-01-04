@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/public.css">
     <link rel="stylesheet" type="text/css" href="/bookstore/public/front/css/css.css">
     <link rel="stylesheet" type="text/css" href="/bookstore/public/front/fontawesome/css/all.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 </head>
 <body>
@@ -47,9 +48,9 @@
                     </tr>
                     {/volist}
                     <tr>
-                        <td colspan="4"></td>                        
+                        <td colspan="3"></td>                            
+                        <td><b class="fs-16 cl-rd">总计：¥{$price}</b></td>                       
                         <td class="info-text">
-                            <b class="fs-16 cl-rd">¥{$price}</b>
                             <a class="btn-buy ma" href="{:Url('Pay/orderpay')}?price={$price}&orderId={$order.orderId}" title="立即付款" target="_blank">立即付款</a>
                         </td>
                         <td class="info-text">
